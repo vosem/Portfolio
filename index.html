@@ -12,14 +12,15 @@
 <!--INTRO-->
 
 <div class = "intro">
-    <div class="intro_banner">
-    <nav class = "intro_nav">
-        <a class="intro_nav_item" href="#portfolio">Portfolio</a>
-        <a class="intro_nav_item" href="#">Skills</a>
-        <a class="intro_nav_item" href="#contacts">Contacts</a>
-    </nav>
-    <h1>Anna Popovska<br><span class="speciality">Front End Developer</span></h1>
-    <div class="my_photo"><img class="my_photo_image" src = "my_photo.jpg"></div>
+    <div class="intro_banner" id="intro_banner">
+        <nav class = "intro_nav">
+            <a class="intro_nav_item" href="#portfolio">Portfolio</a>
+            <a class="intro_nav_item" href="#skills">Skills</a>
+            <a class="intro_nav_item" href="#contacts">Contacts</a>
+        </nav>
+        <h1>Anna Popovska<br><span class="speciality">Front End Developer</span></h1>
+        <div class="my_photo"><img class="my_photo_image" src = "my_photo.jpg"></div>
+        <p class="go_from_intro"><a class="go_down" href="#portfolio"><img class="go" src="go_down.svg"/></a></p>
     </div>
 </div>
 
@@ -47,9 +48,39 @@
         </div>
         </div>
         <p class="portfolio_footer">To be continued...</p>
+        <p class="go_from_portfolio">
+            <a class="go_down" href="#skills"><img class="go" src="go_down_white.svg"/></a>
+            <a class="go_up" href="#intro_banner"><img class="go" src="go_up_white.svg"/></a>
+        </p>
     </div>
 
 </div>
+
+<!--SKILLS-->
+<div class="skills_container" id="skills">
+    <div class="skills">
+        <h2 class="skills_header">Skills</h2>
+        <ul class="skills_list">
+            <li class="skills_item">HTML5</li>
+            <li class="skills_item">CSS3</li>
+            <li class="skills_item">JavaScript</li>
+            <li class="skills_item">JQuery</li>
+            <li class="skills_item">Bootstrap</li>
+            <li class="skills_item">SQl</li>
+        </ul>
+        <div class="about_skills">
+            I constantly develop my skills to create responsive web designs.<br />
+            I have skills to work with HTML5, CSS3, JavaScript and JQUERY.<br />
+            Experience of work with Git.<br />IDE NetBeans, WebStorm.<br />
+            Fluent English.
+        </div>
+        <p class="go_from_skills">
+            <a class="go_down" href="#contacts"><img class="go" src="go_down_white.svg"/></a>
+            <a class="go_up" href="#intro_banner"><img class="go" src="go_up_white.svg"/></a>
+        </p>
+    </div>
+</div>
+
 
 <!--CONTACTS-->
 
@@ -59,6 +90,9 @@
     <p class="contacts_line">Kyiv, Ukraine</p>
     <p class="contacts_line">cell: +38 (097) 147-06-57</p>
     <p class="contacts_line">e-mail: <a class="email" href="mailto:anna.v.popovska@gmail.com">anna.v.popovska@gmail.com</a></p>
+    <p class="go_from_contacts">
+        <a class="go_up" href="#intro_banner"><img class="go" src="go_up_black.svg"/></a>
+    </p>
 </div>
 </div>
 

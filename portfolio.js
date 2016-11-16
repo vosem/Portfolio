@@ -1,15 +1,8 @@
 $(document).ready(function(){
-    $(".intro_nav").on("click", "a", function (event) {
-        //отменяем стандартную обработку нажатия по ссылке
+    $(".intro_nav, .go_from_intro, .go_from_portfolio, .go_from_skills, .go_from_contacts").on("click", "a", function (event) {
         event.preventDefault();
-
-        //забираем идентификатор блока с атрибута href
         var id  = $(this).attr("href"),
-
-        //узнаем высоту от начала страницы до блока на который ссылается якорь
             top = $(id).offset().top;
-
-        //анимируем переход на расстояние - top за 1500 мс
         $("body, html").animate({scrollTop: top}, 1500);
     });
 });

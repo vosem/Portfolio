@@ -71,6 +71,32 @@ h1{
     -z-index: 1;
 }
 
+p.go_from_intro{
+    text-align: center;
+    padding-top: 40%;
+    margin: auto;
+    /*position: absolute;*/
+    /*top: 73%;*/
+    /*left: 45%;*/
+}
+img.go{
+    animation-iteration-count: infinite;
+    animation-duration: 1.0s;
+    animation-direction: alternate;
+    animation-name: reduce;
+}
+@keyframes reduce {
+    from {
+        width: 70px;
+        height: 70px;
+    }
+    to {
+        width: 65px;
+        height: 65px;
+    }
+}
+
+
 /*PORTFOLIO*/
 
 h2.portfolio{
@@ -80,8 +106,8 @@ h2.portfolio{
     text-shadow: 0 0 10px rgba(92, 46, 0, 0.78);
     font-size: 2.5rem;
     font-family: 'Raleway', sans-serif;
-    padding-top: 130px;
-    padding-bottom: 100px;
+    padding-top: 110px;
+    padding-bottom: 80px;
 }
 .portfolio_container{
     -position: relative;
@@ -114,7 +140,6 @@ h2.portfolio{
     font-family: 'Raleway', sans-serif;
 
 }
-
 div#landing_item a{
 
     overflow: auto;
@@ -123,14 +148,68 @@ div#landing_item a{
     color: white;
     text-shadow: 0 0 10px rgba(92, 46, 0, 0.78);
     font-size: 1.8rem;
-    margin-top: 100px;
+    margin-top: 80px;
     text-align: center;
     font-family: 'Raleway', sans-serif;
 
 }
+.go_from_portfolio{
+    text-align: center;
+    padding-top: -40%;
+    /*margin: auto;*/
+    /*position: absolute;*/
+    /*top: 73%;*/
+    /*left: 45%;*/
+}
+
+/*SKILLS*/
+.skills_container{
+    height: 770px;
+    width: 1423px;
+    background-image: url(Skills_background.png);
+    background-size: 100%;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+}
+h2.skills_header{
+    text-align: center;
+    margin: auto;
+    padding: 100px 0 60px 0;
+    text-shadow: 0 0 10px rgba(78, 142, 198, 0.78);
+    font-size: 2.5rem;
+}
+div.skills{
+    text-align: center;
+}
+ul.skills_list{
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    margin-bottom: 7%;
+    /*border: solid 1px white;*/
+}
+li.skills_item {
+    list-style-type: none;
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px rgba(62, 97, 198, 0.78);
+    font-weight: bold;
+    line-height: 1.5;
+}
+div.about_skills{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 15%;
+    text-align: left;
+    font-size: 1.8rem;
+    width: 500px;
+    text-shadow: 0 0 10px rgba(62, 97, 198, 0.78);
+    font-weight: bold;
+    /*border: solid 1px white;*/
+    line-height: 1.5;
+}
+
 
 /*CONTACTS*/
-
 .contacts_container{
     height: 770px;
     width: 1423px;
@@ -151,4 +230,12 @@ div#landing_item a{
 }
 .email:hover{
     color: rgba(28, 61, 73, 1);
+}
+.go_from_contacts{
+    text-align: center;
+    padding-top: 10%;
+    /*margin: auto;*/
+    /*position: absolute;*/
+    /*top: 73%;*/
+    /*left: 45%;*/
 }
