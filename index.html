@@ -18,7 +18,7 @@
             <a class="intro_nav_item" href="#skills">Skills</a>
             <a class="intro_nav_item" href="#contacts">Contacts</a>
         </nav>
-        <h1>Anna Popovska<br><span class="speciality">Front End Developer</span></h1>
+        <h1 class="name">Anna Popovska<br><span class="speciality">Front End Developer</span></h1>
         <div class="my_photo"><img class="my_photo_image" src = "my_photo.jpg"></div>
         <p class="go_from_intro"><a class="go_down" href="#portfolio"><img class="go" src="go_down.svg"/></a></p>
     </div>
@@ -30,22 +30,26 @@
     <div class="portfolio">
         <h2 class="portfolio">My Workshop</h2>
         <div class="portfolio_examples">
-        <div class="portfolio_item" id="landing_item" style="visibility: visible; animation-duration: 3s; animation-name: flipInX;">
-            <a class="portfolio_item">
-                <img src="Landing_screenshot.png">
-            </a>
-            <div class="portfolio_item_description">
-                Landing Page
+            <div class="portfolio_item_container">
+                <div class="portfolio_item">
+                    <div  id="landing_item">
+                    <a class="portfolio_item">
+                        <img src="Landing_screenshot.png">
+                    </a>
+                </div>
+                    <div class="portfolio_item_description">Landing Page</div>
+                </div>
             </div>
-        </div>
-        <div class="portfolio_item" id="showcase_item">
-            <a class="portfolio_item">
-                <img src="Showcase_screenshot.png">
-            </a>
-            <div class="portfolio_item_description">
-                Showcase your work like a pro
+            <div class="portfolio_item_container">
+                <div class="portfolio_item">
+                    <div id="showcase_item">
+                    <a class="portfolio_item">
+                        <img src="Showcase_screenshot.png">
+                    </a>
+                </div>
+                    <div class="portfolio_item_description">Showcase your work like a pro</div>
+                </div>
             </div>
-        </div>
         </div>
         <p class="portfolio_footer">To be continued...</p>
         <p class="go_from_portfolio">
@@ -58,6 +62,11 @@
 
 <!--SKILLS-->
 <div class="skills_container" id="skills">
+    <ul class="skills_slides">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
     <div class="skills">
         <h2 class="skills_header">Skills</h2>
         <ul class="skills_list">

@@ -9,7 +9,7 @@ body{
 .intro_banner{
     text-align: center;
     background-image: url(intro_background.jpg);
-    background-size: 100%;
+    -background-size: 100%;
     height: 770px;
     width: 1423px;
     margin: 0 auto;
@@ -40,10 +40,47 @@ h1{
     left: 30%;
     padding: 35px;
     /*border: solid 10px #303030;*/
+    animation: 1s linear;
 }
 .speciality{
     line-height: 2;
 }
+
+
+/*ZOOM-IN*/
+@-webkit-keyframes zoomIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+h1.zoomIn {
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+}
+
+/*h1.scale {*/
+    /*-webkit-transform: scale(2);*/
+    /*transform: scale(2);*/
+/*}*/
+
+
 .my_photo{
     position: absolute;
     top: 45%;
@@ -91,8 +128,8 @@ img.go{
         height: 70px;
     }
     to {
-        width: 65px;
-        height: 65px;
+        width: 67px;
+        height: 67px;
     }
 }
 
@@ -121,13 +158,13 @@ h2.portfolio{
     margin: auto;
 
 }
-.portfolio_item{
+.portfolio_item_container{
     display: inline-block;
     width: 330px;
     height: 260px;
     vertical-align: top;
 }
-.portfolio_item:nth-child(even){
+.portfolio_item_container:nth-child(even){
     margin-left: 30px;
 }
 .portfolio_item_description{
@@ -140,8 +177,9 @@ h2.portfolio{
     font-family: 'Raleway', sans-serif;
 
 }
-div#landing_item a{
-
+#landing_item {
+    width: 330px;
+    height: 260px;
     overflow: auto;
 }
 .portfolio_footer{
@@ -164,13 +202,76 @@ div#landing_item a{
 
 /*SKILLS*/
 .skills_container{
+    -position: relative;
     height: 770px;
     width: 1423px;
-    background-image: url(Skills_background.png);
-    background-size: 100%;
     font-family: 'Raleway', sans-serif;
     color: white;
 }
+
+/*SKILLS SLIDES*/
+.skills_slides{
+    list-style:none;
+    margin:0;
+    padding:0;
+    z-index:-2;
+    /*background-image: url(skills_background.png);*/
+}
+.skills_slides,
+.skills_slides:after{
+    position: fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;}
+.skills_slides:after {
+    content: '';
+    /*background: transparent url(skills_background.png) repeat top left;*/
+}
+.skills_slides li{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    background-size:cover;
+    background-repeat:none;
+    opacity:0;
+    -webkit-animation: anim_slides 90s linear infinite 0s;
+    -moz-animation: anim_slides 90s linear infinite 0s;
+    -o-animation: anim_slides 90s linear infinite 0s;
+    -ms-animation: anim_slides 90s linear infinite 0s;
+    animation: anim_slides 90s linear infinite 0s;
+}
+.skills_slides li:nth-child(1){
+    background-image: url(skills_background.png)
+}
+.skills_slides li:nth-child(2){
+    -webkit-animation-delay: 30.0s;
+    -moz-animation-delay: 30.0s;
+    background-image: url(skills_background_2_2.png)
+}
+.skills_slides li:nth-child(3){
+    -webkit-animation-delay: 60.0s;
+    -moz-animation-delay: 60.0s;
+    background-image: url(skills_background_3.png)
+}
+@-webkit-keyframes anim_slides {
+    /*0% {opacity:0;}*/
+    2% {opacity:1;}
+    40% {opacity:1;}
+    42% {opacity:0;}
+    100% {opacity:0;}
+}
+@-moz-keyframes anim_slides {
+    0% {opacity:0;}
+    6% {opacity:1;}
+    24% {opacity:1;}
+    30% {opacity:0;}
+    100% {opacity:0;}
+}
+
+
 h2.skills_header{
     text-align: center;
     margin: auto;
