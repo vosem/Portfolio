@@ -6,10 +6,28 @@ $(document).ready(function(){
         $("body, html").animate({scrollTop: top}, 1500);
     });
 
-    $('h1').addClass('zoomIn');
+    $('h1.name').addClass('zoomIn');
 
+    var h = $(window).height();
+    $(window).scroll(function() {
+        if (($(this).scrollTop() + h) >= $("div.portfolio_item").offset().top) {
+            $('div.portfolio_item').addClass('flip');
+        }
+        if (($(this).scrollTop() + h) >= $("li.skills_item").offset().top) {
+            $('li.skills_item').addClass('anim');
+        }
+    });
 
+    // SKILLS
 
-
+    var dipl = document.getElementsByClassName('diploma')[0];
+    dipl.onclick = function () {
+        dipl.classList.toggle('enlarge');
+    };
+    $(window).scroll(function() {
+        if ($('enlarge')) {
+            $('div.diploma').removeClass('enlarge');
+        }
+    });
 
 });

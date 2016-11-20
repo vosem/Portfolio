@@ -31,6 +31,9 @@ body{
     border: solid 2px #303030;
     border-radius: 5%;
 }
+.intro_nav_item:active{
+    background-color: rgba(255, 255, 255, 0.3);
+}
 h1{
     color: #303030;
     font-size: 3rem;
@@ -75,11 +78,6 @@ h1.zoomIn {
     animation-name: zoomIn;
 }
 
-/*h1.scale {*/
-    /*-webkit-transform: scale(2);*/
-    /*transform: scale(2);*/
-/*}*/
-
 
 .my_photo{
     position: absolute;
@@ -100,7 +98,6 @@ h1.zoomIn {
     height: 300px;
     border: solid;
     border-color: #afb3b4;
-
     -box-sizing: content-box;
     box-shadow: 0 0 20px rgba(0,0,0,1);
     border-width: 15px;
@@ -121,6 +118,7 @@ img.go{
     animation-duration: 1.0s;
     animation-direction: alternate;
     animation-name: reduce;
+    animation-timing-function: linear;
 }
 @keyframes reduce {
     from {
@@ -151,7 +149,7 @@ h2.portfolio{
     background-image: url(potfolio_backround.png);
     background-size: 100%;
     height: 770px;
-    width: 1423px;
+    width: 100%;
 }
 .portfolio_examples{
     text-align: center;
@@ -160,10 +158,46 @@ h2.portfolio{
 }
 .portfolio_item_container{
     display: inline-block;
+    position: relative;
     width: 330px;
     height: 260px;
     vertical-align: top;
+    /* задаем глубину сцене */
+    -webkit-perspective: 600px; /* webkit */
+    -moz-perspective: 600px; /* mozilla */
+    -ms-perspective: 600px; /* IE 10 */
+    -o-perspective: 600px; /* opera когда-то тоже должна начать понимать */
+    perspective: 600px; /* св-во по стандартам */
 }
+div.portfolio_item{
+/* поворачивать будем общий контейнер */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: rotateX( 90deg );
+    /* трансформации будут происходить анимированно продолжительностью 2 сек */
+    -webkit-transition: -webkit-transform 2s;
+    -moz-transition: -moz-transform 2s;
+    -ms-transition: -moz-transform 2s;
+    -o-transition: -o-transform 2s;
+    transition: transform 2s;
+    /* указываем, что дочерние элементы находятся в 3D пространстве */
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+div.flip{    /* добавляя этот класс, поворачиваем контейнер на 90 градусов */
+    -webkit-transform: rotateX( 360deg );
+    -moz-transform: rotateX( 360deg );
+    -ms-transform: rotateX( 360deg );
+    -o-transform: rotateX( 360deg );
+    transform: rotateX( 360deg );
+}
+
 .portfolio_item_container:nth-child(even){
     margin-left: 30px;
 }
@@ -237,30 +271,30 @@ h2.portfolio{
     background-size:cover;
     background-repeat:none;
     opacity:0;
-    -webkit-animation: anim_slides 90s linear infinite 0s;
-    -moz-animation: anim_slides 90s linear infinite 0s;
-    -o-animation: anim_slides 90s linear infinite 0s;
-    -ms-animation: anim_slides 90s linear infinite 0s;
-    animation: anim_slides 90s linear infinite 0s;
+    -webkit-animation: anim_slides 60s linear infinite 0s;
+    -moz-animation: anim_slides 60s linear infinite 0s;
+    -o-animation: anim_slides 60s linear infinite 0s;
+    -ms-animation: anim_slides 60s linear infinite 0s;
+    animation: anim_slides 60s linear infinite 0s;
 }
 .skills_slides li:nth-child(1){
     background-image: url(skills_background.png)
 }
 .skills_slides li:nth-child(2){
-    -webkit-animation-delay: 30.0s;
-    -moz-animation-delay: 30.0s;
+    -webkit-animation-delay: 20.0s;
+    -moz-animation-delay: 20.0s;
     background-image: url(skills_background_2_2.png)
 }
 .skills_slides li:nth-child(3){
-    -webkit-animation-delay: 60.0s;
-    -moz-animation-delay: 60.0s;
+    -webkit-animation-delay: 40.0s;
+    -moz-animation-delay: 40.0s;
     background-image: url(skills_background_3.png)
 }
 @-webkit-keyframes anim_slides {
     /*0% {opacity:0;}*/
-    2% {opacity:1;}
+    3% {opacity:1;}
     40% {opacity:1;}
-    42% {opacity:0;}
+    43% {opacity:0;}
     100% {opacity:0;}
 }
 @-moz-keyframes anim_slides {
@@ -271,6 +305,24 @@ h2.portfolio{
     100% {opacity:0;}
 }
 
+/*APPEARANCE*/
+@-webkit-keyframes appearance {
+    from {
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
+}
+
+@keyframes appearance {
+    from {
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
+}
 
 h2.skills_header{
     text-align: center;
@@ -281,21 +333,62 @@ h2.skills_header{
 }
 div.skills{
     text-align: center;
+    position: relative;
 }
-ul.skills_list{
+.skills_list{
     display: inline-block;
     vertical-align: top;
     text-align: left;
     margin-bottom: 7%;
     /*border: solid 1px white;*/
 }
+
 li.skills_item {
     list-style-type: none;
     font-size: 1.8rem;
     text-shadow: 0 0 10px rgba(62, 97, 198, 0.78);
     font-weight: bold;
     line-height: 1.5;
+    -opacity: 0;
+    animation: 1s linear;
 }
+li.anim:first-child{
+    -webkit-animation-name: appearance;
+    animation-name: appearance;
+    animation-delay: 1ms;
+    -webkit-animation-delay: 1ms;
+}
+li.anim:nth-child(2){
+     -webkit-animation-name: appearance;
+     animation-name: appearance;
+     animation-delay: 500ms;
+     -webkit-animation-delay: 500ms;
+ }
+li.anim:nth-child(3){
+    -webkit-animation-name: appearance;
+    animation-name: appearance;
+    animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+}
+li.anim:nth-child(4){
+    -webkit-animation-name: appearance;
+    animation-name: appearance;
+    animation-delay: 1500ms;
+    -webkit-animation-delay: 1500ms;
+}
+li.anim:nth-child(5){
+    -webkit-animation-name: appearance;
+    animation-name: appearance;
+    animation-delay: 2s;
+    -webkit-animation-delay: 2s;
+}
+li.anim:nth-child(6){
+    -webkit-animation-name: appearance;
+    animation-name: appearance;
+    animation-delay: 2500ms;
+    -webkit-animation-delay: 2500ms;
+}
+
 div.about_skills{
     display: inline-block;
     vertical-align: top;
@@ -309,11 +402,44 @@ div.about_skills{
     line-height: 1.5;
 }
 
+div.diploma{
+    margin-top: 5%;
+    margin-right: 5%;
+    float: right;
+}
+img.diploma{
+    width: 200px;
+    height: 150px;
+    filter: opacity(0.5);
+    border: solid 2px white;
+    -border-radius: 10%;
+}
+img.diploma:hover{
+    filter: opacity(0.9);
+}
+div.enlarge::before{
+    content: '';
+    display: inline-block;
+    position: fixed;
+    -margin-top: 3%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("diploma.jpg");
+    background-size: 100%;
+    width: 997px;
+    height: 700px;
+    animation: 1s linear;
+    -webkit-animation-name: appearance;
+    animation-name: appearance;
+}
+
+
 
 /*CONTACTS*/
 .contacts_container{
     height: 770px;
-    width: 1423px;
+    width: 100%;
     background-image: url(contacts.png);
     background-size: 100%;
     font-family: 'Special Elite', cursive;
