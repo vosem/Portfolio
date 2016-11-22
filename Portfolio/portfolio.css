@@ -4,15 +4,33 @@ body{
 }
 .intro{
     position: relative;
+    margin-top: -20px;
     z-index: 0;
 }
 .intro_banner{
     text-align: center;
     background-image: url(intro_background.jpg);
-    -background-size: 100%;
+    background-size: 100%;
     height: 770px;
     width: 1423px;
     margin: 0 auto;
+}
+div.advertisement{
+    color:white;
+    text-align: right;
+    font-family: 'Special Elite', cursive;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-right: 5px;
+}
+a.advertisement{
+    text-decoration: none;
+}
+a.advertisement:visited{
+    color:white;
+}
+a.advertisement:hover{
+    text-decoration: underline;
 }
 .intro_nav{
     position: absolute;
@@ -236,7 +254,7 @@ div.flip{    /* добавляя этот класс, поворачиваем �
 
 /*SKILLS*/
 .skills_container{
-    -position: relative;
+    position: relative;
     height: 770px;
     width: 1423px;
     font-family: 'Raleway', sans-serif;
@@ -425,9 +443,9 @@ div.enlarge::before{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url("diploma.jpg");
+    background-image: url(diploma.jpg);
     background-size: 100%;
-    width: 997px;
+    width: 1012px;
     height: 700px;
     animation: 1s linear;
     -webkit-animation-name: appearance;

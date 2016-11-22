@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.portfolio{
+    margin: 0 auto;
+    max-width: 1250px;
+    width: 100%;
+}
+
+.portfolio_header{
+    font-family: Lato, sans-serif;
+    font-size: 41px;
+    text-align: center;
+    color: #2d394f;
+    margin-top: 40px;
+}
+
+.email{
+    text-align: center;
+    font-family: Lato, sans-serif;
+    font-size: 15px;
+    color: #2d394f;
+    text-decoration: none;
+    margin: 20px auto 30px auto;
+}
+.email:hover {
+    filter: opacity(0.7);
+}
+
+.photos{
+    margin: 0 auto;
+    text-align: center;
+    -width: 100%;
+}
+
+div.photo{
+    display: inline-block;
+    margin: 10px;
+    width: 360px;
+    height: 260px;
+    position: relative;
+}
+
+.photo:hover:before{ /*first variant with before - displays ok;*/
+    content: '';
+    position: absolute;
+    background: rgba(58,175,248, 0.7);
+    width: 360px;
+    height: 260px;
+}
+
+/*.photo:hover + .layer { !*second variant with separate layer - blinks*!*/
+    /*display: inline-block;*/
+    /*position: absolute;*/
+    /*background: rgba(58,175,248, 0.7);*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*margin: 0 0 0 -360px;*/
+ /*}*/
+
+ .button1{
+     display: none;
+     position: absolute;
+     margin: -40% -45px;
+ }
+
+.button2{
+    display: none;
+    position: absolute;
+    margin: -40% 3px;
+}
+
+.photo:hover .button1 {
+    display: inline-block;
+}
+
+.photo:hover .button2 {
+    display: inline-block;
+}
+.overlay-preview_photos {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.9);
+    vertical-align: top;
+    display: none;
+}
+.enlarge{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.9);
+    vertical-align: top;
+    visibility: visible;
+}
+
+.preview_photo {
+    position: relative;
+    margin: 80px auto 0 auto;
+    max-width: 1140px;
+    width: 100%;
+    min-width: 360px;
+    text-align: center;
+}
+
+img.preview_photo{
+    border: 3px solid #999999;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.close_button{
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    margin-top: -50%;
+    margin-left: 90%;
+    vertical-align: top;
+}
