@@ -5,15 +5,15 @@
 	min-width: 1023px;
 	width: 100%;
 	background-size: 100%;
-	height: 116px;
+	height: 106px;
 	text-align: center;
 	padding: 0;
 }
 
 .header_line {
 	width: 1023px;
-	margin: 0 auto;
-	text-align: middle;
+	margin: -20px auto 0 auto;
+	text-align: center;
 }
 
 .logo {
@@ -73,7 +73,6 @@
 	height: 585px;
 	text-align: center;
 	margin: 0 auto;
-	margin-bottom: 0;
 	padding-bottom: 0;
 }
 

@@ -10,9 +10,9 @@ body{
 .intro_banner{
     text-align: center;
     background-image: url(intro_background.jpg);
-    background-size: 100%;
+    -background-size: 100%;
     height: 770px;
-    width: 1423px;
+    width: 100%;
     margin: 0 auto;
 }
 div.advertisement{
@@ -73,7 +73,6 @@ h1{
     from {
         opacity: 0;
         -webkit-transform: scale3d(.3, .3, .3);
-        transform: scale3d(.3, .3, .3);
     }
     50% {
         opacity: 1;
@@ -83,7 +82,6 @@ h1{
 @keyframes zoomIn {
     from {
         opacity: 0;
-        -webkit-transform: scale3d(.3, .3, .3);
         transform: scale3d(.3, .3, .3);
     }
     50% {
@@ -124,9 +122,8 @@ h1.zoomIn {
 }
 
 p.go_from_intro{
-    text-align: center;
-    padding-top: 40%;
-    margin: auto;
+    margin: 570px auto 0 auto;
+    width: 75px;
     /*position: absolute;*/
     /*top: 73%;*/
     /*left: 45%;*/
@@ -137,6 +134,8 @@ img.go{
     animation-direction: alternate;
     animation-name: reduce;
     animation-timing-function: linear;
+    animation-fill-mode: both;
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 @keyframes reduce {
     from {
@@ -256,7 +255,7 @@ div.flip{    /* добавляя этот класс, поворачиваем �
 .skills_container{
     position: relative;
     height: 770px;
-    width: 1423px;
+    width: 100%;
     font-family: 'Raleway', sans-serif;
     color: white;
 }
@@ -287,7 +286,7 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     top:0;
     left:0;
     background-size:cover;
-    background-repeat:none;
+    background-repeat:no-repeat;
     opacity:0;
     -webkit-animation: anim_slides 60s linear infinite 0s;
     -moz-animation: anim_slides 60s linear infinite 0s;
@@ -299,11 +298,13 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     background-image: url(skills_background.png)
 }
 .skills_slides li:nth-child(2){
+    animation-delay: 20.0s;
     -webkit-animation-delay: 20.0s;
     -moz-animation-delay: 20.0s;
     background-image: url(skills_background_2_2.png)
 }
 .skills_slides li:nth-child(3){
+    animation-delay: 40.0s;
     -webkit-animation-delay: 40.0s;
     -moz-animation-delay: 40.0s;
     background-image: url(skills_background_3.png)
@@ -320,6 +321,13 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     6% {opacity:1;}
     24% {opacity:1;}
     30% {opacity:0;}
+    100% {opacity:0;}
+}
+@keyframes anim_slides {
+    /*0% {opacity:0;}*/
+    3% {opacity:1;}
+    40% {opacity:1;}
+    43% {opacity:0;}
     100% {opacity:0;}
 }
 
@@ -355,10 +363,8 @@ div.skills{
 }
 .skills_list{
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
     text-align: left;
-    margin-bottom: 7%;
-    /*border: solid 1px white;*/
 }
 
 li.skills_item {
@@ -369,10 +375,12 @@ li.skills_item {
     line-height: 1.5;
     -opacity: 0;
     animation: 1s linear;
+    animation-direction: normal;
 }
 li.anim:first-child{
-    -webkit-animation-name: appearance;
+
     animation-name: appearance;
+    -webkit-animation-name: appearance;
     animation-delay: 1ms;
     -webkit-animation-delay: 1ms;
 }
@@ -409,28 +417,33 @@ li.anim:nth-child(6){
 
 div.about_skills{
     display: inline-block;
-    vertical-align: top;
-    margin-left: 15%;
+    vertical-align: middle;
+    margin-left: 12%;
     text-align: left;
     font-size: 1.8rem;
-    width: 500px;
+    width: 35%;
     text-shadow: 0 0 10px rgba(62, 97, 198, 0.78);
     font-weight: bold;
     /*border: solid 1px white;*/
     line-height: 1.5;
+    animation: 1s linear;
+}
+div.zoomIn{
+    animation: 1s linear;
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
 }
 
 div.diploma{
-    margin-top: 5%;
-    margin-right: 5%;
-    float: right;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 12%;
 }
 img.diploma{
     width: 200px;
     height: 150px;
     filter: opacity(0.5);
     border: solid 2px white;
-    -border-radius: 10%;
 }
 img.diploma:hover{
     filter: opacity(0.9);
@@ -445,13 +458,15 @@ div.enlarge::before{
     transform: translate(-50%, -50%);
     background-image: url(diploma.jpg);
     background-size: 100%;
-    width: 1012px;
-    height: 700px;
+    width: 1000px;
+    height: 688px;
     animation: 1s linear;
     -webkit-animation-name: appearance;
     animation-name: appearance;
 }
-
+.go_from_skills{
+    padding-top: 50px;
+}
 
 
 /*CONTACTS*/
@@ -459,7 +474,6 @@ div.enlarge::before{
     height: 770px;
     width: 100%;
     background-image: url(contacts.png);
-    background-size: 100%;
     font-family: 'Special Elite', cursive;
     text-align: center;
     font-size: 30px;
@@ -478,7 +492,7 @@ div.enlarge::before{
 }
 .go_from_contacts{
     text-align: center;
-    padding-top: 10%;
+    padding-top: 20%;
     /*margin: auto;*/
     /*position: absolute;*/
     /*top: 73%;*/
