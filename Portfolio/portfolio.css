@@ -10,7 +10,6 @@ body{
 .intro_banner{
     text-align: center;
     background-image: url(intro_background.jpg);
-    -background-size: 100%;
     height: 770px;
     width: 100%;
     margin: 0 auto;
@@ -52,6 +51,7 @@ a.advertisement:hover{
 .intro_nav_item:active{
     background-color: rgba(255, 255, 255, 0.3);
 }
+
 h1{
     color: #303030;
     font-size: 3rem;
@@ -60,8 +60,14 @@ h1{
     top: 27%;
     left: 30%;
     padding: 35px;
-    /*border: solid 10px #303030;*/
+    opacity: 0;
     animation: 1s linear;
+
+}
+h1.zoomIn {
+    -webkit-animation-name: zoomIn;
+    animation-name: zoomIn;
+    animation-fill-mode: forwards;
 }
 .speciality{
     line-height: 2;
@@ -74,7 +80,7 @@ h1{
         opacity: 0;
         -webkit-transform: scale3d(.3, .3, .3);
     }
-    50% {
+    to {
         opacity: 1;
     }
 }
@@ -84,15 +90,12 @@ h1{
         opacity: 0;
         transform: scale3d(.3, .3, .3);
     }
-    50% {
+    to {
         opacity: 1;
     }
 }
 
-h1.zoomIn {
-    -webkit-animation-name: zoomIn;
-    animation-name: zoomIn;
-}
+
 
 
 .my_photo{
@@ -134,17 +137,28 @@ img.go{
     animation-direction: alternate;
     animation-name: reduce;
     animation-timing-function: linear;
-    animation-fill-mode: both;
     -webkit-font-smoothing: subpixel-antialiased;
 }
+/*.go_from_intro .fa-border{*/
+    /*color: #303030;*/
+    /*border-color: #303030;*/
+    /*border-radius: 50%;*/
+    /*padding: .1em .3em .1em;*/
+/*}*/
 @keyframes reduce {
     from {
-        width: 70px;
-        height: 70px;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
     }
+
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05);
+    }
+
     to {
-        width: 67px;
-        height: 67px;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
     }
 }
 
@@ -237,18 +251,17 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     color: white;
     text-shadow: 0 0 10px rgba(92, 46, 0, 0.78);
     font-size: 1.8rem;
-    margin-top: 80px;
+    margin-top: 70px;
     text-align: center;
     font-family: 'Raleway', sans-serif;
 
 }
 .go_from_portfolio{
     text-align: center;
-    padding-top: -40%;
-    /*margin: auto;*/
-    /*position: absolute;*/
-    /*top: 73%;*/
-    /*left: 45%;*/
+}
+.go_up, .go_down{
+    display: inline-block;
+    width: 75px;
 }
 
 /*SKILLS*/
@@ -266,18 +279,11 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     margin:0;
     padding:0;
     z-index:-2;
-    /*background-image: url(skills_background.png);*/
-}
-.skills_slides,
-.skills_slides:after{
     position: fixed;
     width:100%;
     height:100%;
     top:0;
-    left:0;}
-.skills_slides:after {
-    content: '';
-    /*background: transparent url(skills_background.png) repeat top left;*/
+    left:0;
 }
 .skills_slides li{
     width:100%;
@@ -310,7 +316,7 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     background-image: url(skills_background_3.png)
 }
 @-webkit-keyframes anim_slides {
-    /*0% {opacity:0;}*/
+    0% {opacity:0;}
     3% {opacity:1;}
     40% {opacity:1;}
     43% {opacity:0;}
@@ -336,7 +342,7 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     from {
         opacity: 0;
     }
-    80% {
+    to {
         opacity: 1;
     }
 }
@@ -345,7 +351,7 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     from {
         opacity: 0;
     }
-    80% {
+    to {
         opacity: 1;
     }
 }
@@ -373,46 +379,51 @@ li.skills_item {
     text-shadow: 0 0 10px rgba(62, 97, 198, 0.78);
     font-weight: bold;
     line-height: 1.5;
-    -opacity: 0;
+    opacity: 0;
     animation: 1s linear;
     animation-direction: normal;
 }
 li.anim:first-child{
-
     animation-name: appearance;
     -webkit-animation-name: appearance;
     animation-delay: 1ms;
     -webkit-animation-delay: 1ms;
+    animation-fill-mode: forwards;
 }
 li.anim:nth-child(2){
-     -webkit-animation-name: appearance;
-     animation-name: appearance;
-     animation-delay: 500ms;
-     -webkit-animation-delay: 500ms;
+    -webkit-animation-name: appearance;
+    animation-name: appearance;
+    animation-delay: 500ms;
+    -webkit-animation-delay: 500ms;
+    animation-fill-mode: forwards;
  }
 li.anim:nth-child(3){
     -webkit-animation-name: appearance;
     animation-name: appearance;
     animation-delay: 1s;
     -webkit-animation-delay: 1s;
+    animation-fill-mode: forwards;
 }
 li.anim:nth-child(4){
     -webkit-animation-name: appearance;
     animation-name: appearance;
     animation-delay: 1500ms;
     -webkit-animation-delay: 1500ms;
+    animation-fill-mode: forwards;
 }
 li.anim:nth-child(5){
     -webkit-animation-name: appearance;
     animation-name: appearance;
     animation-delay: 2s;
     -webkit-animation-delay: 2s;
+    animation-fill-mode: forwards;
 }
 li.anim:nth-child(6){
     -webkit-animation-name: appearance;
     animation-name: appearance;
     animation-delay: 2500ms;
     -webkit-animation-delay: 2500ms;
+    animation-fill-mode: forwards;
 }
 
 div.about_skills{
@@ -420,18 +431,21 @@ div.about_skills{
     vertical-align: middle;
     margin-left: 12%;
     text-align: left;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     width: 35%;
     text-shadow: 0 0 10px rgba(62, 97, 198, 0.78);
     font-weight: bold;
     /*border: solid 1px white;*/
     line-height: 1.5;
+    opacity: 0;
     animation: 1s linear;
+
 }
 div.zoomIn{
     animation: 1s linear;
     -webkit-animation-name: zoomIn;
     animation-name: zoomIn;
+    animation-fill-mode: forwards;
 }
 
 div.diploma{
@@ -471,6 +485,7 @@ div.enlarge::before{
 
 /*CONTACTS*/
 .contacts_container{
+    position: relative;
     height: 770px;
     width: 100%;
     background-image: url(contacts.png);
@@ -480,8 +495,8 @@ div.enlarge::before{
     margin-top: 0;
 }
 .contacts{
-    margin: 15% auto 0 auto;
-    width: 600px;
+    margin: 13% auto 0 auto;
+    width: 650px;
 }
 .email{
     text-decoration: none;
@@ -490,11 +505,40 @@ div.enlarge::before{
 .email:hover{
     color: rgba(28, 61, 73, 1);
 }
+@-webkit-keyframes fadeInDown {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+.contacts p {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
 .go_from_contacts{
     text-align: center;
     padding-top: 20%;
-    /*margin: auto;*/
-    /*position: absolute;*/
-    /*top: 73%;*/
-    /*left: 45%;*/
+    position: absolute;
+    top: 300px;
+    left: 47%;
 }

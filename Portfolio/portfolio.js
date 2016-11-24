@@ -17,6 +17,7 @@ $(document).ready(function(){
         if (($(this).scrollTop() + h) >= $("li.skills_item").offset().top) {
             $('li.skills_item').addClass('anim');
         }
+
         if (($(this).scrollTop() + h) >= $(".about_skills").offset().top) {
             $('.about_skills').addClass('zoomIn');
         }
