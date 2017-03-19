@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TO DO</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <h1>To Do List</h1>
+        <section>
+        <h2 class="adding">Add Task:</h2>
+            <form>
+                <input id="inputField" type="text"/>
+                <input id="inputButton" type="submit" value="Add"/>
+            </form>
+        </section>
+        <section>
+            <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>What to do</th>
+                    <th>&nbsp</th>
+                    <th>&nbsp</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                    <td>1</td>
+                    <td>Task</td>
+                    <td><input class="up" type="button" value="&#8593"/></td>
+                    <td><input class="delete" type="button" value="x"/></td>
+                </tr>
+            </tbody> 
+            </table>
+        </section>
+    </body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="todo.js"></script>
+</html>

@@ -1,0 +1,132 @@
+h1{
+    font-family: Helvetica, sans-serif;
+    color: lightseagreen;
+    border-bottom: solid 2px lightseagreen;
+    width: 375px;
+    padding-top: 50px;
+    margin: auto;
+}
+
+.adding{
+    font-family: Helvetica, sans-serif;
+    color: lightseagreen;
+    border: solid 2px lightseagreen;
+    width: 355px;
+    padding: 10px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: lightcyan;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+form{
+    font-family: Helvetica, sans-serif;
+    color: lightseagreen;
+    border: solid 2px lightseagreen;
+    border-top: none;
+    width: 355px;
+    padding: 10px;
+    margin: auto;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#inputField{
+    border: solid 1px lightgrey;
+    height: 25px;
+}
+
+#inputButton{
+    font-size: 17px;
+    font-weight: bold;
+    color: lightseagreen;
+    border: solid 1px lightseagreen;
+    background-color: lightcyan;
+    height: 35px;
+    width: 60px;
+    margin-left: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+}
+
+#inputButton:active{
+    color: lightcyan;
+    border: solid 1px lightcyan;
+    background-color: lightseagreen;
+    box-shadow: none;
+}
+
+table{
+    width: 375px;
+    margin: auto;
+    margin-top: 30px;
+    border-collapse: collapse;
+    font-family: Helvetica, sans-serif;
+    color: lightseagreen;
+    font-size: 18px;
+    text-align: center;
+}
+
+thead tr th{
+    font-family: Helvetica, sans-serif;
+    color: lightseagreen;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: solid 2px lightseagreen;
+    padding-bottom: 10px;
+}
+
+td{
+    height: 40px;
+}
+
+thead th:nth-child(2){
+    text-align: left;
+    padding-left: 10px;
+}
+
+tbody tr td:nth-child(2){
+    text-align: left;
+    padding-left: 10px;
+}
+
+.up{
+    font-size: 20px;
+    color: lightseagreen;
+    border: solid 1px lightseagreen;
+    background-color: #9effa4;
+    height: 30px;
+    width: 35px;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+}
+
+.up:active{
+    color: lightcyan;
+    border: solid 1px lightcyan;
+    background-color: lightseagreen;
+    box-shadow: none;
+}
+
+.delete{
+    font-size: 17px;
+    color: lightseagreen;
+    border: solid 1px lightseagreen;
+    background-color: #ffa5bc;
+    height: 30px;
+    width: 35px;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+}
+
+.delete:active{
+    color: lightcyan;
+    border: solid 1px lightcyan;
+    background-color: lightseagreen;
+    box-shadow: none;
+}
