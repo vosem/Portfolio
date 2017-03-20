@@ -3,16 +3,16 @@
     <head>
         <title>TO DO</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=0.9">
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         <h1>To Do List</h1>
         <section>
         <h2 class="adding">Add Task:</h2>
-            <form>
+            <form name="submitting">
                 <input id="inputField" type="text"/>
-                <input id="inputButton" type="submit" value="Add"/>
+                <input id="inputButton" type="button" value="Add"/>
             </form>
         </section>
         <section>
@@ -25,13 +25,13 @@
                     <th>&nbsp</th>
                 </tr>
             </thead>
-            <tbody>
-                    <tr>
+            <tbody class="list">
+<!--                <tr>
                     <td>1</td>
                     <td>Task</td>
                     <td><input class="up" type="button" value="&#8593"/></td>
                     <td><input class="delete" type="button" value="x"/></td>
-                </tr>
+                </tr>-->
             </tbody> 
             </table>
         </section>
