@@ -1,0 +1,26 @@
+body{
+    background-color: rgb(45, 45, 45);
+}
+
+.clockContainer, .cypherClock{
+    color: black;
+    margin: 100px auto 0 auto;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.cypherClock{
+    margin: 50px auto 0 auto;
+    font-weight: normal;
+    font-size: 35px;
+}
+
+div{
+    margin: 0;
+    text-align: center;
+}
+
+span.min{
+        font-weight: normal;
+}
