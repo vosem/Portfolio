@@ -24,3 +24,8 @@ div{
 span.min, div.am_pm{
         font-weight: normal;
 }
+
+@media handheld and (grid) and (max-width: 15em) {
+    .clockContainer{font-size: 3px;} 
+    .cypherClock{font-size: 2em;}
+}

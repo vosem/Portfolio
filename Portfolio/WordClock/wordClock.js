@@ -6,13 +6,9 @@
         if (h > 12){
             h-=12;
         }
-        if(h === 1){
-            $("div.tens span:nth-child(12)").css({"color": "black", "text-shadow": "none"});
-        }
-        var previousIndex = h - 1;
+        $("span.hour").css({"color": "black", "text-shadow": "none"});
         for(var i = 0; i < 12; i++){
             if(i === h){
-                $("div.hour span:nth-child("+previousIndex+")").css({"color": "black", "text-shadow": "none"});
                 $("div.hour span:nth-child("+i+")").css({"color": "rgb(2, 255, 238)", "text-shadow": "0 0 0.3em rgb(2, 255, 238)"});
             }
         }
@@ -22,26 +18,10 @@
     function colorizeMinutes(){
         var now = new Date();
         var m = now.getMinutes();
-
-        if(m === 0){
-            $("div.tens span:nth-child(4)").css({"color": "black", "text-shadow": "none"});
-            $("div.digits span:nth-child(10)").css({"color": "black", "text-shadow": "none"});
-        }
-        if(m === 11){
-            $("div.digits span:nth-child(11)").css({"color": "black", "text-shadow": "none"});
-        }
-        if(m === 20){
-            $("div.11_19 span:nth-child(9)").css({"color": "black", "text-shadow": "none"});
-        }
-        if(m === 30 || m === 40 || m === 50){
-            $("div.digits span:nth-child(10)").css({"color": "black", "text-shadow": "none"});
-        }
-
-                
+        $("span.min").css({"color": "black", "text-shadow": "none"});
         for(var i = 0; i < 11; i++){
             if(i === m){
                 var index = m + 1;
-                $("div.digits span:nth-child("+m+")").css({"color": "black", "text-shadow": "none"});
                 $("div.digits span:nth-child("+index+")").css({"color": "rgb(2, 255, 238)", "text-shadow": "0 0 0.3em rgb(2, 255, 238)"});
             }
         }
@@ -49,8 +29,6 @@
         for(var i = 11; i < 20; i++){
             if(i === m){
                 var index = i-10;
-                var previousIndex = index - 1;
-                $("div.11_19 span:nth-child("+previousIndex+")").css({"color": "black", "text-shadow": "none"});
                 $("div.11_19 span:nth-child("+index+")").css({"color": "rgb(2, 255, 238)", "text-shadow": "0 0 0.3em rgb(2, 255, 238)"});
             }
         }
@@ -60,15 +38,12 @@
                 $("div.tens span:nth-child(1)").css({"color": "rgb(2, 255, 238)", "text-shadow": "0 0 0.3em rgb(2, 255, 238)"});
             }
             else if(m >= 30 && m < 40){
-                $("div.tens span:nth-child(1)").css({"color": "black", "text-shadow": "none"});
                 $("div.tens span:nth-child(2)").css({"color": "rgb(2, 255, 238)", "text-shadow": "0 0 0.3em rgb(2, 255, 238)"});
             }
             else if(m >= 40 && m < 50){
-                $("div.tens span:nth-child(2)").css({"color": "black", "text-shadow": "none"});
                 $("div.tens span:nth-child(3)").css({"color": "rgb(2, 255, 238)", "text-shadow": "0 0 0.3em rgb(2, 255, 238)"});
             }
             else if(m >= 50 && m < 60){
-                $("div.tens span:nth-child(3)").css({"color": "black", "text-shadow": "none"});
                 $("div.tens span:nth-child(4)").css({"color": "rgb(2, 255, 238)", "text-shadow": "0 0 0.3em rgb(2, 255, 238)"});
             }
         }
@@ -83,8 +58,6 @@
                 continue;
             }
             var index = lastDigit+1;
-            var previousIndex = index-1;
-                $("div.digits span:nth-child("+previousIndex+")").css({"color": "black", "text-shadow": "none"});
                 $("div.digits span:nth-child("+index+")").css({"color": "rgb(2, 255, 238)", "text-shadow": "0 0 0.3em rgb(2, 255, 238)"});
             }
         }
