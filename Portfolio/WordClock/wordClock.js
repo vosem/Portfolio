@@ -27,14 +27,18 @@
             $("div.tens span:nth-child(4)").css({"color": "black", "text-shadow": "none"});
             $("div.digits span:nth-child(10)").css({"color": "black", "text-shadow": "none"});
         }
-        if(m === 11 || m === 20 || m === 30 || m === 40 || m === 50){
+        if(m === 11){
             $("div.digits span:nth-child(11)").css({"color": "black", "text-shadow": "none"});
         }
-        if(m === 21){
-            $("div.tens span:nth-child(4)").css({"color": "black", "text-shadow": "none"});
+        if(m === 20){
+            $("div.11_19 span:nth-child(9)").css({"color": "black", "text-shadow": "none"});
         }
+        if(m === 30 || m === 40 || m === 50){
+            $("div.digits span:nth-child(10)").css({"color": "black", "text-shadow": "none"});
+        }
+
                 
-        for(var i = 0; i < 10; i++){
+        for(var i = 0; i < 11; i++){
             if(i === m){
                 var index = m + 1;
                 $("div.digits span:nth-child("+m+")").css({"color": "black", "text-shadow": "none"});
@@ -88,6 +92,19 @@
         setTimeout("colorizeMinutes()", 1000);
     };
     
+    function colorizeAmPm(){
+        var now = new Date();
+        var h = now.getHours();
+        if (h <= 12){
+            $("div.am_pm span:nth-child(2)").css({"color": "black", "text-shadow": "none"});
+            $("div.am_pm span:nth-child(1)").css({"color": "rgb(2, 255, 238)", "text-shadow": "0 0 0.3em rgb(2, 255, 238)"});
+        } else{
+            $("div.am_pm span:nth-child(1)").css({"color": "black", "text-shadow": "none"});
+            $("div.am_pm span:nth-child(2)").css({"color": "rgb(2, 255, 238)", "text-shadow": "0 0 0.3em rgb(2, 255, 238)"});
+        }
+        setTimeout("colorizeAmPm()", 1000);
+    };
+    
     function timing(){  // why does not it work when it si wrraped like self-initializing????
         var now = new Date();
         var hours = now.getHours();
@@ -107,7 +124,8 @@
     };
     
     colorizeHours();
-    colorizeMinutes();   
+    colorizeMinutes();
+    colorizeAmPm();
     timing();   // why does not it work in  "$(document).ready(function(){...})??????
     
 //})();

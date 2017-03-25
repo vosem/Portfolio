@@ -1,3 +1,8 @@
+body{
+	background-image: url(ToDo_backround.png);
+	background-repeat: no-repeat;
+}
+
 h1{
     font-family: Helvetica, sans-serif;
     color: lightseagreen;

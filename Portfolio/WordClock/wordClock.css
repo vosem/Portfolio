@@ -21,6 +21,6 @@ div{
     text-align: center;
 }
 
-span.min{
+span.min, div.am_pm{
         font-weight: normal;
 }
