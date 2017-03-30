@@ -261,7 +261,7 @@ div.flip{    /* добавляя этот класс, поворачиваем �
 
 /*SKILLS*/
 .skills_container{
-    position: relative;
+	position: relative;
     height: 770px;
     width: 100%;
     font-family: 'Raleway', sans-serif;

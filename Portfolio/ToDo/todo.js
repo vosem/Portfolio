@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     function ToDo (){
-        this.model = [
+        this.model = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')):[
 //            {text: 'defaultTask'},
 //            {text: 'secondDefaultTask'},
         ];
@@ -10,9 +10,12 @@ $(document).ready(function(){
         this.list = $('.list');
         this.inputField = $('#inputField');
         
-//        this.init = function(){
-//        
-//        };
+        this.init = function(){
+            this.renderModel();
+            this.addTask();
+            this.removeTask();
+            this.raiseTask();
+        };
     };
 
     ToDo.prototype.addTask = function(){
@@ -21,10 +24,16 @@ $(document).ready(function(){
             var newTask = __self.inputField.val();    // alternative - document.forms["submitting"].elements["inputField"].value
             var index = __self.length + 1;
             __self.model.push({text: newTask});
+            __self.updateLocalStorage();
             __self.list.append('<tr><td>'+index+'</td><td>'+newTask+'</td><td><input class="up" type="button" data-index="'+index+'" value="&#8593"/></td><td><input class="delete" type="button" data-index="'+index+'" value="x"/></td></tr>');
             __self.length++;
             __self.inputField.val('');
-        });
+            
+        });        
+    };
+    
+    ToDo.prototype.updateLocalStorage = function () {
+        localStorage.setItem('todoList', JSON.stringify(__self.model));
     };
     
     ToDo.prototype.renderModel = function(){
@@ -45,6 +54,7 @@ $(document).ready(function(){
             __self.length--;
             __self.list.html('');
             __self.renderModel();
+            __self.updateLocalStorage();
         });
     };
     
@@ -53,7 +63,7 @@ $(document).ready(function(){
         $('.list').on('click', '.up', function(){
             var index = $(this).data('index') - 1;
             
-            if (index == 0){
+            if (index === 0){
                 alert('Oooops!');
             }
             else{
@@ -62,7 +72,7 @@ $(document).ready(function(){
                 __self.model[index-1] = __self.model[index];
                 delete __self.model[index];
                 __self.model[index] = tempPrevElem;
-
+                __self.updateLocalStorage();
                 __self.list.html('');
                 __self.renderModel();
             }
@@ -71,10 +81,8 @@ $(document).ready(function(){
   
     
     var toDo = new ToDo();  // window.todo = new ToDo(); ????
-//    toDo.init();            // window.todo = new ToDo(); ????
-    toDo.addTask();
-    toDo.removeTask();
-    toDo.raiseTask();
-//    toDo.renderModel();
+    toDo.init();            // window.todo = new ToDo(); ????
     
 });
+
+
