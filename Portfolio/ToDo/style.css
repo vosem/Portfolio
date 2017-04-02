@@ -2,7 +2,6 @@ body{
 	background-image: url(ToDo_background.png);
 	background-repeat: no-repeat;
 }
-
 h1{
     font-family: Helvetica, sans-serif;
     color: lightseagreen;
@@ -11,7 +10,6 @@ h1{
     padding-top: 50px;
     margin: auto;
 }
-
 .adding{
     font-family: Helvetica, sans-serif;
     color: lightseagreen;
@@ -24,7 +22,6 @@ h1{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-
 form{
     font-family: Helvetica, sans-serif;
     color: lightseagreen;
@@ -36,12 +33,10 @@ form{
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
-
 #inputField{
     border: solid 1px lightgrey;
     height: 25px;
 }
-
 #inputButton{
     font-size: 17px;
     font-weight: bold;
@@ -56,14 +51,12 @@ form{
     outline: none;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
 }
-
 #inputButton:active{
     color: lightcyan;
     border: solid 1px lightcyan;
     background-color: lightseagreen;
     box-shadow: none;
 }
-
 table{
     width: 375px;
     margin: auto;
@@ -74,7 +67,6 @@ table{
     font-size: 18px;
     text-align: center;
 }
-
 thead tr th{
     font-family: Helvetica, sans-serif;
     color: lightseagreen;
@@ -83,21 +75,17 @@ thead tr th{
     border-bottom: solid 2px lightseagreen;
     padding-bottom: 10px;
 }
-
 td{
     height: 40px;
 }
-
 thead th:nth-child(2){
     text-align: left;
     padding-left: 10px;
 }
-
 tbody tr td:nth-child(2){
     text-align: left;
     padding-left: 10px;
 }
-
 .up{
     font-size: 20px;
     color: lightseagreen;
@@ -109,14 +97,12 @@ tbody tr td:nth-child(2){
     outline: none;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
 }
-
 .up:active{
     color: lightcyan;
     border: solid 1px lightcyan;
     background-color: lightseagreen;
     box-shadow: none;
 }
-
 .delete{
     font-size: 17px;
     color: lightseagreen;
@@ -128,10 +114,13 @@ tbody tr td:nth-child(2){
     outline: none;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.4);
 }
-
 .delete:active{
     color: lightcyan;
     border: solid 1px lightcyan;
     background-color: lightseagreen;
     box-shadow: none;
+}
+.done{
+    color: grey;
+    text-decoration: line-through;
 }

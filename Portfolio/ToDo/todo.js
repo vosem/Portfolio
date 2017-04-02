@@ -2,8 +2,8 @@ $(document).ready(function(){
 
     function ToDo (){
         this.model = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')):[
-//            {text: 'defaultTask'},
-//            {text: 'secondDefaultTask'},
+//            {text: 'defaultTask', status: 'active'},
+//            {text: 'secondDefaultTask', status: 'done'},
         ];
         
         this.length = this.model.length;
@@ -15,23 +15,10 @@ $(document).ready(function(){
             this.addTask();
             this.removeTask();
             this.raiseTask();
+            this.comleteTask();
         };
     };
 
-    ToDo.prototype.addTask = function(){
-        __self = this;
-        $('#inputButton').on('click', function(){
-            var newTask = __self.inputField.val();    // alternative - document.forms["submitting"].elements["inputField"].value
-            var index = __self.length + 1;
-            __self.model.push({text: newTask});
-            __self.updateLocalStorage();
-            __self.list.append('<tr><td>'+index+'</td><td>'+newTask+'</td><td><input class="up" type="button" data-index="'+index+'" value="&#8593"/></td><td><input class="delete" type="button" data-index="'+index+'" value="x"/></td></tr>');
-            __self.length++;
-            __self.inputField.val('');
-            
-        });        
-    };
-    
     ToDo.prototype.updateLocalStorage = function () {
         localStorage.setItem('todoList', JSON.stringify(__self.model));
     };
@@ -41,9 +28,26 @@ $(document).ready(function(){
         __self = this;
         __self.model.forEach(function(){
             var index = i+1;
-            __self.list.append('<tr><td>'+ index +'</td><td>' +__self.model[i].text+ '</td><td><input class="up" type="button" data-index="'+index+'" value="&#8593"/></td><td><input class="delete" type="button" data-index="'+index+'" value="x"/></td></tr>');
+            __self.list.append('<tr><td class="task" data-index="'+index+'">'+ index +'</td><td class="task"  data-index="'+index+'">' +__self.model[i].text+ '</td><td><input class="up" type="button" data-index="'+index+'" value="&#8593"/></td><td><input class="delete" type="button" data-index="'+index+'" value="x"/></td></tr>');
+            if(__self.model[index-1].status == 'done'){
+                $('td.task[data-index="'+index+'"]').toggleClass('done');
+            }
             i++;
         });
+    };
+    
+    ToDo.prototype.addTask = function(){
+        __self = this;
+        $('#inputButton').on('click', function(){
+            var newTask = __self.inputField.val();    // alternative - document.forms["submitting"].elements["inputField"].value
+            var index = __self.length + 1;
+            __self.model.push({text: newTask, status: 'active'});
+            __self.updateLocalStorage();
+            __self.list.append('<tr><td class="task" data-index="'+index+'">'+index+'</td><td class="task" data-index="'+index+'">'+newTask+'</td><td><input class="up" type="button" data-index="'+index+'" value="&#8593"/></td><td><input class="delete" type="button" data-index="'+index+'" value="x"/></td></tr>');
+            __self.length++;
+            __self.inputField.val('');
+            
+        });        
     };
     
     ToDo.prototype.removeTask = function(){
@@ -68,9 +72,7 @@ $(document).ready(function(){
             }
             else{
                 var tempPrevElem = __self.model[index-1];
-                delete __self.model[index-1];
                 __self.model[index-1] = __self.model[index];
-                delete __self.model[index];
                 __self.model[index] = tempPrevElem;
                 __self.updateLocalStorage();
                 __self.list.html('');
@@ -78,7 +80,20 @@ $(document).ready(function(){
             }
         });
     };
-  
+    
+    ToDo.prototype.comleteTask = function(){
+        __self = this;
+        $('.list').on('click', '.task', function(){
+            var index = $(this).data('index');
+            $('td.task[data-index="'+index+'"]').toggleClass('done');
+            if (__self.model[index-1].status == 'active'){
+                __self.model[index-1].status = 'done';                
+            } else{
+                __self.model[index-1].status = 'active'; 
+            }
+            __self.updateLocalStorage();
+        });
+    };
     
     var toDo = new ToDo();  // window.todo = new ToDo(); ????
     toDo.init();            // window.todo = new ToDo(); ????
