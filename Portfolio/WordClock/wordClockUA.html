@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WordClock</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="wordClock.css" />
+        <style type="text/css">
+            .UA{
+                color: rgb(2, 255, 238);
+                border: solid 1px rgb(2, 255, 238);
+                text-shadow: 0 0 0.2em rgb(2, 255, 238);
+                box-shadow: 0 0 0.2em rgb(2, 255, 238);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="languages">
+            <a href="wordClockEN.html"><p class="lang EN">EN</p></a>
+            <a href="#"><p class="lang UA">UA</p><a>
+        </div>
+        <div class="clockContainer">
+            <section class="hoursContainer">
+                <div class="hour">
+                    <span class="hour">година</span>
+                    <span class="hour">два</span>
+                    <span class="hour">три</span>
+                    <span class="hour">чотири<br/></span>
+                    <span class="hour">п'ять</span>
+                    <span class="hour">шість</span>
+                    <span class="hour">сім</span>
+                    <span class="hour">вісім<br/></span>
+                    <span class="hour">дев'ять</span>
+                    <span class="hour">десять</span>
+                    <span class="hour">одинадцять</span>
+                    <span class="hour">дванадцять</span>
+                </div>
+            </section>
+            
+            <section class="minutesContainer">
+                <div class="tens">
+                    <span class="min">двадцять</span>
+                    <span class="min">тридцять</span>
+                    <span class="min">сорок</span>
+                    <span class="min">п'ятдесят</span>
+                </div>
+                <div class="digits">
+                    <span class="min">рівно</span>
+                    <span class="min">один</span>
+                    <span class="min">два</span>
+                    <span class="min">три</span>
+                    <span class="min">чотири</span>
+                    <span class="min">п'ять<br/></span>
+                    <span class="min">шість</span>
+                    <span class="min">сім</span>
+                    <span class="min">вісім</span>
+                    <span class="min">дев'ять</span>
+                    <span class="min">десять</span>
+                </div>
+                <div class="11_19">
+                    <span class="min">одинадцять</span>
+                    <span class="min">дванадцять<br/></span>
+                    <span class="min">тринадцять</span>
+                    <span class="min">чотирнадцять<br/></span>
+                    <span class="min">п'ятнадцять</span>
+                    <span class="min">шістнадцять</span>
+                    <span class="min">сімнадцять<br/></span>
+                    <span class="min">вісімнадацять</span>
+                    <span class="min">дев'ятнадцять</span>
+                </div>
+            </section>
+<!--            <section class="am_pm">
+                <div class="am_pm">
+                    <span>am</span>
+                    <span>pm</span>
+                </div>
+            </section>-->
+        </div>
+        <div class="cypherClock"></div>
+    </body>
+    <script  type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script  type="text/javascript" src="wordClock.js"></script>
+</html>
+
