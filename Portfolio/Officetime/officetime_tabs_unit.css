@@ -1,0 +1,113 @@
+.tabs_unit{
+    margin: 35px 20px 0 20px;
+    font-family: Arial, sans-serif;
+}
+h2.tabs{
+    margin: 0;
+    font-family: 'Oxygen', sans-serif;
+    color: rgb(34,34,34);
+    padding-bottom: 17px;
+    font-size: 18px;
+    font-weight: normal;
+}
+span.tabs{
+    color: rgb(192,126,0);
+    background: rgb(255,231,181);
+}
+dl{
+    border: solid 1px rgb(229, 229, 229);
+    border-radius: 3px;
+    margin-left: -1px;
+    margin-right: -1px;
+}
+dt.tabs{
+    padding: 15px 10px 10px 10px;
+    background: linear-gradient(to bottom, rgb(253,253,253), rgb(248,248,248));
+    border-bottom: solid 1px rgb(229, 229, 229);
+    border-right: solid 1px rgb(229, 229, 229);
+    display: inline-block;
+    font-size: 14px;
+    margin-left: -4px;
+    cursor: pointer;
+    color: rgb(153, 153, 153);
+}
+dt.one{
+    border-top-left-radius: 3px;
+    margin-left: 0;
+    background: white;
+    border-bottom: solid 1px #fafafa;
+    color: rgb(102, 102, 102);
+}
+
+dd.tabs{
+    height: 193px;
+}
+h3.tabs{
+    padding: 26px 0 8px 20px;
+    color: rgb(51, 51, 51);
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: -1px;
+    border-top: solid 1px rgb(229, 229, 229);
+}
+.tabs_content_container{
+    margin: 0 20px 0 20px;
+    border-top: solid 1px rgb(229, 229, 229);
+}
+ul.tabs_contents{
+    display: inline-block;
+    vertical-align: top;
+    width: 240px;
+    margin: 0 20px 0 0;
+    list-style-type: none;
+    color: rgb(51, 51, 51);
+    font-size: 12px;
+}
+.tabs_contents li{
+    padding-top: 10px;
+}
+.tabs_contents li:before{
+    content: "";
+    background-image: url(tabs_li_style_arrow.png);
+    background-repeat: no-repeat;
+    height: 7px;
+    width: 5px;
+    display: inline-block;
+    padding-left: 10px;
+    margin-left: 10px;
+}
+.tabs article{
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.tabs_item_image{
+    border: solid 3px white;
+    margin-bottom: -3px;
+}
+p.item_image{
+    display: inline-block;    
+    vertical-align: top;
+    border: solid 1px rgb(229, 229, 229);
+}
+div.item_description{
+    margin-left: 8px;
+    display: inline-block;
+    width: 150px;
+    vertical-align: top;
+}
+.item_description h4{
+    color: rgb(51,51,51);
+    font-size: 12px;
+    line-height: 1.7em;
+}
+.item_description p{
+    color: rgb(153,153,153);
+    font-size: 12px;
+    line-height: 1.7em;
+}
+dd.two, dd.three{
+    display: none;
+}

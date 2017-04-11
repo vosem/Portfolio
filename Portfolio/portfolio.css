@@ -185,7 +185,7 @@ h2.portfolio{
 	width: 67%;
 }
 .portfolio_item_container{
-	margin: 30px 10px 0 10px;
+	margin: 30px 10px 30px 10px;
     display: inline-block;
     position: relative;
     width: 330px;
@@ -228,7 +228,6 @@ div.flip{    /* добавляя этот класс, поворачиваем �
 }
 
 .portfolio_item_description{
-
     margin: 15px;
     text-align: center;
     color: #fff;
@@ -237,7 +236,7 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     font-family: 'Raleway', sans-serif;
 	padding-bottom: 15px;
 }
-#landing_item {
+#landing_item, #officetime_item {
     width: 330px;
     height: 260px;
     overflow: auto;

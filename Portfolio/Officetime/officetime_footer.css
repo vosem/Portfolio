@@ -1,0 +1,52 @@
+.footer{
+    border-bottom: 1px solid #ececec;
+    border-radius: 3px;
+    margin-bottom: 1px;
+}
+.footer div.column{
+    width: 180px;
+    display: inline-block;
+    margin: 0 20px 22px 25px;
+    vertical-align: top;
+}
+.footer div.three{
+    width: 460px;
+}
+.footer h3{
+    margin: 20px 0 10px 0;
+    color: rgb(255, 173, 25);
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+}
+.footer ul{
+    color: rgb(102, 102, 102);
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    list-style-type: none;
+}
+.footer p{
+    color: rgb(170, 170, 170);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    padding-top: 5px;
+}
+.footer li{
+    border-bottom: solid 1px rgb(229, 229, 229);
+    padding: 10px 0 6px 0;
+}
+.footer li:last-child{
+    border-bottom: none;
+}
+.footer a{
+        text-decoration: none;
+}
+.footer a:visited, .footer a:link{
+    color: rgb(102, 102, 102);
+}
+.footer div.three li{
+    height: 50px;
+    background: url(footer_li_style_letter.png) no-repeat 3px 10px;
+    padding-left: 35px;
+}

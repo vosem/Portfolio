@@ -1,0 +1,173 @@
+.hero_unit{
+    margin: 60px auto;
+}
+
+div.hero_unit_image:before{
+    content: "";
+    background-color: #f6f6f6;
+    width: 301px;
+    height: 198px;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    z-index: -1;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+}
+
+div.hero_unit_image{
+    vertical-align: top;
+    width: 291px;
+    height: 188px;
+    display: inline-block;
+    margin-left: 75px;
+    border: 5px solid transparent;
+    box-shadow: inset 0 0 5px #000000;
+    position: relative;
+    z-index: 1;
+}
+
+div.hero_unit_image:after{
+    content: "";
+    width: 301px;
+    height: 198px;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    box-shadow: 0 20px 15px -20px rgba(0,0,0,0.8);
+}
+
+.hero_unit_navigation{
+    display: none;
+    list-style-type: none;
+    position: absolute;
+    z-index: 2;
+    margin: -20% 0 0 6px;
+}
+
+div.hero_unit_image:hover .hero_unit_navigation {
+    display: inline-block;
+}
+
+li.hero_unit_before{
+    display: inline-block;
+    width: 32px;
+    height: 37px;
+    border-radius: 3px;
+}
+
+.hero_unit_description {
+    display: inline-block;
+    color: #676767;
+    font-family: 'Arial', sans-serif;
+    font-size: 11px;
+    background-color: rgba(0,0,0,0.5);
+    padding: 8px;
+    width: 190px;
+    height: 33px;
+    border-radius: 3px;
+    vertical-align: top;
+}
+
+.hero_unit_description a{
+    text-decoration: none;
+
+}
+
+span.hero_unit_description1 {
+    color: white;
+    font-size: 13px;
+}
+
+span.hero_unit_description2{
+    color: #ffc14c;
+}
+
+span.hero_unit_description3 {
+    color: #676767;
+}
+
+li.hero_unit_after{
+    display: inline-block;
+    width: 32px;
+    height: 37px;
+    border-radius: 3px;
+}
+
+.hero_unit_offer{
+    vertical-align: top;
+    width: 500px;
+    height: 100%;
+    display: inline-block;
+    text-align: right;
+    padding-right: 65px;
+    margin-left:10px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero_unit_header{
+    padding-top: 10px;
+    color: #515151;
+    font-family: "Oxygen", sans-serif;
+    font-size: 38px;
+    }
+
+p.hero_unit{
+    margin-top: 5px;
+    color: #666666;
+    font-family: "Oxygen", sans-serif;
+    font-size: 14px;
+    padding: 0 0 15px 80px;
+    border-bottom: 1px solid #f6f6f6;
+}
+
+div.hero_unit_button{
+    margin: -10% 0 0 0;
+    width: 165px;
+    padding: 0;
+    float: right;
+}
+button.hero_unit_button{ /*somehow button does not goes up to the the previous paragraph by using margins, had to apply float*/
+    margin-top: 0;
+    display: inline-block;
+    width: 165px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+    color: #d28600;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.5);
+    text-align: left;
+    padding: 7px 30px 7px 7px;
+    background: linear-gradient(to bottom, #fecc68, #feba31);
+    border-radius: 3px;
+    border: 1px solid #efaf3f;
+    outline: none;
+    position: relative;
+    z-index: 1;
+}
+
+.hero_unit_button:first-line{
+    color: white;
+    font-family: "Oxygen", 'Oxygen', sans-serif;
+    font-size: 17px;
+    text-shadow: 0 -2px 1px rgba(210,134,0,0.5);
+}
+
+button.hero_unit_button:after{
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 125px;
+    display: inline-block;
+    background-image: url(Hero_image_button_after.png);
+    height: 32px;
+    width: 39px;
+    z-index: 2;
+}
+
+.hero_unit_button:active {
+    background: linear-gradient(to top, #fecc68, #feba31);
+    border-radius: 3px;
+    border-color: transparent;
+}
+
