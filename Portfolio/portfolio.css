@@ -10,20 +10,20 @@ body{
 .intro_banner{
     text-align: center;
     background-image: url(intro_background.jpg);
-    height: 770px;
+    height: 780px;
     width: 100%;
     margin: 0 auto;
 }
 div.advertisement{
-    color:white;
     text-align: right;
-    font-family: 'Special Elite', cursive;
+    font-family: 'Raleway', sans-serif;
     text-decoration: none;
     margin-top: 20px;
     margin-right: 5px;
 }
 a.advertisement{
     text-decoration: none;
+	color: white;
 }
 a.advertisement:visited{
     color:white;
@@ -182,10 +182,10 @@ h2.portfolio{
 .portfolio_examples{
     text-align: center;
     margin: auto;
-	width: 67%;
+    width: 67%;
 }
 .portfolio_item_container{
-	margin: 30px 10px 30px 10px;
+    margin: 30px 10px 30px 10px;
     display: inline-block;
     position: relative;
     width: 330px;
@@ -260,8 +260,8 @@ div.flip{    /* добавляя этот класс, поворачиваем �
 
 /*SKILLS*/
 .skills_container{
-	position: relative;
-    height: 770px;
+    position: relative;
+    height: 780px;
     width: 100%;
     font-family: 'Raleway', sans-serif;
     color: white;
@@ -480,7 +480,7 @@ div.enlarge::before{
 /*CONTACTS*/
 .contacts_container{
     position: relative;
-    height: 770px;
+    height: 780px;
     width: 100%;
     background-image: url(contacts.png);
     font-family: 'Special Elite', cursive;

@@ -20,6 +20,9 @@ div.news_item_container{
     background:	linear-gradient(rgb(240, 240, 240) 96%, transparent 4%),
 		linear-gradient(-45deg, white 33%, transparent 33%) 0 100%,
 		linear-gradient(45deg, transparent 33%, rgb(240, 240, 240) 33%) 0 100%;
+/*    background:	-moz-linear-gradient(rgb(240, 240, 240) 96%, transparent 4%),       doesn't work!!!!!
+		-moz-linear-gradient(-45deg, white 33%, transparent 33%) 0 100%,
+		-moz-linear-gradient(45deg, transparent 33%, rgb(240, 240, 240) 33%) 0 100%;*/
     background-repeat: repeat-x;
     background-size: 1px 100%, 10px 10px, 10px 10px;
 }
@@ -60,3 +63,86 @@ p.news_item_content{
     background-color: white;
     margin: -4px 1px 0 1px;
 }*/
+
+/*ICONS*/
+.news_item_image_container{
+    position: relative;
+}
+.news_item_container:hover .news_item_image_container:after{
+    content: "";
+    position: absolute;
+    left: 3.5px;
+    top: 3.5px;
+    width: 294px;
+    height: 141px;
+    background: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.5));
+    z-index: 1;
+}
+.news_item_container:hover .news_item_image_container p.download{
+    position: absolute;
+    left: 27%;
+    top: 40%;
+    width: 27px;
+    height: 27px;
+    background: linear-gradient(to bottom, white, #d9d9d9);
+    border-radius: 50%;
+    box-shadow: inset 0 -1px 2px black,
+                0 0 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+}
+.news_item_container:hover .news_item_image_container p.download:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    background: url(News_unit_icons_sprite.png) no-repeat -8px -6px;
+}
+.news_item_container:hover .news_item_image_container p.enlarge{
+    position: absolute;
+    left: 42%;
+    top: 33%;
+    width: 47px;
+    height: 47px;
+    background: linear-gradient(to bottom, white, #d9d9d9);
+    border-radius: 50%;
+    box-shadow: inset 0 -1px 2px black,
+                0 0 0 8px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+}
+.news_item_container:hover .news_item_image_container p.enlarge:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 46px;
+    height: 46px;
+    background: url(News_unit_icons_sprite.png) no-repeat -50px 2px;
+}
+.news_item_container:hover .news_item_image_container p.open{
+    position: absolute;
+    left: 63%;
+    top: 40%;
+    width: 27px;
+    height: 27px;
+    background: linear-gradient(to bottom, white, #d9d9d9);
+    border-radius: 50%;
+    box-shadow: inset 0 -1px 2px black,
+                0 0 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+}
+.news_item_container:hover .news_item_image_container p.open:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    background: url(News_unit_icons_sprite.png) no-repeat -8px -6px;
+}
+.news_item_container:hover .news_item_image_container p:active{
+    background: linear-gradient(to top, white, #d9d9d9);
+    box-shadow: inset 0 1px 2px black,
+                0 0 0 4px rgba(0, 0, 0, 0.3);
+}

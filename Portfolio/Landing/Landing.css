@@ -549,111 +549,86 @@
 	bottom: 0;
 }
 
-
 .testimonials {
-	min-width: 1023px;
-	height: 315px;	
-	background-image: url(Background.jpg);
-	background-size: 100%;
-	margin: 0 auto;
-	color: #3170a8;
-	font-family: Trebuchet MS, serif;
-	font-size: 40px;
-	text-align: center;
-	padding-top: 58px;
-	text-transform: uppercase;
-	position: relative;
+    min-height: 280px;
+    height: 100%;
+    background-image: url(Background.jpg);
+    background-size: 100%;
+    margin: 0 auto;
+    color: #3170a8;
+    font-family: Trebuchet MS, serif;
+    font-size: 40px;
+    text-align: center;
+    padding-top: 58px;
+    text-transform: uppercase;
 }
-
 .testi_header_first_word {
-	color: #ee8129;
+    color: #ee8129;
 }
-
 .testi_line {
-	display: block;
-	width: 1023px;
-	height: 100px;
-	text-align: center;
-	position: absolute;
-	left: 190px;
-	top: 155px;
-	right: 190px;
-	bottom: 0;
+    margin: 50px auto 20px auto;
+    display: block;
+    min-height: 100px;
+    height: 100%;
+    text-align: center;
 }
-
-.testi_item1 {
-	display: inline-block;
-	width: 485px;
-	height: 98px;
+.testi_item1, .testi_item2 {
+    display: inline-block;
+    width: 485px;
+    height: 98px;
+    margin: 0 10px 10px 10px;
 }
-
 .photo {
-	display: inline-block;
-	width: 96px;
-	height: 96px;
+    display: inline-block;
+    width: 96px;
+    height: 96px;
 }
-
 .testi_container {
-	display: inline-block;
-	width: 360px;
-	height: 96px;
-	margin-left: 16px;
-	background-color: white;
-	vertical-align: top;
+    display: inline-block;
+    width: 360px;
+    height: 96px;
+    margin-left: 16px;
+    background-color: white;
+    vertical-align: top;
 }
-
 .testi_container::before {
-	content:  url(Triangle.png);
-	-width: 17px;
-	height: 25px;
-	float: left;
-	margin: 25px 0 0 -15px;
+    content:  url(Triangle.png);
+    height: 25px;
+    float: left;
+    margin: 25px 0 0 -15px;
 }
-
 .testi_header {
-	width: 332px;
-	height: 40px;
-	background-color: white;
-	color: #3070a8;
-	font-family: Trebuchet MS;
-	font-size: 13px;
-	font-style: italic;
-	border-bottom-style: dotted;
-	border-bottom-color: #666666;
-	border-bottom-width: 1px;
-	margin-left: 14px;
-	margin-right: 14px;
-	}
-
+    width: 332px;
+    height: 40px;
+    background-color: white;
+    color: #3070a8;
+    font-family: Trebuchet MS;
+    font-size: 13px;
+    font-style: italic;
+    border-bottom-style: dotted;
+    border-bottom-color: #666666;
+    border-bottom-width: 1px;
+    margin-left: 14px;
+    margin-right: 14px;
+}
 .testi_name {
-	float: left;
-	margin: 14px 0 0 0;
+    float: left;
+    margin: 14px 0 0 0;
 }
-
 .testi_name::before {
-	content: "-";
-	padding-right: 10px;
+    content: "-";
+    padding-right: 10px;
 }
-
 .testi_status {
-	float: right;
-	margin: 14px 16px 0 0;
+    float: right;
+    margin: 14px 16px 0 0;
 }
-
 .testi_itself {
-	width: 332px;
-	height: 58px;
-	color: #666666;
-	font-family: Trebuchet MS;
-	font-size: 13px;
-	text-align: left;
-	padding: 14px 16px 0 16px;
-
-}
-
-.testi_item2 {
-	margin-left: 40px;	
-	display: inline-block;
-	width: 485px;
-	height: 98px;
+    width: 332px;
+    height: 58px;
+    color: #666666;
+    font-family: Trebuchet MS;
+    font-size: 13px;
+    text-align: left;
+    padding: 14px 16px 0 16px;
 }

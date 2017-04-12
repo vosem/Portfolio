@@ -11,8 +11,13 @@ $(document).ready(function(){
 
     var h = $(window).height();
     $(window).scroll(function() {
-        if (($(this).scrollTop() + h) >= $("div.portfolio_item").offset().top) {
-            $('div.portfolio_item').addClass('flip');
+        var portfolioItemsArray = document.querySelectorAll('div.portfolio_item');
+        for(var i = 0; i < portfolioItemsArray.length; i++){
+            console.log(portfolioItemsArray[i].offsetTop);
+            if (($(this).scrollTop() + h) >= portfolioItemsArray[i].offsetTop) {
+                console.log(portfolioItemsArray[i].offsetTop);
+                portfolioItemsArray[i].classList.add('flip');
+            }
         }
         if (($(this).scrollTop() + h) >= $("li.skills_item").offset().top) {
             $('li.skills_item').addClass('anim');
