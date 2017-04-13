@@ -1,7 +1,6 @@
 .contacts {
     height: 345px;
-    -width: 100%;
-    min-width: 670px;
+    min-width: 1023px;
     margin: 0 auto 0 auto;
     text-align: right;
 }
@@ -53,7 +52,6 @@ div.contact_details_email {
     height: 105px;
     min-height: 105px;
     min-width: 1023px;
-    width: 100%;
     background-color: #3070a8;
     margin: 0 auto;
     text-align: center;
