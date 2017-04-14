@@ -2,17 +2,15 @@ body{
     margin: 0;
     padding: 0;
 }
-/*.intro{
-    position: relative;
-    margin-top: -20px;
-    z-index: 0;
-}*/
+/* INTRO */
+
 .intro_banner{
     text-align: center;
     background-image: url(intro_background.jpg);
     background-size: cover;
     height: 100vh;
     width: 100%;
+    -min-width: 380px;
     margin: 0 auto;
 }
 /*div.advertisement{
@@ -33,16 +31,13 @@ a.advertisement:hover{
     text-decoration: underline;
 }*/
 .intro_nav{
-    /*position: absolute;
-    top: 12%;
-    left: 8%;*/
-	margin: 0 0 0 10%;
-	padding-top: 8%;
-	text-align: left;
+    margin: 0 0 0 10vw;
+    padding-top: 14vh;
+    text-align: left;
 }
 .intro_nav_item{
     color: #303030;
-    font-size: 2rem;
+    font-size: 4vh;
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
     padding: 10px;
@@ -57,9 +52,9 @@ a.advertisement:hover{
 }
 h1{
     color: #303030;
-    font-size: 3rem;
+    font-size: 6vh;
     font-family: 'Raleway', sans-serif;
-    margin: 8% auto 0 auto;
+    margin: 14vh auto 0 auto;
     opacity: 0;
     animation: 1s linear;
 }
@@ -69,9 +64,8 @@ h1.zoomIn {
     animation-fill-mode: forwards;
 }
 .speciality{
-    line-height: 2;
+    margin-top: 2vh;
 }
-
 /*ZOOM-IN*/
 @-webkit-keyframes zoomIn {
     from {
@@ -91,16 +85,17 @@ h1.zoomIn {
         opacity: 1;
     }
 }
-
 .my_photo{
     position: relative;
     -opacity: .99;
-    margin-top: -4%;
+    margin-top: -7vh;
     margin-left: 5%;
     text-align: left;
-    width: 22vw;
-    height: 22vw;
-    -border: solid 15px #afb3b4;
+    width: 23.5vw;
+    min-width: calc(150px + 1.5vw);
+    height: 23.5vw;
+    min-height: calc(150px + 1.5vw);
+    -border: solid 2vh red;
     -border-radius: 50%;
     -border: solid 1px red;
     -box-shadow: inset 0 0 15px rgba(0, 0, 0, 1),
@@ -110,20 +105,20 @@ h1.zoomIn {
 .my_photo_image{
     position: relative;
     width: 22vw;
+    -min-width: 150px;
     height: 22vw;
-    border: solid 15px #afb3b4;
+    -min-height: 150px;
+    border: solid 1.5vw #afb3b4;
     box-shadow: 0 0 20px rgba(0,0,0,1);
     border-radius: 50%;
     z-index: 2;         /* It does not work!!!!*/
 }
 p.go_from_intro{
-    margin: -7% auto 5% auto;
-    width: 75px;
-    /*position: absolute;*/
-    /*top: 73%;*/
-    /*left: 45%;*/
+    margin: -15vh auto 2vw auto;
 }
 img.go{
+    width: 5vw;
+    min-width: 30px;
     animation-iteration-count: infinite;
     animation-duration: 1.0s;
     animation-direction: alternate;
@@ -154,35 +149,42 @@ img.go{
 
 
 /*PORTFOLIO*/
-
+.portfolio_container{
+    background-image: url(belyy-kirpich-stena-iz-kirpicha.jpg);
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+}
+div.portfolio{
+    background: url(potfolio_inner_backround.png) repeat-y;
+    background-size: 100%;
+    height: 100%;
+    width: 90%;
+    margin: 0 auto 0 auto;
+}
 h2.portfolio{
     margin: 0;
     text-align: center;
     color: #fff;
     text-shadow: 0 0 10px rgba(92, 46, 0, 0.78);
-    font-size: 2.5rem;
+    font-size: 6vh;
     font-family: 'Raleway', sans-serif;
     padding-top: 50px;
-    -padding-bottom: 30px;
-}
-.portfolio_container{
-    -position: relative;
-    background-image: url(potfolio_backround.png);
-    background-size: 100%;
-    height: 100%;
-    width: 100%;
+    padding-bottom: 3vw;
 }
 .portfolio_examples{
     text-align: center;
     margin: auto;
-    width: 67%;
+    width: 85%;
 }
 .portfolio_item_container{
-    margin: 30px 10px 30px 10px;
+    margin: 30px 3vw 30px 3vw;
     display: inline-block;
     position: relative;
-    width: 330px;
-    height: 290px;
+    width: 23vw;
+    height: 23vw;
+    min-width: 250px;
+    min-height: 250px;
     vertical-align: top;
     /* задаем глубину сцене */
     -webkit-perspective: 600px; /* webkit */
@@ -193,11 +195,11 @@ h2.portfolio{
 }
 div.portfolio_item{
 /* поворачивать будем общий контейнер */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     position: absolute;
+    top: 0;
+    left:5%;
+    width: 90%;
+    height: 90%;
     transform: rotateX( 90deg );
     /* трансформации будут происходить анимированно продолжительностью 2 сек */
     -webkit-transition: -webkit-transform 2s;
@@ -219,36 +221,45 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     -o-transform: rotateX( 360deg );
     transform: rotateX( 360deg );
 }
-
+.portfolio_item img{
+    width: 100%;
+    height: 100%;
+}
 .portfolio_item_description{
     margin: 15px;
     text-align: center;
     color: #fff;
     text-shadow: 0 0 10px rgba(92, 46, 0, 0.78);
-    font-size: 1.2rem;
+    font-size: 4vh;
     font-family: 'Raleway', sans-serif;
-	padding-bottom: 15px;
+    padding-bottom: 15px;
 }
-#landing_item, #officetime_item {
-    width: 330px;
-    height: 260px;
+#landing_item, #officetime_item{
+    width: 100%;
+    height: 100%;
     overflow: auto;
+}
+#landing_item img, #officetime_item img{
+    width: 100%;
+    height: auto;
 }
 .portfolio_footer{
     color: white;
     text-shadow: 0 0 10px rgba(92, 46, 0, 0.78);
-    font-size: 1.8rem;
+    font-size: 3vh;
     margin-top: 40px;
     text-align: center;
     font-family: 'Raleway', sans-serif;
-
 }
 .go_from_portfolio{
     text-align: center;
 }
 .go_up, .go_down{
     display: inline-block;
-    width: 75px;
+    width: 5vw;
+    min-width: 60px;
+    max-width: 75px;
+    margin: 0 0.1vw 0 0.1vw;
 }
 
 /*SKILLS*/
@@ -464,6 +475,7 @@ div.enlarge::before{
     animation: 1s linear;
     -webkit-animation-name: appearance;
     animation-name: appearance;
+    z-index: 1;
 }
 .go_from_skills{
     padding-top: 50px;
@@ -510,7 +522,7 @@ div.enlarge::before{
         opacity: 0;
         -webkit-transform: translate3d(0, -100%, 0);
         transform: translate3d(0, -100%, 0);
-    }
+}
 
     to {
         opacity: 1;
@@ -529,8 +541,96 @@ div.enlarge::before{
     top: 300px;
     left: 47%;
 }
-@media screen and (orientation: portrait){
+
+/******************MEDIA**********************/
+@media screen and (orientation: portrait), all and (max-aspect-ratio: 4/3){
+    .intro_nav{
+        margin: 0 auto 0 auto;
+        padding-top: 12vh;
+        text-align: center;
+    }
+    h1{
+        font-size: 7vw;
+        margin: 12vh auto 0 auto;
+    }
+    .my_photo{
+        margin: 5vh auto 0 auto;
+        width: 23.5vh;
+        min-width: 23.5vh;
+        height: 23.5vh;
+        min-height: 23.5vh;
+    }
+    .my_photo_image{
+        width: 23.5vh;
+        min-width: 23.5vh;
+        height: 23.5vh;
+        min-height: 23.5vh;
+    }
+    p.go_from_intro{
+        margin: 6vh auto 3vh auto;
+    }
+    img.go{
+        width: 10vh;
+        min-width: 10vh;
+    }
+    
+    .portfolio_item_container{
+        margin: 30px auto 30px auto;
+        width: 40vh;
+        height: 40vh;
+        min-width: 40vh;
+        min-height: 40vh;
+    }
+    .portfolio_item_description{
+        font-size: 3vh;
+    }
+    .go_up, .go_down{
+        display: inline-block;
+        width: 5vw;
+        min-width: 60px;
+        margin: 0 0.1vh 0 0.1vh;
+    }
+    .portfolio_footer{
+        margin-top: 5vh;
+    }
+}
+@media screen and (orientation: landscape) and (min-aspect-ratio: 21/10){
     .intro_banner{
-        height: 100%;
+        height: 100vh;
+    }
+    .intro_nav_item{
+        font-size: 3vw;
+    }
+    h1{
+        font-size: 3vw;
+        font-family: 'Raleway', sans-serif;
+        margin: 10vh auto 0 auto;
+    }
+    .my_photo{
+        margin: -13vw 0 0 6vh;
+        width: 21.5vw;
+        min-width: 21.5vw;
+        height: 21.5vw;
+        min-height: 21.5vw;
+    }
+    .my_photo_image{
+        width: 20vw;
+        min-width: 20vw;
+        height: 20vw;
+        min-height: 20vw;
+    }
+    p.go_from_intro{
+        margin: -5vw auto 2vw auto;
+    }
+    img.go{
+        width: 5vh;
+    }
+    
+    .portfolio_item_description{
+        font-size: 3vw;
+        padding-bottom: 2vh;
+    }
+    .portfolio_footer{
+        font-size: 2vw;
     }
 }

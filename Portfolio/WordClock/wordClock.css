@@ -1,42 +1,55 @@
 body{
     background-color: rgb(45, 45, 45);
 }
-
 .lang{
     display: inline-block;
     color: black;
     font-family: Helvetica, sans-serif;
-    font-size: 25px;
-    margin: 40px 5px 0 5px;
+    font-size: 2vw;
+    margin: 4vw 5px 0 5px;
     padding: 5px 10px 5px 10px;
     border: solid 1px black;
     border-radius: 5px;
 }
-
 .clockContainer, .cypherClock{
     color: black;
-    margin: 50px auto 0 auto;
+    margin: 3vw auto 0 auto;
     font-family: Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 3vw;
 }
-
 .cypherClock{
-    margin: 50px auto 0 auto;
+    margin: 3vw auto 0 auto;
     font-weight: normal;
-    font-size: 35px;
+    font-size: 3vw;
 }
-
 div{
     margin: 0;
     text-align: center;
 }
-
 span.min, div.am_pm{
         font-weight: normal;
 }
 
-@media screen and (orientation: landscape) {
-    .clockContainer{font-size: 3px;} 
-    .cypherClock{font-size: 2em;}
+@media all and (orientation: portrait), all and (max-aspect-ratio: 4/3){
+    .lang{
+        font-size: 3vh;
+        margin: 5vh 5px 0 5px;
+    }
+    .clockContainer, .cypherClock{
+        margin-top: 7vw;
+        font-size: 4.5vh;
+    }
+    div.UAclockContainer {
+        margin-top: 6vw;
+        font-size: 4vh;
+    }
+    .cypherClock{
+        margin-top: 7vw;
+        font-size: 4vh;
+    }
+    .UAcypherClock{
+        margin-top: 5vw;
+        font-size: 3vh;
+    }
 }
