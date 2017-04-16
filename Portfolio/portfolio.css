@@ -2,8 +2,7 @@ body{
     margin: 0;
     padding: 0;
 }
-/* INTRO */
-
+/******************INTRO**********************/
 .intro_banner{
     text-align: center;
     background-image: url(intro_background.jpg);
@@ -11,7 +10,7 @@ body{
     height: 100vh;
     width: 100%;
     -min-width: 380px;
-    margin: 0 auto;
+    margin: 0 auto 0 auto;
 }
 /*div.advertisement{
     text-align: right;
@@ -115,10 +114,12 @@ h1.zoomIn {
 }
 p.go_from_intro{
     margin: -15vh auto 2vw auto;
+    text-align: center;
 }
 img.go{
     width: 5vw;
-    min-width: 30px;
+    min-width: 60px;
+    max-width: 75px;
     animation-iteration-count: infinite;
     animation-duration: 1.0s;
     animation-direction: alternate;
@@ -148,7 +149,7 @@ img.go{
 }
 
 
-/*PORTFOLIO*/
+/******************PORTFOLIO**********************/
 .portfolio_container{
     background-image: url(belyy-kirpich-stena-iz-kirpicha.jpg);
     background-size: 100%;
@@ -159,7 +160,7 @@ div.portfolio{
     background: url(potfolio_inner_backround.png) repeat-y;
     background-size: 100%;
     height: 100%;
-    width: 90%;
+    width: 85%;
     margin: 0 auto 0 auto;
 }
 h2.portfolio{
@@ -230,7 +231,7 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     text-align: center;
     color: #fff;
     text-shadow: 0 0 10px rgba(92, 46, 0, 0.78);
-    font-size: 4vh;
+    font-size: 3vh;
     font-family: 'Raleway', sans-serif;
     padding-bottom: 15px;
 }
@@ -259,18 +260,17 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     width: 5vw;
     min-width: 60px;
     max-width: 75px;
-    margin: 0 0.1vw 0 0.1vw;
+    margin: 0 0.1vw 2vw 0.1vw;
 }
 
-/*SKILLS*/
+/******************SKILLS**********************/
 .skills_container{
     position: relative;
-    height: 780px;
+    height: 100vh;
     width: 100%;
     font-family: 'Raleway', sans-serif;
     color: white;
 }
-
 /*SKILLS SLIDES*/
 .skills_slides{
     list-style:none;
@@ -334,7 +334,6 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     43% {opacity:0;}
     100% {opacity:0;}
 }
-
 /*APPEARANCE*/
 @-webkit-keyframes appearance {
     from {
@@ -344,7 +343,6 @@ div.flip{    /* добавляя этот класс, поворачиваем �
         opacity: 1;
     }
 }
-
 @keyframes appearance {
     from {
         opacity: 0;
@@ -357,9 +355,9 @@ div.flip{    /* добавляя этот класс, поворачиваем �
 h2.skills_header{
     text-align: center;
     margin: auto;
-    padding: 100px 0 60px 0;
+    padding: 5vw 0 2vw 0;
     text-shadow: 0 0 10px rgba(78, 142, 198, 0.78);
-    font-size: 2.5rem;
+    font-size: 6vh;
 }
 div.skills{
     text-align: center;
@@ -370,10 +368,9 @@ div.skills{
     vertical-align: middle;
     text-align: left;
 }
-
 li.skills_item {
     list-style-type: none;
-    font-size: 1.8rem;
+    font-size: 4vh;
     text-shadow: 0 0 10px rgba(62, 97, 198, 0.78);
     font-weight: bold;
     line-height: 1.5;
@@ -427,17 +424,15 @@ li.anim:nth-child(6){
 div.about_skills{
     display: inline-block;
     vertical-align: middle;
-    margin-left: 12%;
+    margin-left: 9vw;
     text-align: left;
-    font-size: 1.6rem;
-    width: 35%;
+    font-size: 4vh;
+    width: 40vw;
     text-shadow: 0 0 10px rgba(62, 97, 198, 0.78);
     font-weight: bold;
-    /*border: solid 1px white;*/
     line-height: 1.5;
     opacity: 0;
     animation: 1s linear;
-
 }
 div.zoomIn{
     animation: 1s linear;
@@ -449,11 +444,12 @@ div.zoomIn{
 div.diploma{
     display: inline-block;
     vertical-align: middle;
-    margin-left: 12%;
+    margin-left: 10vw;
 }
 img.diploma{
-    width: 200px;
-    height: 150px;
+    width: 14vw;
+/*    min-width: 200px;
+    min-height: 150px;*/
     filter: opacity(0.5);
     border: solid 2px white;
 }
@@ -462,40 +458,44 @@ img.diploma:hover{
 }
 div.enlarge::before{
     content: '';
-    display: inline-block;
     position: fixed;
-    -margin-top: 3%;
-    top: 50%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-image: url(diploma.jpg);
     background-size: 100%;
-    width: 1000px;
-    height: 688px;
+    background-repeat: no-repeat;
+/*    width: 1000px;
+    height: 688px;*/
+    width: 75vw;
+    height: 100%;
     animation: 1s linear;
     -webkit-animation-name: appearance;
     animation-name: appearance;
     z-index: 1;
 }
 .go_from_skills{
-    padding-top: 50px;
+    padding: 5vh 0 2vw 0;
 }
 
 
-/*CONTACTS*/
+/******************CONTACTS**********************/
 .contacts_container{
     position: relative;
-    height: 780px;
+    height: 100vh;
     width: 100%;
     background-image: url(contacts.png);
     font-family: 'Special Elite', cursive;
     text-align: center;
-    font-size: 30px;
-    margin-top: 0;
+    font-size: 4vh;
+    -margin-top: 0;
+    line-height: 1.8;
 }
 .contacts{
-    margin: 13% auto 0 auto;
-    width: 650px;
+    margin: 21vh auto 0 auto;
+}
+.contacts p{
+    margin: 0;
 }
 .email{
     text-decoration: none;
@@ -523,7 +523,6 @@ div.enlarge::before{
         -webkit-transform: translate3d(0, -100%, 0);
         transform: translate3d(0, -100%, 0);
 }
-
     to {
         opacity: 1;
         -webkit-transform: none;
@@ -535,11 +534,7 @@ div.enlarge::before{
     animation-name: fadeIn;
 }
 .go_from_contacts{
-    text-align: center;
-    padding-top: 20%;
-    position: absolute;
-    top: 300px;
-    left: 47%;
+    margin: 12vh auto 2vh auto;
 }
 
 /******************MEDIA**********************/
@@ -570,12 +565,12 @@ div.enlarge::before{
         margin: 6vh auto 3vh auto;
     }
     img.go{
-        width: 10vh;
-        min-width: 10vh;
+        width: 9vh;
+        min-width: 50px;
     }
     
     .portfolio_item_container{
-        margin: 30px auto 30px auto;
+        margin: 5vh auto 5vh auto;
         width: 40vh;
         height: 40vh;
         min-width: 40vh;
@@ -583,15 +578,43 @@ div.enlarge::before{
     }
     .portfolio_item_description{
         font-size: 3vh;
+        margin: 2vh 15px 2vh 15px;
     }
     .go_up, .go_down{
-        display: inline-block;
-        width: 5vw;
-        min-width: 60px;
-        margin: 0 0.1vh 0 0.1vh;
+        margin: 0 0.5vh 0 0.5vh;
     }
     .portfolio_footer{
         margin-top: 5vh;
+    }
+    
+    h2.skills_header{
+        font-size: 5vh;
+        padding: 5vw 0 1vw 0;
+    }
+    .skills_list{
+        display: none;
+    }
+    div.about_skills{
+        display: block;
+        text-align: center;
+        margin: 1vh auto 0 auto;
+        font-size: 3vh;
+        width: 85%;
+    }
+    div.diploma{
+        display: block;
+        margin: 5vw auto 0 auto;
+    }
+    img.diploma{
+        width: 25vh;
+    }
+    div.enlarge::before{
+    top: 30%;
+    transform: translate(-50%, 0);
+    width: 100vw;
+}
+    .go_from_skills{
+        padding: 3vh 0 2vw 0;
     }
 }
 @media screen and (orientation: landscape) and (min-aspect-ratio: 21/10){
@@ -623,14 +646,23 @@ div.enlarge::before{
         margin: -5vw auto 2vw auto;
     }
     img.go{
-        width: 5vh;
+        width: 5vw;
     }
     
+    .portfolio_item_container{
+        margin: 5vh auto 10vh auto;
+    }
     .portfolio_item_description{
-        font-size: 3vw;
+        font-size: 5vh;
         padding-bottom: 2vh;
     }
     .portfolio_footer{
         font-size: 2vw;
+    }
+ 
+    .contacts_container{
+        font-size: 7vh;
+        line-height: 1.2;
+        height: 110vh;
     }
 }

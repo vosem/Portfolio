@@ -47,6 +47,8 @@ div.photo{
 .photo:hover:before{ /*first variant with before - displays ok;*/
     content: '';
     position: absolute;
+    top: 0;
+    left: 0;
     background: rgba(58,175,248, 0.7);
     width: 360px;
     height: 260px;
