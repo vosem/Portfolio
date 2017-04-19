@@ -1,58 +1,56 @@
 .services_block {
-	min-width: 1023px;
-	height: 565px;
-	background-color: white;
-	margin: 0 auto;
-	text-align: center;
-	padding: 0;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
 }
-
+.services_block_container {
+    width: 100%;
+    min-width: 1023px;
+    height: 565px;
+    margin: 0 auto;
+}
 h2.services_block {
-	width: 800px;
-	height: 100px;
-	background-color: white;
-	margin: 0 auto;
-	padding-top: 65px;
-	padding-bottom: 0;
-	font-family: Trebuchet MS, sans-serif;
-	font-weight: bold;
-	font-size: 30px;
-	color: #41525c;
-	text-transform: uppercase;
+    width: 800px;
+    height: 100px;
+    background-color: white;
+    margin: 0 auto;
+    padding-top: 65px;
+    padding-bottom: 0;
+    font-family: Trebuchet MS, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: #41525c;
+    text-transform: uppercase;
 }
-
 .services_line {
-	display: inline-block;
-	background-color: white;
-	height: 335px;
-	min-width: 1023px;
-	margin: 0;
+    display: inline-block;
+    background-color: white;
+    height: 335px;
+    min-width: 1023px;
+    margin: 0;
 
 }
-
 div[class*="service_item"] {
-	display: inline-block;
-	margin: 0;
-	background-color: white;
-	height: 335px;
-	width: 305px;
+    display: inline-block;
+    margin: 0;
+    background-color: white;
+    height: 335px;
+    width: 305px;
 }
-
 h3.service_item {
-	font-family: FuturaBT Book, sans-serif;
-	font-size: 30px;
-	color: #3070a8;
-	text-transform: uppercase;
-	font-weight: 100;
+    font-family: FuturaBT Book, sans-serif;
+    font-size: 30px;
+    color: #3070a8;
+    text-transform: uppercase;
+    font-weight: 100;
 }
-
 p.service_item {
-	font-family: OpenSans, sans-serif;
-	font-size: 14px;
-	color: #999999;
-	font-weight: 100;
+    font-family: OpenSans, sans-serif;
+    font-size: 14px;
+    color: #999999;
+    font-weight: 100;
 }
-
 div.service_item2 {
-	margin: 0 50px;
+    margin: 0 50px;
 }

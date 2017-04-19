@@ -1,8 +1,13 @@
 .contacts {
-    height: 345px;
-    min-width: 1023px;
-    margin: 0 auto 0 auto;
+    width: 100%;
+    margin: 0 auto;
     text-align: right;
+}
+.contacts_container{
+    height: 345px;
+    width: 100%;
+    min-width: 1023px;
+    margin: 0 auto;
 }
 .contact_details {
     display: inline-block;
@@ -49,30 +54,24 @@ div.contact_details_email {
 }
 
 .footer {
-    height: 105px;
-    min-height: 105px;
-    min-width: 1023px;
-    background-color: #3070a8;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
-    padding: 40px 0 0 0;
     color: white;
     font-family: OpenSans, sans-serif;
     font-size: 14px;
     text-transform: none;
 }
-
 .footer_container {
     height: 105px;
-    width: 1023px;
+    min-width: 1023px;
     margin: 0 auto;
-    text-align: middle;
+    background-color: #3070a8;
+    padding: 40px 0 0 0;
 }
-
 .footer span {
     font-weight: 700;
 }
-
 .footer a {
     color: #1d1c1c;
     font-weight: 900;

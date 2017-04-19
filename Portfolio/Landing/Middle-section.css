@@ -1,56 +1,51 @@
 div.middle-section {
-	min-height: 580px;
-    min-width: 1023px;
-	background-image: url(Background_middle_section.jpg);
-	background-size: cover;
-	margin: 0 auto;
-	text-align:center;
-	padding: 0 0 20px 10px;
+    width: 100%;
+    margin: 0 auto;
 }
-
 div.middle-section_container {
-	margin: 0 auto;
-	text-align: middle;
+    margin: 0 auto;
+    height: 580px;
+    background-image: url(Background_middle_section.jpg);
+    background-size: cover;
+    padding: 0 0 20px 0;
+    width: 100%;
+    min-width: 1023px;
 }
-
 h2.middle-section {
-	padding: 80px 0 0 0;
-	margin: 0 auto;
-	color: #ee8129;
-	font-family: FuturaBT Book, sans-serif;
-	font-size: 26px;
-	font-weight: 100;
-	text-align: left;
-	text-transform: uppercase;
-	line-height: 2;
+    padding: 80px 263px 0 10px;
+    width: 700px;
+    color: #ee8129;
+    font-family: FuturaBT Book, sans-serif;
+    font-size: 24px;
+    font-weight: 100;
+    text-align: left;
+    text-transform: uppercase;
+    line-height: 1.2;
 }
-
 p.middle-section {
-	padding: 10px 0 0 0;
-	margin: 0 auto;
-	color: white;
-	font-family: OpenSans, sans-serif;
-	font-size: 19px;
-	font-weight: 400;
-	text-align: left;
-	font-style: italic;
+    padding: 10px 0 0 10px;
+    width: 100%;
+    color: white;
+    font-family: OpenSans, sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    text-align: left;
+    font-style: italic;
 }
 ul.middle-section {
-	max-width: 680px;
-	padding: 25px 0 0 25px;
-	color: #9d9d9d;
-	font-family: OpenSans, sans-serif;
-	font-size: 14px;
-	font-weight: 400;
-	text-align: left;
-	line-height: 2;
+    width: 700px;
+    padding: 25px 0 0 35px;
+    color: #9d9d9d;
+    font-family: OpenSans, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: left;
+    line-height: 2;
 }
-
 li.middle-section {
-	padding: 10px 0 0 0;
-	margin: 0 auto;
+    padding: 10px 0 0 0;
+    margin: 0 auto;
 }
-
 li.middle-section:hover {
-	color: #3070a8;
+    color: #3070a8;
 }
