@@ -1,5 +1,5 @@
 body{
-    margin: 0;
+    margin: -20px 0 0 0;
     padding: 0;
 }
 /******************INTRO**********************/
@@ -10,29 +10,38 @@ body{
     height: 100vh;
     width: 100%;
     -min-width: 380px;
-    margin: 0 auto 0 auto;
+    margin: -20px auto 0 auto;
 }
-/*div.advertisement{
+div.advertisement{
     text-align: right;
     font-family: 'Raleway', sans-serif;
     text-decoration: none;
     margin-top: 20px;
     margin-right: 5px;
+    position: relative;
+    z-index: 1;
 }
 a.advertisement{
     text-decoration: none;
-	color: white;
+    color: #d4dbe1;
+    font-size: 1.4vw;
 }
 a.advertisement:visited{
-    color:white;
+    color:#d4dbe1;
 }
 a.advertisement:hover{
     text-decoration: underline;
-}*/
+}
 .intro_nav{
-    margin: 0 0 0 10vw;
+    margin: 0 0 0 -10vw;
     padding-top: 14vh;
     text-align: left;
+    opacity: 0;
+    transition: margin-left 1.3s, opacity 1.3s 0.3s;
+}
+.appear_left_to_right{
+    margin-left: 10vw;
+    opacity: 1;
 }
 .intro_nav_item{
     color: #303030;
@@ -55,7 +64,7 @@ h1{
     font-family: 'Raleway', sans-serif;
     margin: 14vh auto 0 auto;
     opacity: 0;
-    animation: 1s linear;
+    animation: 1s linear 0.6s;
 }
 h1.zoomIn {
     -webkit-animation-name: zoomIn;
@@ -90,19 +99,21 @@ h1.zoomIn {
     margin-top: -7vh;
     margin-left: 5%;
     text-align: left;
-    width: 23.5vw;
-    min-width: calc(150px + 1.5vw);
-    height: 23.5vw;
-    min-height: calc(150px + 1.5vw);
-    -border: solid 2vh red;
-    -border-radius: 50%;
-    -border: solid 1px red;
-    -box-shadow: inset 0 0 15px rgba(0, 0, 0, 1),
-                0 0 20px rgba(0,0,0,1);
-    z-index: 3;
+    width: 25vw;
+    -min-width: calc(150px + 3vw);
+    height: 25vw;
+    -min-height: calc(150px + 3vw);
+    line-height: 1;
+    -webkit-perspective: 600px; /* webkit */
+    -moz-perspective: 600px; /* mozilla */
+    -ms-perspective: 600px; /* IE 10 */
+    -o-perspective: 600px; /* opera когда-то тоже должна начать понимать */
+    perspective: 600px; /* св-во по стандартам */
 }
 .my_photo_image{
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 22vw;
     -min-width: 150px;
     height: 22vw;
@@ -110,11 +121,66 @@ h1.zoomIn {
     border: solid 1.5vw #afb3b4;
     box-shadow: 0 0 20px rgba(0,0,0,1);
     border-radius: 50%;
-    z-index: 2;         /* It does not work!!!!*/
+    z-index: 2;
+    transform: rotateY( 90deg );
+    opacity: 0;
+
+    /* указываем, что дочерние элементы находятся в 3D пространстве */
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    -webkit-transition: -webkit-transform 2s 1.2s;
+    -moz-transition: -moz-transform 2s 1.2s;
+    -ms-transition: -moz-transform 2s 1.2s;
+    -o-transition: -o-transform 2s 1.2s;
+    transition: transform 2s 1.2s;
 }
-p.go_from_intro{
+.my_photo_border{
+    position: absolute;
+    top: calc(1.5vw - 1px);
+    left: calc(1.5vw - 1px);
+    width: 22vw;
+    height: 22vw;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 1.5vw rgba(0,0,0,1);
+    z-index: 2;
+    line-height: 1;
+    transform: rotateY( 90deg );
+    opacity: 0;
+
+    /* указываем, что дочерние элементы находятся в 3D пространстве */
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    -webkit-transition: -webkit-transform 2s 1.2s;
+    -moz-transition: -moz-transform 2s 1.2s;
+    -ms-transition: -moz-transform 2s 1.2s;
+    -o-transition: -o-transform 2s 1.2s;
+    transition: transform 2s 1.2s;
+}
+.flipY{
+    opacity: 1;
+    -webkit-transform: rotateY( 360deg );
+    -moz-transform: rotateY( 360deg );
+    -ms-transform: rotateY( 360deg );
+    -o-transform: rotateY( 360deg );
+    transform: rotateY( 360deg );
+}
+.go_from_intro{
     margin: -15vh auto 2vw auto;
     text-align: center;
+    opacity: 0;
+    transition: opacity 1.5s 1.5s;
+}
+.appear_in{
+    opacity: 1;
 }
 img.go{
     width: 5vw;
@@ -128,10 +194,10 @@ img.go{
     -webkit-font-smoothing: subpixel-antialiased;
 }
 /*.go_from_intro .fa-border{*/
-    /*color: #303030;*/
-    /*border-color: #303030;*/
-    /*border-radius: 50%;*/
-    /*padding: .1em .3em .1em;*/
+/*color: #303030;*/
+/*border-color: #303030;*/
+/*border-radius: 50%;*/
+/*padding: .1em .3em .1em;*/
 /*}*/
 @keyframes reduce {
     from {
@@ -162,9 +228,9 @@ div.portfolio{
     height: 100%;
     width: 85%;
     margin: 0 auto 0 auto;
--webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-box-shadow: 10px 0 10px rgba(0, 0, 0, 0.4),
-            -10px 0 10px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 0 10px rgba(0, 0, 0, 0.4),
+        -10px 0 10px rgba(0, 0, 0, 0.4);
 
 }
 h2.portfolio{
@@ -192,32 +258,33 @@ h2.portfolio{
     min-height: 250px;
     vertical-align: top;
     /* задаем глубину сцене */
-    -webkit-perspective: 600px; /* webkit */
-    -moz-perspective: 600px; /* mozilla */
-    -ms-perspective: 600px; /* IE 10 */
-    -o-perspective: 600px; /* opera когда-то тоже должна начать понимать */
-    perspective: 600px; /* св-во по стандартам */
+    -webkit-perspective: 800px; /* webkit */
+    -moz-perspective: 800px; /* mozilla */
+    -ms-perspective: 800px; /* IE 10 */
+    -o-perspective: 800px; /* opera когда-то тоже должна начать понимать */
+    perspective: 800px; /* св-во по стандартам */
 }
 div.portfolio_item{
-/* поворачивать будем общий контейнер */
+    /* поворачивать будем общий контейнер */
     position: absolute;
     top: 0;
     left:5%;
     width: 90%;
     height: 90%;
     transform: rotateX( 90deg );
-    /* трансформации будут происходить анимированно продолжительностью 2 сек */
-    -webkit-transition: -webkit-transform 2s;
-    -moz-transition: -moz-transform 2s;
-    -ms-transition: -moz-transform 2s;
-    -o-transition: -o-transform 2s;
-    transition: transform 2s;
     /* указываем, что дочерние элементы находятся в 3D пространстве */
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    /* трансформации будут происходить анимированно продолжительностью 2 сек */
+    -webkit-transition: -webkit-transform 2s;
+    -moz-transition: -moz-transform 2s;
+    -ms-transition: -moz-transform 2s;
+    -o-transition: -o-transform 2s;
+    transition: transform 2s;
+    opacity: 0;
 }
 div.flip{    /* добавляя этот класс, поворачиваем контейнер на 90 градусов */
     -webkit-transform: rotateX( 360deg );
@@ -225,6 +292,7 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     -ms-transform: rotateX( 360deg );
     -o-transform: rotateX( 360deg );
     transform: rotateX( 360deg );
+    opacity: 1;
 }
 .portfolio_item img{
     width: 100%;
@@ -303,18 +371,21 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     animation: anim_slides 60s linear infinite 0s;
 }
 .skills_slides li:nth-child(1){
+    animation-delay: 0s;
+    -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
     background-image: url(skills_background.png)
 }
 .skills_slides li:nth-child(2){
-    animation-delay: 20.0s;
-    -webkit-animation-delay: 20.0s;
-    -moz-animation-delay: 20.0s;
-    background-image: url(skills_background_2_2.png)
+    animation-delay: 20s;
+    -webkit-animation-delay: 20s;
+    -moz-animation-delay: 20s;
+    background-image: url(skills_background_2.png)
 }
 .skills_slides li:nth-child(3){
-    animation-delay: 40.0s;
-    -webkit-animation-delay: 40.0s;
-    -moz-animation-delay: 40.0s;
+    animation-delay: 40s;
+    -webkit-animation-delay: 40s;
+    -moz-animation-delay: 40s;
     background-image: url(skills_background_3.png)
 }
 @-webkit-keyframes anim_slides {
@@ -326,34 +397,17 @@ div.flip{    /* добавляя этот класс, поворачиваем �
 }
 @-moz-keyframes anim_slides {
     0% {opacity:0;}
-    6% {opacity:1;}
-    24% {opacity:1;}
-    30% {opacity:0;}
-    100% {opacity:0;}
-}
-@keyframes anim_slides {
-    /*0% {opacity:0;}*/
     3% {opacity:1;}
     40% {opacity:1;}
     43% {opacity:0;}
     100% {opacity:0;}
 }
-/*APPEARANCE*/
-@-webkit-keyframes appearance {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-@keyframes appearance {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+@keyframes anim_slides {
+    0% {opacity:0;}
+    3% {opacity:1;}
+    40% {opacity:1;}
+    43% {opacity:0;}
+    100% {opacity:0;}
 }
 
 h2.skills_header{
@@ -379,52 +433,37 @@ li.skills_item {
     font-weight: bold;
     line-height: 1.5;
     opacity: 0;
+    -webkit-animation: 1s linear;
+    -moz-animation: 1s linear;
+    -o-animation: 1s linear;
     animation: 1s linear;
+    -webkit-animation-direction: normal;
+    -moz-animation-direction: normal;
+    -o-animation-direction: normal;
     animation-direction: normal;
 }
-li.anim:first-child{
-    animation-name: appearance;
+li.anim{
     -webkit-animation-name: appearance;
-    animation-delay: 1ms;
-    -webkit-animation-delay: 1ms;
+    -moz-animation-name: appearance;
+    -o-animation-name: appearance;
+    animation-name: appearance;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 }
-li.anim:nth-child(2){
-    -webkit-animation-name: appearance;
-    animation-name: appearance;
-    animation-delay: 500ms;
-    -webkit-animation-delay: 500ms;
-    animation-fill-mode: forwards;
- }
-li.anim:nth-child(3){
-    -webkit-animation-name: appearance;
-    animation-name: appearance;
-    animation-delay: 1s;
-    -webkit-animation-delay: 1s;
-    animation-fill-mode: forwards;
+@-webkit-keyframes appearance {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
-li.anim:nth-child(4){
-    -webkit-animation-name: appearance;
-    animation-name: appearance;
-    animation-delay: 1500ms;
-    -webkit-animation-delay: 1500ms;
-    animation-fill-mode: forwards;
+@-moz-keyframes appearance {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
-li.anim:nth-child(5){
-    -webkit-animation-name: appearance;
-    animation-name: appearance;
-    animation-delay: 2s;
-    -webkit-animation-delay: 2s;
-    animation-fill-mode: forwards;
+@keyframes appearance {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
-li.anim:nth-child(6){
-    -webkit-animation-name: appearance;
-    animation-name: appearance;
-    animation-delay: 2500ms;
-    -webkit-animation-delay: 2500ms;
-    animation-fill-mode: forwards;
-}
-
 div.about_skills{
     display: inline-block;
     vertical-align: middle;
@@ -452,8 +491,8 @@ div.diploma{
 }
 img.diploma{
     width: 14vw;
-/*    min-width: 200px;
-    min-height: 150px;*/
+    /*    min-width: 200px;
+        min-height: 150px;*/
     filter: opacity(0.5);
     border: solid 2px white;
 }
@@ -469,8 +508,8 @@ div.enlarge::before{
     background-image: url(diploma.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
-/*    width: 1000px;
-    height: 688px;*/
+    /*    width: 1000px;
+        height: 688px;*/
     width: 75vw;
     height: 100%;
     animation: 1s linear;
@@ -526,7 +565,7 @@ div.enlarge::before{
         opacity: 0;
         -webkit-transform: translate3d(0, -100%, 0);
         transform: translate3d(0, -100%, 0);
-}
+    }
     to {
         opacity: 1;
         -webkit-transform: none;
@@ -543,27 +582,49 @@ div.enlarge::before{
 
 /******************MEDIA**********************/
 @media screen and (orientation: portrait), all and (max-aspect-ratio: 4/3){
+    div.advertisement{
+        text-align: center;
+        margin: 20px auto 0 auto;
+    }
+    a.advertisement{
+        color: #303030;
+        font-size: 2.5vh;
+    }
+    a.advertisement:visited{
+        color:#303030;
+    }
     .intro_nav{
         margin: 0 auto 0 auto;
-        padding-top: 12vh;
+        padding-top: 0;
         text-align: center;
+        transition: padding-top 1.5s, opacity 0.5s 0.3s;
+    }
+    .appear_left_to_right{
+        padding-top: 10vh;
+        opacity: 1;
     }
     h1{
         font-size: 7vw;
-        margin: 12vh auto 0 auto;
+        margin: 7vh auto 0 auto;
     }
     .my_photo{
-        margin: 5vh auto 0 auto;
-        width: 23.5vh;
-        min-width: 23.5vh;
-        height: 23.5vh;
-        min-height: 23.5vh;
+        margin: 7vh auto 0 auto;
+        width: calc(22vh + 3vw);
+        -min-width: calc(22vh + 3vw);
+        height: calc(22vh + 3vw);
+        -min-height: calc(22vh + 3vw);
     }
     .my_photo_image{
-        width: 23.5vh;
-        min-width: 23.5vh;
-        height: 23.5vh;
-        min-height: 23.5vh;
+        width: 22vh;
+        -min-width: 22vh;
+        height: 22vh;
+        -min-height: 22vh;
+    }
+    .my_photo_border{
+        width: 22vh;
+        -min-width: 22vh;
+        height: 22vh;
+        -min-height: 22vh;
     }
     p.go_from_intro{
         margin: 6vh auto 3vh auto;
@@ -572,7 +633,7 @@ div.enlarge::before{
         width: 9vh;
         min-width: 50px;
     }
-    
+
     .portfolio_item_container{
         margin: 5vh auto 5vh auto;
         width: 40vh;
@@ -590,7 +651,7 @@ div.enlarge::before{
     .portfolio_footer{
         margin-top: 5vh;
     }
-    
+
     h2.skills_header{
         font-size: 5vh;
         padding: 5vw 0 1vw 0;
@@ -613,10 +674,10 @@ div.enlarge::before{
         width: 25vh;
     }
     div.enlarge::before{
-    top: 30%;
-    transform: translate(-50%, 0);
-    width: 100vw;
-}
+        top: 30%;
+        transform: translate(-50%, 0);
+        width: 100vw;
+    }
     .go_from_skills{
         padding: 3vh 0 2vw 0;
     }
@@ -635,16 +696,23 @@ div.enlarge::before{
     }
     .my_photo{
         margin: -13vw 0 0 6vh;
-        width: 21.5vw;
-        min-width: 21.5vw;
-        height: 21.5vw;
-        min-height: 21.5vw;
+        width: 23vw;
+        -min-width: 23vw;
+        height: 23vw;
+        -min-height: 23vw;
     }
     .my_photo_image{
         width: 20vw;
-        min-width: 20vw;
+        -min-width: 20vw;
         height: 20vw;
-        min-height: 20vw;
+        -min-height: 20vw;
+    }
+    .my_photo_border{
+        width: 20vw;
+        -min-width: 20vw;
+        height: 20vw;
+        -min-height: 20vw;
+        -border: solid 5px red;
     }
     p.go_from_intro{
         margin: -5vw auto 2vw auto;
@@ -652,7 +720,7 @@ div.enlarge::before{
     img.go{
         width: 5vw;
     }
-    
+
     .portfolio_item_container{
         margin: 5vh auto 10vh auto;
     }
@@ -663,7 +731,7 @@ div.enlarge::before{
     .portfolio_footer{
         font-size: 2vw;
     }
- 
+
     .contacts_container{
         font-size: 7vh;
         line-height: 1.2;

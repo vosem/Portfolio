@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     function ToDo (){
-        this.model = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')):[
+        this.model = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : [
 //            {text: 'defaultTask', status: 'active'},
 //            {text: 'secondDefaultTask', status: 'done'},
         ];
@@ -100,4 +100,13 @@ $(document).ready(function(){
     
 });
 
-
+   //This is for generating URls
+    var date = new Date();
+    var time = date.getTime();
+    var secs = new Date().getMilliseconds();
+    console.log(time);
+    console.log(secs);
+    var coded = window.btoa(time);
+    console.log(coded);
+    var encoded = window.atob(coded);
+    console.log(encoded);
