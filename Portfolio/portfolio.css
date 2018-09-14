@@ -104,11 +104,11 @@ h1.zoomIn {
     height: 25vw;
     -min-height: calc(150px + 3vw);
     line-height: 1;
-    -webkit-perspective: 600px; /* webkit */
-    -moz-perspective: 600px; /* mozilla */
-    -ms-perspective: 600px; /* IE 10 */
-    -o-perspective: 600px; /* opera когда-то тоже должна начать понимать */
-    perspective: 600px; /* св-во по стандартам */
+    -webkit-perspective: 600px;
+    -moz-perspective: 600px;
+    -ms-perspective: 600px;
+    -o-perspective: 600px;
+    perspective: 600px;
 }
 .my_photo_image{
     position: absolute;
@@ -125,7 +125,6 @@ h1.zoomIn {
     transform: rotateY( 90deg );
     opacity: 0;
 
-    /* указываем, что дочерние элементы находятся в 3D пространстве */
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
@@ -140,11 +139,10 @@ h1.zoomIn {
 }
 .my_photo_border{
     position: absolute;
-    top: calc(1.5vw - 1px);
-    left: calc(1.5vw - 1px);
-    width: 22vw;
-    height: 22vw;
-    border: none;
+    top: 1.5vw;
+    left: 1.5vw;
+    width: 21.9vw;
+    height: 21.9vw;
     border-radius: 50%;
     box-shadow: 0 0 1.5vw rgba(0,0,0,1);
     z-index: 2;
@@ -152,7 +150,6 @@ h1.zoomIn {
     transform: rotateY( 90deg );
     opacity: 0;
 
-    /* указываем, что дочерние элементы находятся в 3D пространстве */
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
