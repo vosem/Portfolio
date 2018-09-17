@@ -9,28 +9,28 @@
     <body>
         <div id="scene">
           <div id="layer1" data-depth="0.1" style="background-image: url(bgnd.jpg); background-size: cover"></div>
-          <div id="layer2" data-depth="0.3">
-            <div id="layer2-rotative">
-                <img src="Alexa33.jpg" style="height: 160px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.8);">
+          <div class="expandable" id="layer2" data-depth="0.3" data-pointer-events="true" style="pointer-events: all">
+            <div class="photo" id="layer2-rotative">
+                <img src="Alexa33.jpg" data-pointer-events="true" style="height: 160px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.8);">
             </div>
           </div>
-          <div id="layer3" data-depth="0.5">
-            <div id="layer3-rotative">
+          <div class="expandable" id="layer3" data-depth="0.5" style="pointer-events: all">
+            <div class="photo" id="layer3-rotative">
                 <img src="Alexa65.jpg" style="height: 230px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.8);">
             </div>
           </div>
-          <div id="layer4" data-depth="0.7">
-            <div id="layer4-rotative">
+          <div class="expandable" id="layer4" data-depth="0.7" style="pointer-events: all">
+            <div class="photo" id="layer4-rotative">
                 <img src="Alexa59.jpg" style="height: 180px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.8);">
             </div>
           </div>
-          <div id="layer5" data-depth="0.6"">
-            <div id="layer5-rotative">
+          <div class="expandable" id="layer5" data-depth="0.6" style="pointer-events: all">
+            <div class="photo" id="layer5-rotative">
                 <img src="Alexa37.jpg" style="height: 240px; border-radius: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.8);">
             </div>
           </div>
-          <div id="layer6" data-depth="0.9"">
-            <div id="layer6-rotative">
+          <div class="expandable" id="layer6" data-depth="0.9" style="pointer-events: all">
+            <div class="photo" id="layer6-rotative">
                 <img src="Alexa20.jpg" style="height: 165px; border-radius: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.8);">
             </div>
           </div>
@@ -40,5 +40,15 @@
     <script>
       var scene = document.getElementById('scene');
       var parallaxInstance = new Parallax(scene);
+      var layers = document.getElementsByClassName('expandable');
+      console.log(layers);
+      // for (var i = 0; i < layers.length; i++) {
+      //   layers[i].addEventListener( "click" , function() {
+      //     this.getElementsByClassName('photo').classList = 'enlarged';
+      //     console.log(this);
+      //     console.log(layers[i]);
+      //     alert('!!!!!!!!!');
+      //   });
+      //      }
     </script>
 </html>
