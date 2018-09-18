@@ -1,0 +1,18 @@
+#bullet{
+	height: 60px;
+	width: 60px;
+	border-radius: 30px;
+	background-color: green;
+	position: absolute;
+}
+#target{
+	height: 60px;
+	width: 60px;
+	border-radius: 30px;
+	background-color: grey;
+	position: fixed;
+	margin: 50vh 60vw;
+}
+.match{
+	visibility: hidden;
+}

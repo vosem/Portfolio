@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Alexa's Game</title>
+        <link rel="stylesheet" href="Portfolio/Game/alexaGame.css">
+    </head>
+    <body>
+        <div id="bullet"></div>
+        <div id="target"></div>
+    </body>
+    <script>
+      var bullet = document.getElementById('bullet');
+
+      bullet.onmousedown = function(e) {
+
+        var coords = getCoords(bullet);
+        var shiftX = e.pageX - coords.left;
+        var shiftY = e.pageY - coords.top;
+
+        bullet.style.position = 'absolute';
+        document.body.appendChild(bullet);
+        moveAt(e);
+
+        bullet.style.zIndex = 1000; // над другими элементами
+
+        function moveAt(e) {
+          bullet.style.left = e.pageX - shiftX + 'px';
+          bullet.style.top = e.pageY - shiftY + 'px';
+        }
+
+        document.onmousemove = function(e) {
+          moveAt(e);
+          var centerBullet = getCenter(bullet),
+              centerTarget = getCenter(target);
+          var dist = getDistance(centerBullet, centerTarget);
+          if (dist < 3) {
+            bullet.classList.add("match");
+          }
+        };
+
+        bullet.onmouseup = function() {
+          document.onmousemove = null;
+          bullet.onmouseup = null;
+        };
+
+      }
+
+      bullet.ondragstart = function() {
+        return false;
+      };
+
+      function getCoords(elem) {   // кроме IE8-
+        var box = elem.getBoundingClientRect();
+        return {
+          top: box.top + pageYOffset,
+          left: box.left + pageXOffset
+        };
+      }
+
+      function getCenter(elem){
+        var box = elem.getBoundingClientRect();
+        return {
+          centerY: box.top + box.height/2,
+          centerX: box.left + box.width/2
+        };
+      }
+
+      function getDistance(elem1, elem2){
+        var distance = Math.sqrt( (elem1.centerX - elem2.centerX)*(elem1.centerX - elem2.centerX) + (elem1.centerY - elem2.centerY)*(elem1.centerY - elem2.centerY) );
+        return distance;
+      }
+    </script>
+</html>
