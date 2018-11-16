@@ -2,24 +2,24 @@
 	margin: 20vh 15vw;
 }
 #bullet{
-	height: 70px;
-	width: 70px;
+	height: 75px;
+	width: 75px;
 	border: 8px solid #8ec6d9;
 	border-radius: 50%;
 	background-color: #5190a6;
 	position: absolute;
-	box-shadow: 0 4px 10px grey;
+	box-shadow: 0 5px 0px #6f9aa8;
 }
 #target{
 	height: 90px;
 	width: 90px;
 	border-radius: 50%;
-	border: 8px solid #c5d2e3;
-	background-color: #f1f5f4;
+	border: 10px solid #4b6384;
+	background-color: #0c1015;
 	position: fixed;
 	margin: 30vh 40vw;
 	/*box-shadow: 0 10px 10px grey;*/
-	box-shadow: inset 0 10px 10px grey;
+	box-shadow: inset 0 8px 0px #1d2633;
 }
 .match{
 	visibility: hidden;
