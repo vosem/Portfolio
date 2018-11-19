@@ -49,6 +49,44 @@
         };
 
       }
+      
+//////////////////
+      bullet.ontouchstart = function(e) {
+
+        var coords = getCoords(bullet);
+        var shiftX = e.pageX - coords.left;
+        var shiftY = e.pageY - coords.top;
+
+        bullet.style.position = 'absolute';
+        document.body.appendChild(bullet);
+        moveAt(e);
+
+        bullet.style.zIndex = 10; // над другими элементами
+
+        function moveAt(e) {
+          bullet.style.left = e.pageX - shiftX + 'px';
+          bullet.style.top = e.pageY - shiftY + 'px';
+        }
+
+        document.ontouchmove = function(e) {
+          moveAt(e);
+          var centerBullet = getCenter(bullet),
+              centerTarget = getCenter(target);
+          var dist = getDistance(centerBullet, centerTarget);
+          if (dist < 3) {
+            bullet.classList.add("match");
+          }
+        };
+
+        bullet.ontouchend = function() {
+          document.ontouchmove = null;
+          bullet.ontouchend = null;
+        };
+
+      }
+      ///////////////////
+
+
 
       bullet.ondragstart = function() {
         return false;
