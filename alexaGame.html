@@ -6,8 +6,8 @@
         <title>Alexa's Game</title>
         <link rel="stylesheet" href="Portfolio/Game/alexaGame.css">
     </head>
-    <body style="background-image: url(Portfolio/Game/bgnd.jpg); background-size: auto;">
-      <div>
+    <body>
+      <div id="container">
         <div id="underConstruction"></div>
         <div id="placement"><div id="bullet"></div><div>
         <div id="target"></div>
@@ -73,7 +73,7 @@
           var centerBullet = getCenter(bullet),
               centerTarget = getCenter(target);
           var dist = getDistance(centerBullet, centerTarget);
-          if (dist < 3) {
+          if (dist < 20) {
             bullet.classList.add("match");
           }
         };
