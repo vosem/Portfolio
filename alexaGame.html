@@ -23,7 +23,7 @@
         var shiftY = e.pageY - coords.top;
 
         bullet.style.position = 'absolute';
-        document.body.appendChild(bullet);
+        // document.body.appendChild(bullet);
         moveAt(e);
 
         bullet.style.zIndex = 10; // над другими элементами
@@ -35,56 +35,47 @@
 
         document.onmousemove = function(e) {
           moveAt(e);
-          var centerBullet = getCenter(bullet),
-              centerTarget = getCenter(target);
-          var dist = getDistance(centerBullet, centerTarget);
-          if (dist < 3) {
-            bullet.classList.add("match");
-          }
+          addMatch();
         };
 
         bullet.onmouseup = function() {
           document.onmousemove = null;
-          bullet.onmouseup = null;
+          bullet.onmousemove = null;
         };
 
       }
       
-//////////////////
+      // for touch-gadgets
       bullet.ontouchstart = function(e) {
-
+      	e.preventDefault();
         var coords = getCoords(bullet);
-        var shiftX = e.pageX - coords.left;
-        var shiftY = e.pageY - coords.top;
+        var shiftX = e.touches[0].pageX - coords.left;
+        var shiftY = e.touches[0].pageY - coords.top;
 
         bullet.style.position = 'absolute';
-        document.body.appendChild(bullet);
+        // document.body.appendChild(bullet);
         moveAt(e);
 
         bullet.style.zIndex = 10; // над другими элементами
 
         function moveAt(e) {
-          bullet.style.left = e.pageX - shiftX + 'px';
-          bullet.style.top = e.pageY - shiftY + 'px';
+          bullet.style.left = e.touches[0].pageX - shiftX + 'px';
+          bullet.style.top = e.touches[0].pageY - shiftY + 'px';
         }
 
         document.ontouchmove = function(e) {
+          e.preventDefault();
           moveAt(e);
-          var centerBullet = getCenter(bullet),
-              centerTarget = getCenter(target);
-          var dist = getDistance(centerBullet, centerTarget);
-          if (dist < 20) {
-            bullet.classList.add("match");
-          }
+          addMatch();
+          setTimeout(renewBullet(), 2000);
         };
 
-        bullet.ontouchend = function() {
+        bullet.ontouchend = function(e) {
+          e.preventDefault();
           document.ontouchmove = null;
           bullet.ontouchend = null;
         };
-
       }
-      ///////////////////
 
 
 
@@ -111,6 +102,24 @@
       function getDistance(elem1, elem2){
         var distance = Math.sqrt( (elem1.centerX - elem2.centerX)*(elem1.centerX - elem2.centerX) + (elem1.centerY - elem2.centerY)*(elem1.centerY - elem2.centerY) );
         return distance;
+      }
+
+      function addMatch() {   // кроме IE8-
+        var centerBullet = getCenter(bullet),
+            centerTarget = getCenter(target);
+        var dist = getDistance(centerBullet, centerTarget);
+        if (dist < 3) {
+          bullet.classList.add("match");
+          document.onmousemove = null;
+          bullet.onmousemove = null;
+          setTimeout(renewBullet(), 1000);
+        }
+
+      function renewBullet() {
+          bullet.style.left = 50 + 'px';
+          bullet.style.top = 45 + 'px';
+          bullet.classList.remove("match");
+        }
       }
     </script>
 </html>

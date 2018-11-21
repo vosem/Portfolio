@@ -15,11 +15,11 @@ body{
 #bullet{
 	height: 75px;
 	width: 75px;
-	border: 8px solid #8ec6d9;
+	border: 8px solid #72a0af;
 	border-radius: 50%;
-	background-color: #5190a6;
+	background-color: #4b6384;
 	position: absolute;
-	box-shadow: 0 5px 0px #6f9aa8;
+	box-shadow: 0 5px 0px #4b6384;
 }
 #target{
 	height: 90px;
