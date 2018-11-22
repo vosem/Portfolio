@@ -492,6 +492,7 @@ img.diploma{
         min-height: 150px;*/
     filter: opacity(0.5);
     border: solid 2px white;
+    margin-bottom: 4vh;
 }
 img.diploma:hover{
     filter: opacity(0.9);
@@ -502,7 +503,6 @@ div.enlarge::before{
     top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url(diploma.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
     /*    width: 1000px;
@@ -513,6 +513,12 @@ div.enlarge::before{
     -webkit-animation-name: appearance;
     animation-name: appearance;
     z-index: 1;
+}
+div.bachelor.enlarge::before{
+    background-image: url(diploma.jpg);
+}
+div.master.enlarge::before{
+    background-image: url(diplomaMaster.jpg);
 }
 .go_from_skills{
     padding: 5vh 0 2vw 0;

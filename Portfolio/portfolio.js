@@ -64,13 +64,17 @@ $(document).ready(function () {
 
     // SKILLS
 
-    var dipl = document.getElementsByClassName('diploma')[0];
-    dipl.onclick = function () {
-        dipl.classList.toggle('enlarge');
+    var diplBachelor = document.getElementsByClassName('bachelor')[0];
+    diplBachelor.onclick = function () {
+        diplBachelor.classList.toggle('enlarge');
+    };
+    var diplMaster = document.getElementsByClassName('master')[0];
+    diplMaster.onclick = function () {
+        diplMaster.classList.toggle('enlarge');
     };
     $(window).scroll(function () {
         if ($('enlarge')) {
-            $('div.diploma').removeClass('enlarge');
+            $('div.enlarge').removeClass('enlarge');
         }
     });
 
