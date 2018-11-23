@@ -8,8 +8,7 @@
     </head>
     <body>
       <div id="container">
-        <div id="underConstruction"></div>
-        <div id="placement"><div id="bullet"></div><div>
+        <div id="bulletStartPosition"><div id="bullet"></div></div>
         <div id="target"></div>
       </div>
     </body>
@@ -22,12 +21,7 @@
         var shiftX = e.pageX - coords.left;
         var shiftY = e.pageY - coords.top;
 
-        bullet.style.position = 'absolute';
-        // document.body.appendChild(bullet);
         moveAt(e);
-
-        bullet.style.zIndex = 10; // над другими элементами
-
         function moveAt(e) {
           bullet.style.left = e.pageX - shiftX + 'px';
           bullet.style.top = e.pageY - shiftY + 'px';
@@ -52,12 +46,7 @@
         var shiftX = e.touches[0].pageX - coords.left;
         var shiftY = e.touches[0].pageY - coords.top;
 
-        bullet.style.position = 'absolute';
-        // document.body.appendChild(bullet);
         moveAt(e);
-
-        bullet.style.zIndex = 10; // над другими элементами
-
         function moveAt(e) {
           bullet.style.left = e.touches[0].pageX - shiftX + 'px';
           bullet.style.top = e.touches[0].pageY - shiftY + 'px';
@@ -67,17 +56,14 @@
           e.preventDefault();
           moveAt(e);
           addMatch();
-          setTimeout(renewBullet(), 2000);
         };
 
         bullet.ontouchend = function(e) {
           e.preventDefault();
           document.ontouchmove = null;
-          bullet.ontouchend = null;
+          bullet.ontouchmove = null;
         };
       }
-
-
 
       bullet.ondragstart = function() {
         return false;
@@ -112,12 +98,14 @@
           bullet.classList.add("match");
           document.onmousemove = null;
           bullet.onmousemove = null;
-          setTimeout(renewBullet(), 1000);
+          document.ontouchmove = null;
+          bullet.ontouchmove = null;
+          setTimeout(function(){renewBullet()}, 2000);
         }
 
       function renewBullet() {
-          bullet.style.left = 50 + 'px';
-          bullet.style.top = 45 + 'px';
+          bullet.style.left = Math.floor(Math.random()*(70-10+1))+10 + 'vw';
+          bullet.style.top = Math.floor(Math.random()*(70-10+1))+10 + 'vh';
           bullet.classList.remove("match");
         }
       }

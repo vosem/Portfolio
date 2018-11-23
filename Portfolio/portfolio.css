@@ -686,6 +686,7 @@ div.master.enlarge::before{
     }
 }
 @media screen and (orientation: landscape) and (min-aspect-ratio: 21/10){
+
     .intro_banner{
         height: 100vh;
     }
