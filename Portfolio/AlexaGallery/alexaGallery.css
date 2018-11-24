@@ -3,6 +3,7 @@ html {
 }
 body{
 	margin: 0;
+	position: relative;
 }
 #layer1{
 	margin: -3vh 0 0 -3vw;
@@ -14,7 +15,6 @@ body{
 #layer2{
 	margin-top: 27vh;
 	margin-left: 30vw;
-	height: 160px;
 }
 #layer2-rotative{
 	border: 15px solid #ede1cb;
@@ -24,10 +24,8 @@ body{
 	transform: rotate(5deg);
 }
 #layer3{
-	/*margin: 290px 670px;*/
 	margin-top: 37vh;
 	margin-left: 48vw;
-	height: 230px;
 }
 #layer3-rotative{
 	border: 10px solid #dcfbd2;
@@ -39,7 +37,6 @@ body{
 #layer4{
 	margin-top: 22vh;
 	margin-left: 56vw;
-	height: 180px;
 }
 #layer4-rotative{
 	border: 10px solid #fce5e5;
@@ -51,7 +48,6 @@ body{
 #layer5{
 	margin-top: 45vh;
 	margin-left: 66vw;
-	height: 240px;
 }
 #layer5-rotative{
 	border: 10px solid #fefcc4;
@@ -61,25 +57,39 @@ body{
 	transform: rotate(4deg);
 }
 #layer6{
-	margin: 240px 1090px;
 	margin-top: 32vh;
 	margin-left: 77vw;
-	height: 165px;
 }
 #layer6-rotative{
 	border: 10px solid #ebf3fe;
 	border-radius: 20px;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 	background-color: #ebf3fe;
-	overflow: hidden;
 	transform: rotate(-4deg);
 }
-.enlarged{
-transform: scale(2) !important;
-	margin: auto !important;
+
+div.horizontal.increased{
+	margin-top: 10vh !important;
+	margin-left: 20vw !important;
+	z-index: 1 !important;
+	transition: margin-top 2s, margin-left 2s, z-index 0 linear 2s;
+}
+.horizontal.increased img{
+	width: 65vw !important;
+	height: 43vw !important;
+	transition: width 2s, height 2s;
+}
+div.vertical.increased{
+	margin-top: 10vh !important;
+	margin-left: 30vw !important;
+	z-index: 10 !important;
+}
+.vertical.increased img{
+	height: 90vh !important;
+	width: auto;
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1000px){
 	#layer1{
 	  width: 110vw;
 	}
@@ -102,5 +112,24 @@ transform: scale(2) !important;
 	#layer6{
 	  margin-top: 73vh;
 	  margin-left: 22vw;
+	}
+	div.horizontal.increased{
+		margin-top: 20vh !important;
+		margin-left: 0vw !important;
+	}
+	.horizontal.increased img{
+		width: 100vw;
+	}
+	div.vertical.increased{
+		margin-left: 25vw !important;
+	}
+	.vertical.increased img{
+		height: 80vh !important;
+	}
+}
+
+@media screen and (max-width: 480px){
+	div.vertical.increased{
+		margin-left: 5vw !important;
 	}
 }
