@@ -67,26 +67,33 @@ body{
 	background-color: #ebf3fe;
 	transform: rotate(-4deg);
 }
+.photo{
+	pointer-events: all;
+	z-index: 0;
+	transition: margin-top 1.2s, margin-left 1.2s, z-index 0s linear 1.2s;
+}
 
 div.horizontal.increased{
 	margin-top: 10vh !important;
 	margin-left: 20vw !important;
 	z-index: 1 !important;
-	transition: margin-top 2s, margin-left 2s, z-index 0 linear 2s;
+	transition: margin-top 1.2s, margin-left 1.2s, z-index 0s linear 0s !important;
 }
 .horizontal.increased img{
 	width: 65vw !important;
 	height: 43vw !important;
-	transition: width 2s, height 2s;
+	transition: width 1.2s, height 1.2s;
 }
 div.vertical.increased{
 	margin-top: 10vh !important;
 	margin-left: 30vw !important;
-	z-index: 10 !important;
+	z-index: 1 !important;
+	transition: margin-top 1.2s, margin-left 1.2s, z-index 0s linear 0s !important;
 }
 .vertical.increased img{
 	height: 90vh !important;
-	width: auto;
+	width: 60vh !important;
+	transition: width 1.2s, height 1.2s;
 }
 
 @media screen and (max-width: 1000px){
@@ -118,13 +125,15 @@ div.vertical.increased{
 		margin-left: 0vw !important;
 	}
 	.horizontal.increased img{
-		width: 100vw;
+		width: 100vw !important;
+		height: 66vw !important;
 	}
 	div.vertical.increased{
 		margin-left: 25vw !important;
 	}
 	.vertical.increased img{
 		height: 80vh !important;
+		width: 53vh !important;
 	}
 }
 

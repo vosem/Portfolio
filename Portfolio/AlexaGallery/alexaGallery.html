@@ -9,29 +9,29 @@
     <body>
         <div id="scene">
           <div id="layer1" data-depth="0.1"></div>
-          <div id="layer2" class="photo horizontal" data-depth="0.3" data-pointer-events="true" style="pointer-events: all; transition: margin-top 2s, margin-left 2s; ">
+          <div id="layer2" class="photo horizontal" data-depth="0.3" data-pointer-events="true">
             <div data-pointer-events="true" style="pointer-events: all" id="layer2-rotative">
-                <img src="Alexa33.jpg" data-pointer-events="true" style="pointer-events: all; height: 160px; width: 240px; z-index: 0; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.8); transition: width 2s, height 2s, z-index 0s 2s;">
+                <img src="Alexa33.jpg" data-pointer-events="true" style="pointer-events: all; height: 160px; width: 240px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.8); transition: width 1.2s, height 1.2s;">
             </div>
           </div>
           <div id="layer3" class="photo vertical" data-depth="0.5" style="pointer-events: all">
             <div id="layer3-rotative">
-                <img src="Alexa65.jpg" style="height: 230px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.8);">
+                <img src="Alexa65.jpg" style="height: 230px; width: 153px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.8); transition: width 1.2s, height 1.2s;">
             </div>
           </div>
-          <div id="layer4" class="photo horizontal" data-depth="0.7" style="pointer-events: all; transition: margin-top 2s, margin-left 2s;">
+          <div id="layer4" class="photo horizontal" data-depth="0.7" data-pointer-events="true">
             <div id="layer4-rotative">
-                <img src="Alexa59.jpg" style="height: 180px; width: 270px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.8); transition: width 2s, height 2s;">
+                <img src="Alexa59.jpg" style="height: 180px; width: 270px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.8); transition: width 1.2s, height 1.2s;">
             </div>
           </div>
           <div id="layer5" class="photo vertical" data-depth="0.6" style="pointer-events: all">
             <div id="layer5-rotative">
-                <img src="Alexa37.jpg" style="height: 240px; border-radius: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.8);">
+                <img src="Alexa37.jpg" style="height: 240px; width: 160px; border-radius: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.8); transition: width 1.2s, height 1.2s;">
             </div>
           </div>
-          <div id="layer6" class="photo horizontal" data-depth="0.9" style="pointer-events: all; transition: margin-top 2s, margin-left 2s;">
+          <div id="layer6" class="photo horizontal" data-depth="0.9" data-pointer-events="true">
             <div id="layer6-rotative">
-                <img src="Alexa20.jpg" style="height: 165px; width: 247px; border-radius: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.8); transition: width 2s, height 2s;">
+                <img src="Alexa20.jpg" style="height: 165px; width: 247px; border-radius: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.8); transition: width 1.2s, height 1.2s;">
             </div>
           </div>
         </div>
@@ -46,8 +46,14 @@
       for (var i = 0; i < layersArr.length; i++) {
         layersArr[i].addEventListener( "click" , function() {
           this.classList.toggle("increased");
+          playAudio();
           console.log(this);
         });
+      }
+      function playAudio(){
+        var myAudio = new Audio;
+        myAudio.src = "vendarro__signal-ring.wav";
+        myAudio.play();
       }
     </script>
 </html>
