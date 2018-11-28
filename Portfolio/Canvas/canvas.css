@@ -6,5 +6,32 @@ body{
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-image: url('bb_back_dark.png');
+	background-image: url('backToSchool.jpg');
+}
+#menu_buttons{
+	position: relative;
+	float: right; 
+	margin-right: -10px;     
+	width: 15vw;
+}
+.btn{
+	margin-top: 1vh;
+	width: 12vw;
+	min-width: 18vh;
+	height: 7vh;
+	border-radius: 7px;
+	background-color: rgba(0, 0, 0, 0.5);
+	font-weight: bold;
+	font-size: 3.5vh;
+	color: white;
+	font-family: Comic Sans MS, Comic Sans, cursive;
+}
+.btn:active, button:focus {
+  outline: none;
+}
+.btn:active {
+  color: rgba(0, 0, 0, 0.7);
+}
+.dropDown {
+	visibility: hidden;
 }

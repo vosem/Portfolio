@@ -8,6 +8,12 @@
     </head>
     <body>
       <canvas id="canvas">Your browser does not support canvas.</canvas>
+      <form id="menu_buttons">
+        <button id="menu" class="btn">menu</button>
+        <button id="clear" class="btn dropDown">clear</button>
+        <button id="save" class="btn dropDown">save</button>
+        <button id="replay" class="btn dropDown">replay</button>
+      </form>
     </body>
 
     <script>
@@ -59,11 +65,12 @@
       };
 
       function clear(){
-        ctx.fillStyle = 'white';
-        ctx.fillRect(0, 0, canv.width, canv.height);
+        ctx.clearRect(0,0,canv.width, canv.height);
+        // ctx.fillStyle = 'white';
+        // ctx.fillRect(0, 0, canv.width, canv.height);
 
-        ctx.beginPath();
-        ctx.fillStyle = grad;
+        // ctx.beginPath();
+        // ctx.fillStyle = grad;
       };
       function replay(){
         var timer = setInterval(function(){
@@ -103,6 +110,45 @@
         }        
         if(e.keyCode == 67){ // c
           clear();
+        }
+      });
+
+////////////////Buttons/////////////////////////
+      var menuBtn = document.getElementById('menu'),
+          clearBtn = document.getElementById('clear'),
+          saveBtn = document.getElementById('save'),
+          replayBtn = document.getElementById('replay'),
+          dropDowns = document.getElementsByClassName('dropDown'),
+          dropDownsArr = Array.from(dropDowns);
+
+      menuBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        for(var i =0; i < dropDownsArr.length; i++){
+          dropDownsArr[i].classList.toggle("dropDown");
+        }
+      });
+      
+      clearBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        clear();
+        for(var i =0; i < dropDownsArr.length; i++){
+          dropDownsArr[i].classList.toggle("dropDown");
+        }
+      });
+      saveBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        save();
+        for(var i =0; i < dropDownsArr.length; i++){
+          dropDownsArr[i].classList.toggle("dropDown");
+        }
+      });
+      replayBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        coords = JSON.parse(localStorage.getItem('coords'));
+        clear();
+        replay();
+        for(var i =0; i < dropDownsArr.length; i++){
+          dropDownsArr[i].classList.toggle("dropDown");
         }
       });
 
