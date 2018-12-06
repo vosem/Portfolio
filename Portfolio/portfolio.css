@@ -246,7 +246,7 @@ h2.portfolio{
     width: 85%;
 }
 .portfolio_item_container{
-    margin: 30px 3vw 30px 3vw;
+    margin: 30px 3vw 45px 3vw;
     display: inline-block;
     position: relative;
     width: 23vw;
@@ -492,7 +492,7 @@ img.diploma{
         min-height: 150px;*/
     filter: opacity(0.5);
     border: solid 2px white;
-    margin-bottom: 4vh;
+    margin-bottom: 3vh;
 }
 img.diploma:hover{
     filter: opacity(0.9);
@@ -666,12 +666,12 @@ div.master.enlarge::before{
         display: block;
         text-align: center;
         margin: 1vh auto 0 auto;
-        font-size: 3vh;
+        font-size: 2.7vh;
         width: 85%;
     }
     div.diploma{
         display: block;
-        margin: 5vw auto 0 auto;
+        margin: 5vw auto -2vh auto;
     }
     img.diploma{
         width: 25vh;
@@ -682,7 +682,7 @@ div.master.enlarge::before{
         width: 100vw;
     }
     .go_from_skills{
-        padding: 3vh 0 2vw 0;
+        padding: 0 0 2vw 0;
     }
 }
 @media screen and (orientation: landscape) and (min-aspect-ratio: 21/10){

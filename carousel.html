@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Carousel</title>
+        <link rel="stylesheet" href="Portfolio/Carousel/carousel.css">
+    </head>
+    <body>
+      <div id="container">
+        <div class="imageItem active" style="background-image: url(Portfolio/Carousel/1.jpg);"></div><div class="imageItem next" style="background-image: url(Portfolio/Carousel/2.jpg);"></div><div class="imageItem" style="background-image: url(Portfolio/Carousel/3.jpg);"></div><div class="imageItem previous" style="background-image: url(Portfolio/Carousel/4.jpg);"></div>
+      </div>
+      <div>
+        <button class="btn left"><</button>
+        <button class="btn right">></button>
+      </div>
+      <div>
+        <div class="indicator one"></div>
+        <div class="indicator two"></div>
+        <div class="indicator three"></div>
+        <div class="indicator four"></div>
+      </div>
+    </body>
+    <script>
+      var left = document.getElementsByClassName('left')[0];
+      var right = document.getElementsByClassName('right')[0];
+      var imagesArray = Array.from(document.getElementsByClassName('imageItem'));
+      var indicatorsArray = Array.from(document.getElementsByClassName('indicator'));
+
+      left.addEventListener('click', function(){
+
+        if(document.getElementsByClassName('active')[0] == imagesArray[imagesArray.length-1]){
+          imagesArray[0].classList.remove('next');
+        }
+        else {
+          document.getElementsByClassName('active')[0].nextSibling.classList.remove('next');
+        }
+        document.getElementsByClassName('active')[0].classList.add('next');
+        document.getElementsByClassName('active')[0].classList.remove('active');
+        document.getElementsByClassName('previous')[0].classList.add('active');
+        document.getElementsByClassName('active')[0].classList.remove('previous');
+        if(document.getElementsByClassName('active')[0] == imagesArray[0]){
+          imagesArray[imagesArray.length-1].classList.add('previous');
+        }
+        else {
+          document.getElementsByClassName('active')[0].previousSibling.classList.add('previous');
+        }
+
+        enableIndicator();
+      })
+
+      right.addEventListener('click', function(){
+
+        if(document.getElementsByClassName('active')[0] == imagesArray[0]){
+          imagesArray[imagesArray.length-1].classList.remove('previous');
+        }
+        else {
+          document.getElementsByClassName('active')[0].previousElementSibling.classList.remove('previous');
+        }
+        document.getElementsByClassName('active')[0].classList.add('previous');
+        document.getElementsByClassName('active')[0].classList.remove('active');
+        document.getElementsByClassName('next')[0].classList.add('active');
+        document.getElementsByClassName('active')[0].classList.remove('next');
+        if(document.getElementsByClassName('active')[0] == imagesArray[imagesArray.length-1]){
+          imagesArray[0].classList.add('next');
+        }
+        else {
+          document.getElementsByClassName('active')[0].nextElementSibling.classList.add('next');
+        }
+
+
+        enableIndicator();
+      });
+
+      function enableIndicator(){
+        var index = imagesArray.indexOf(document.getElementsByClassName('active')[0]);
+        for(var i = 0; i<indicatorsArray.length; i++){
+          if(i==index){
+            indicatorsArray[i].style.backgroundColor = 'rgba(255,255,255, 0.8)';
+          }
+          else{indicatorsArray[i].style.backgroundColor = 'transparent';}
+        }
+      };
+
+
+
+    </script>
+</html>

@@ -11,18 +11,19 @@ body{
 #menu_buttons{
 	position: relative;
 	float: right; 
-	margin-right: -10px;     
+	margin-right: 0vw;     
 	width: 15vw;
 }
 .btn{
 	margin-top: 1vh;
 	width: 12vw;
-	min-width: 18vh;
-	height: 7vh;
+	min-width: 65px;
+	height: 5vw;
+	min-height: 30px;
 	border-radius: 7px;
 	background-color: rgba(0, 0, 0, 0.5);
 	font-weight: bold;
-	font-size: 3.5vh;
+	font-size: 2.5vw;
 	color: white;
 	font-family: Comic Sans MS, Comic Sans, cursive;
 }
@@ -34,4 +35,9 @@ body{
 }
 .dropDown {
 	visibility: hidden;
+}
+@media screen and (max-width: 480px){
+	.btn{
+		font-size: 16px;
+	}
 }

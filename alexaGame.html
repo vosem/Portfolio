@@ -94,13 +94,24 @@
         var centerBullet = getCenter(bullet),
             centerTarget = getCenter(target);
         var dist = getDistance(centerBullet, centerTarget);
-        if (dist < 3) {
-          bullet.classList.add("match");
-          document.onmousemove = null;
-          bullet.onmousemove = null;
-          document.ontouchmove = null;
-          bullet.ontouchmove = null;
-          setTimeout(function(){renewBullet()}, 2000);
+        if (window.matchMedia("(max-width: 800px)").matches) {
+            if (dist < 7) {
+              bullet.classList.add("match");
+              document.onmousemove = null;
+              bullet.onmousemove = null;
+              document.ontouchmove = null;
+              bullet.ontouchmove = null;
+              setTimeout(function(){renewBullet()}, 2000);
+            }
+        } else {
+            if (dist < 5) {
+              bullet.classList.add("match");
+              document.onmousemove = null;
+              bullet.onmousemove = null;
+              document.ontouchmove = null;
+              bullet.ontouchmove = null;
+              setTimeout(function(){renewBullet()}, 2000);
+            }
         }
 
       function renewBullet() {
