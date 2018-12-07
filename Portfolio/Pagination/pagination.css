@@ -1,0 +1,87 @@
+html{
+	overflow: hidden;
+}
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background-image: url(paper_text.png);
+}
+.formContainer{
+	text-align: center;
+	margin: auto;
+	margin-top: 5vh;
+}
+.formParagraph{
+	/*text-align: left;*/
+	width: 680px;
+}
+#container{
+	padding-top: 2px;
+	width: 680px;
+	height: calc(3*40px + 3px);
+	margin: auto;
+	margin-top: 18vh;
+	transition: all 0.5s;
+	overflow: hidden;
+	border-radius: 5px;
+	box-shadow: 0px 0px 50px 3px grey;
+	background-color: white;
+}
+.item{
+	display: none;
+	width: 98%;
+	height: 38px;
+	border-radius: 5px;
+	margin: 2px auto 2px auto;
+}
+
+
+.btn{
+	z-index: 10;
+	position: fixed;
+	color: grey;
+	font-size: 5em;
+	background-color: transparent;
+	font-weight: bold;
+	font-family: Georgia;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+.btn:active{
+	color: darkgrey;
+}
+.left{
+	top: 45vh;
+	left: 7vw;
+}
+.right{
+	top: 45vh;
+	right: 7vw;
+}
+.pages{
+	z-index: 10 !important;
+	position: fixed;
+	bottom: 7vh;
+	left: calc(50vw - 48px);
+}
+.page{
+	display: inline-block;
+	margin: 0 3px 0 3px;
+	width: 45px;
+	height: 45px;
+	color: grey;
+	background-color: transparent;
+	border: solid 2px grey;
+	border-radius: 5px;
+	outline: none;
+	cursor: pointer;
+	font-weight: bold;
+	font-family: Georgia;
+	font-size: 20px;
+}
+.page:first-child{
+	background-color: rgba(255,255,255, 0.6);
+}

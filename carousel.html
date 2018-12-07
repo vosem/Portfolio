@@ -14,11 +14,11 @@
         <button class="btn left"><</button>
         <button class="btn right">></button>
       </div>
-      <div>
-        <div class="indicator one"></div>
-        <div class="indicator two"></div>
-        <div class="indicator three"></div>
-        <div class="indicator four"></div>
+      <div class="indicators">
+        <button class="indicator one"></button>
+        <button class="indicator two"></button>
+        <button class="indicator three"></button>
+        <button class="indicator four"></button>
       </div>
     </body>
     <script>
@@ -28,7 +28,17 @@
       var indicatorsArray = Array.from(document.getElementsByClassName('indicator'));
 
       left.addEventListener('click', function(){
+        leftMoove ();
+        enableIndicator();
+      })
 
+      right.addEventListener('click', function(){
+        rightMoove ();
+        enableIndicator();
+      });
+
+      // moving to the left
+      function leftMoove (){
         if(document.getElementsByClassName('active')[0] == imagesArray[imagesArray.length-1]){
           imagesArray[0].classList.remove('next');
         }
@@ -45,12 +55,10 @@
         else {
           document.getElementsByClassName('active')[0].previousSibling.classList.add('previous');
         }
+      }
 
-        enableIndicator();
-      })
-
-      right.addEventListener('click', function(){
-
+      // moving to the right
+      function rightMoove (){
         if(document.getElementsByClassName('active')[0] == imagesArray[0]){
           imagesArray[imagesArray.length-1].classList.remove('previous');
         }
@@ -67,11 +75,9 @@
         else {
           document.getElementsByClassName('active')[0].nextElementSibling.classList.add('next');
         }
+      }
 
-
-        enableIndicator();
-      });
-
+      // enable unclickable indicators
       function enableIndicator(){
         var index = imagesArray.indexOf(document.getElementsByClassName('active')[0]);
         for(var i = 0; i<indicatorsArray.length; i++){
@@ -82,7 +88,39 @@
         }
       };
 
+      // enable clickable indicators
+      for(var i = 0; i < indicatorsArray.length; i++){
+        indicatorsArray[i].addEventListener('click', function(){
+          var indicatorIndex = indicatorsArray.indexOf(this);
+          for(var k = 0; k < indicatorsArray.length; k++){
+            indicatorsArray[k].style.backgroundColor = 'transparent';
+          }
+          this.style.backgroundColor = 'rgba(255,255,255, 0.6)';
 
-
+          var currentActiveEl = imagesArray.indexOf(document.getElementsByClassName('active')[0]);
+          if (currentActiveEl < indicatorIndex){
+            (function rightLoop () {   
+              rightMoove ();
+              setTimeout(function () {
+                currentActiveEl++;
+                if (currentActiveEl < indicatorIndex) {
+                  rightLoop();
+                }
+              }, 500);
+            })();
+          }
+          else if (indicatorIndex < currentActiveEl){
+            (function leftLoop () {   
+              leftMoove ();
+              setTimeout(function () {
+                currentActiveEl--;
+                if (indicatorIndex < currentActiveEl) {
+                  leftLoop();
+                }
+              }, 500)
+            })();
+          }
+        });
+      }
     </script>
 </html>

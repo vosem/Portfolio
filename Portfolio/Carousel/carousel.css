@@ -6,9 +6,10 @@ html{
 	margin: 0;
 }
 #container{
-	width: 300vw;
+	width: 100vw;
 	white-space: nowrap;
 	transition: all 0.5s;
+	overflow: hidden;
 }
 .imageItem{
 	position: absolute;
@@ -27,7 +28,7 @@ html{
 	font-weight: bold;
 	font-family: Georgia;
 	border: none;
-	outline:none;
+	outline: none;
 	text-shadow: 0 0 30px grey;
 	cursor: pointer;
 }
@@ -54,34 +55,24 @@ html{
 	z-index: 1;
 	transition: left 0.7s;
 }
-.indicator{
+.indicators{
 	z-index: 10 !important;
-	width: 10px;
-	height: 10px;
 	position: fixed;
 	bottom: 3vh;
+	left: calc(50vw - 48px);
+}
+.indicator{
+	display: inline-block;
+	margin: 0 3px 0 3px;
+	width: 15px;
+	height: 15px;
 	background-color: transparent;
 	border: solid 2px rgba(255,255,255, 0.6);
 	border-radius: 50%;
 	text-shadow: 0 0 30px grey;
+	outline: none;
+	cursor: pointer;
 }
 .indicator.one{
-	left: 47vw;
 	background-color: rgba(255,255,255, 0.6);
 }
-.indicator.two{
-	left: 49vw;
-}
-.indicator.three{
-	left: 51vw;
-}
-.indicator.four{
-	left: 53vw;
-}
-
-/*@media screen and (max-aspect-ratio: 16/10){
-img{
-	height: 100vh;
-	width: auto;
-}
-}*/
