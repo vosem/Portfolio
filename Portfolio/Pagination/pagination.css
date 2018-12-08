@@ -1,17 +1,37 @@
-html{
-	overflow: hidden;
-}
 *{
 	padding: 0;
 	margin: 0;
 }
 body{
 	background-image: url(paper_text.png);
+	text-align: center;
 }
 .formContainer{
-	text-align: center;
+	max-width: 360px;
+	width: 90vw;
 	margin: auto;
 	margin-top: 5vh;
+}
+.input{
+	width: 36%;
+	margin-top: 2vh;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	color: grey;
+	font-size: 15px;
+	padding: 3px;
+	border-radius: 5px;
+	outline: none;
+}
+.submitLayout{
+	width: 20%;
+	margin-top: 2vh;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	color: grey;
+	font-size: 15px;
+	padding: 3px;
+	border-radius: 5px;
+	outline: none;
+	/*background-color: white;*/
 }
 .formParagraph{
 	/*text-align: left;*/
@@ -19,59 +39,48 @@ body{
 }
 #container{
 	padding-top: 2px;
-	width: 680px;
-	height: calc(3*40px + 3px);
+	max-width: 360px;
+	width: 90vw;
+	height: calc(3*40px + 5px);
 	margin: auto;
-	margin-top: 18vh;
+	margin-top: 10vh;
 	transition: all 0.5s;
 	overflow: hidden;
 	border-radius: 5px;
-	box-shadow: 0px 0px 50px 3px grey;
+	box-shadow: inset 0px 0px 8px 0.2px grey;
 	background-color: white;
 }
 .item{
 	display: none;
-	width: 98%;
-	height: 38px;
+	line-height: 1.4;
+	width: 95%;
+	height: 36px;
 	border-radius: 5px;
-	margin: 2px auto 2px auto;
-}
-
-
-.btn{
-	z-index: 10;
-	position: fixed;
-	color: grey;
-	font-size: 5em;
-	background-color: transparent;
+	margin: 5px auto 0 auto;
+	box-shadow: 0px 0px 8px 0.2px grey;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	color: white;
+	font-size: 20px;
 	font-weight: bold;
-	font-family: Georgia;
-	border: none;
-	outline: none;
-	cursor: pointer;
+	text-shadow: 0px 0px 4px lightgrey;
 }
-.btn:active{
-	color: darkgrey;
+.pagesHolder{
+	text-align: center;
+	z-index: 10;
+	margin: 10vh auto 0 auto;
 }
-.left{
-	top: 45vh;
-	left: 7vw;
-}
-.right{
-	top: 45vh;
-	right: 7vw;
+.toPageForm{
+	display: inline-block;
+	width: 50px;
 }
 .pages{
-	z-index: 10 !important;
-	position: fixed;
-	bottom: 7vh;
-	left: calc(50vw - 48px);
+	display: inline-block;
 }
-.page{
+.toPage, .page{
 	display: inline-block;
 	margin: 0 3px 0 3px;
-	width: 45px;
-	height: 45px;
+	width: 35px;
+	height: 35px;
 	color: grey;
 	background-color: transparent;
 	border: solid 2px grey;
@@ -79,8 +88,17 @@ body{
 	outline: none;
 	cursor: pointer;
 	font-weight: bold;
-	font-family: Georgia;
-	font-size: 20px;
+	font-family:  Georgia, 'Times New Roman', Times, serif;
+	font-size: 15px;
+}
+.toPage{
+	text-align: center;
+	width: 40px;
+	height: 31px;
+	cursor: auto;
+	/*padding-left: 5px;*/
+	background-color: rgba(255,255,255, 0.6);
+	margin-right: 50px;
 }
 .page:first-child{
 	background-color: rgba(255,255,255, 0.6);

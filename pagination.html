@@ -8,22 +8,17 @@
     </head>
     <body>
       <form class = "formContainer">
-        <p class = "formParagraph">Enter number of elements
-        <input type="text" size="40">
-        </p>
-        <p class = "formParagraph">Enter number of elements per page
-        <input type="text" size="40">
-        </p>
+          <input class="input elTotal" type="text" size="40" placeholder="Total of elements"  onblur="">
+          <input class="input elPerPage" type="text" size="40" placeholder="Elements per page">
+          <input class="submitLayout" type="submit" size="40" value="submit">
       </form>
-      <div id="container">
-
-      </div>
-      <div>
-        <button class="btn left"><</button>
-        <button class="btn right">></button>
-      </div>
-      <div class="pages">
-
+      <div id="container"></div>
+      <div class="pagesHolder">
+        <form class="toPageForm"action="">
+        <input class="toPage" type="text" placeholder="No" onfocus="this.placeholder=''" onblur="this.placeholder='No'">
+        <input class="submitPage" type="submit" style="display:none;" />
+        </form>
+        <div class="pages"></div>
       </div>
     </body>
     <script>
@@ -38,28 +33,137 @@
             '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3', 
             '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'];
 
-      var container = document.getElementById('container');
-      var itemsNumber = 19,
-          displayedItemsNumber = 3;
+      var itemsNumber           = 9,
+          displayedItemsNumber  = 3,
+          submitLayout          = document.getElementsByClassName('submitLayout')[0],
+          container             = document.getElementById('container'),
+          pagesContainer        = document.getElementsByClassName('pages')[0],
+          pageEntered           = 1,
+          pagesArray            = [],
+          itemsArray            = [];
+      paginate();
+      submitLayout.addEventListener('click', function(e){
+        e.preventDefault();
+        itemsNumber = Number(document.getElementsByClassName('elTotal')[0].value);
+        console.log(itemsNumber);
+        displayedItemsNumber = Number(document.getElementsByClassName('elPerPage')[0].value);
+        console.log(displayedItemsNumber);
+        if(isNaN(itemsNumber) || itemsNumber < 1 || itemsNumber > 1000 || isNaN(displayedItemsNumber) || displayedItemsNumber < 1 || displayedItemsNumber > 1000){
+          alert('Oops! There shoul be a number between 1 and 1000.')
+        } 
+          if (itemsNumber < displayedItemsNumber) {
+            displayedItemsNumber = itemsNumber;
+            console.log('aaaa');
+            console.log(displayedItemsNumber);
+            clear();
+            paginate();
+          } else if (itemsNumber >= displayedItemsNumber){
+            console.log('ok');
+            console.log(displayedItemsNumber);
+            clear();
+            paginate();
+          }
+      });
       
-      container.style.height = 'calc(' + displayedItemsNumber + '*40px + 3px)';
-      for (var k = 0; k < itemsNumber; k++){
-        var div = document.createElement("div");
-        div.innerHTML = k+1;
-        container.appendChild(div).classList.add('item');
-      }
-      
-      var itemsArray = document.getElementsByClassName('item');
-      for (var i = 0; i < itemsArray.length; i++){
-        itemsArray[i].style.backgroundColor = colorArray[i];
-      }
+      function paginate(){
+        container.style.height = 'calc(' + displayedItemsNumber + '*40px + 9px)';
+        for (var k = 0; k < itemsNumber; k++){
+          var div = document.createElement("div");
+          div.innerHTML = k+1;
+          container.appendChild(div).classList.add('item');
+        }
+        
+        var colorItem = 0;        
+        itemsArray = document.getElementsByClassName('item');
+        for (var i = 0; i < itemsArray.length; i++){
+          itemsArray[i].style.backgroundColor = colorArray[colorItem];
+          colorItem++;
+          if ( colorItem == colorArray.length-1 ){ colorItem = 0; }
+        }
 
-      for(var m = 0; m < displayedItemsNumber; m++){
-        itemsArray[m].style.display = 'block';
-      }
+        for(var m = 0; m < displayedItemsNumber; m++){
+          itemsArray[m].style.display = 'block';
+        }
+
+        var pagesNumber = Math.ceil(itemsNumber/displayedItemsNumber);
+        
+        for(var n = 0; n < pagesNumber; n++){
+          var button = document.createElement("button");
+          button.innerHTML = n+1;
+          pagesContainer.appendChild(button).classList.add('page');
+        }
+
+        pagesArray = Array.from(document.getElementsByClassName('page'));
+        if ( pagesArray.length > 6 ){
+            for(var b = 0; b < pagesArray.length; b++){
+              pagesArray[b].style.display = 'none';
+            }
+            for(var t = 0; t < 3; t++){
+              pagesArray[t].style.display = 'inline-block';
+            }
+            var c = pagesArray.length-3;
+            var dots = document.createElement("span");
+            dots.innerHTML = '...';
+            pagesContainer.insertBefore(dots, pagesArray[c]);
+            for(c ; c < pagesArray.length;c++){
+              pagesArray[c].style.display = 'inline-block';
+            }
+        } else if ( pagesArray.length <= 6 ) {
+            for(var d = 0; d < pagesArray.length; d++){
+              pagesArray[d].style.display = 'inline-block';
+            }
+        }
+
+        for(var l = 0; l < pagesArray.length; l++){
+          pagesArray[l].addEventListener('click', function(){
+
+            for(var p = 0; p < pagesArray.length; p++){
+              pagesArray[p].style.backgroundColor = 'transparent';
+            }
+            this.style.backgroundColor = 'rgba(255,255,255, 0.6)';
+
+            var pageIndex = pagesArray.indexOf(this);
+            renderItems(pageIndex);
+          });
+        }
+        console.log(itemsArray)
+      };
+
+      function setPage(){
+        itemsArray = document.getElementsByClassName('item');
+        pageEntered = Number(document.getElementsByClassName('toPage')[0].value)-1;
+        console.log(pagesArray);
+        for(var i = 0; i < pagesArray.length; i++){
+          pagesArray[i].style.backgroundColor = 'transparent';
+        }
+        pagesArray[pageEntered].style.backgroundColor = 'rgba(255,255,255, 0.6)';
+        renderItems(pageEntered);
+      };
+
+      function renderItems(value){
+        var displayedFirstItemNumber = (value)*displayedItemsNumber,
+            displayedLastItemNumber = (value)*displayedItemsNumber + displayedItemsNumber;
+        for(var s = 0; s < itemsArray.length; s++){
+          itemsArray[s].style.display = 'none';
+        }
+        for(var q = displayedFirstItemNumber; (q < displayedLastItemNumber) && (q < itemsArray.length); q++){
+          itemsArray[q].style.display = 'block';
+        }
+      };
 
 
+      function clear (){
+        itemsArray = [];
+        pagesArray = [];
+        container.innerHTML = '';
+        pagesContainer.innerHTML = '';
+      };
 
+      var submitPage = document.getElementsByClassName('submitPage')[0];
+      submitPage.addEventListener('click', function(e){
+        e.preventDefault();
+        setPage();
+      });
 
     </script>
 </html>
