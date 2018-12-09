@@ -33,39 +33,18 @@
             '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3', 
             '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'];
 
-      var itemsNumber           = 9,
-          displayedItemsNumber  = 3,
+      var itemsNumber           = 30,
+          displayedItemsNumber  = 1,
           submitLayout          = document.getElementsByClassName('submitLayout')[0],
           container             = document.getElementById('container'),
           pagesContainer        = document.getElementsByClassName('pages')[0],
+          toPage                = document.getElementsByClassName('toPage')[0],
           pageEntered           = 1,
           pagesArray            = [],
-          itemsArray            = [];
-      paginate();
-      submitLayout.addEventListener('click', function(e){
-        e.preventDefault();
-        itemsNumber = Number(document.getElementsByClassName('elTotal')[0].value);
-        console.log(itemsNumber);
-        displayedItemsNumber = Number(document.getElementsByClassName('elPerPage')[0].value);
-        console.log(displayedItemsNumber);
-        if(isNaN(itemsNumber) || itemsNumber < 1 || itemsNumber > 1000 || isNaN(displayedItemsNumber) || displayedItemsNumber < 1 || displayedItemsNumber > 1000){
-          alert('Oops! There shoul be a number between 1 and 1000.')
-        } 
-          if (itemsNumber < displayedItemsNumber) {
-            displayedItemsNumber = itemsNumber;
-            console.log('aaaa');
-            console.log(displayedItemsNumber);
-            clear();
-            paginate();
-          } else if (itemsNumber >= displayedItemsNumber){
-            console.log('ok');
-            console.log(displayedItemsNumber);
-            clear();
-            paginate();
-          }
-      });
-      
-      function paginate(){
+          itemsArray            = [],
+          submitPage = document.getElementsByClassName('submitPage')[0];
+
+     function paginate(){
         container.style.height = 'calc(' + displayedItemsNumber + '*40px + 9px)';
         for (var k = 0; k < itemsNumber; k++){
           var div = document.createElement("div");
@@ -81,9 +60,7 @@
           if ( colorItem == colorArray.length-1 ){ colorItem = 0; }
         }
 
-        for(var m = 0; m < displayedItemsNumber; m++){
-          itemsArray[m].style.display = 'block';
-        }
+        renderItems(0);
 
         var pagesNumber = Math.ceil(itemsNumber/displayedItemsNumber);
         
@@ -94,7 +71,9 @@
         }
 
         pagesArray = Array.from(document.getElementsByClassName('page'));
-        if ( pagesArray.length > 6 ){
+
+        // rendering dots
+        if ( pagesArray.length > 7 ){ // this will go after
             for(var b = 0; b < pagesArray.length; b++){
               pagesArray[b].style.display = 'none';
             }
@@ -102,13 +81,13 @@
               pagesArray[t].style.display = 'inline-block';
             }
             var c = pagesArray.length-3;
-            var dots = document.createElement("span");
-            dots.innerHTML = '...';
-            pagesContainer.insertBefore(dots, pagesArray[c]);
+            var dotsSpot = pagesArray[c];
+            renderDots(dotsSpot);
+
             for(c ; c < pagesArray.length;c++){
               pagesArray[c].style.display = 'inline-block';
             }
-        } else if ( pagesArray.length <= 6 ) {
+        } else if ( pagesArray.length <= 7 ) { // this should be first if
             for(var d = 0; d < pagesArray.length; d++){
               pagesArray[d].style.display = 'inline-block';
             }
@@ -126,13 +105,11 @@
             renderItems(pageIndex);
           });
         }
-        console.log(itemsArray)
       };
 
       function setPage(){
         itemsArray = document.getElementsByClassName('item');
         pageEntered = Number(document.getElementsByClassName('toPage')[0].value)-1;
-        console.log(pagesArray);
         for(var i = 0; i < pagesArray.length; i++){
           pagesArray[i].style.backgroundColor = 'transparent';
         }
@@ -150,7 +127,12 @@
           itemsArray[q].style.display = 'block';
         }
       };
+      function renderDots (refEl){
 
+        var dots = document.createElement("span");
+        dots.innerHTML = '...';
+        pagesContainer.insertBefore(dots, refEl);
+      };
 
       function clear (){
         itemsArray = [];
@@ -159,10 +141,28 @@
         pagesContainer.innerHTML = '';
       };
 
-      var submitPage = document.getElementsByClassName('submitPage')[0];
+      paginate();
+      submitLayout.addEventListener('click', function(e){
+        e.preventDefault();
+        itemsNumber = Number(document.getElementsByClassName('elTotal')[0].value);
+        displayedItemsNumber = Number(document.getElementsByClassName('elPerPage')[0].value);
+        if(isNaN(itemsNumber) || itemsNumber < 1 || itemsNumber > 1000 || isNaN(displayedItemsNumber) || displayedItemsNumber < 1 || displayedItemsNumber > 1000){
+          alert('Oops! There shoul be a number between 1 and 1000.')
+        } 
+          if (itemsNumber < displayedItemsNumber) {
+            displayedItemsNumber = itemsNumber;
+            clear();
+            paginate();
+          } else if (itemsNumber >= displayedItemsNumber){;
+            clear();
+            paginate();
+          }
+      });
+
       submitPage.addEventListener('click', function(e){
         e.preventDefault();
         setPage();
+        document.getElementsByClassName('toPageForm')[0].reset();
       });
 
     </script>
