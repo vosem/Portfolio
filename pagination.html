@@ -42,7 +42,9 @@
           pageEntered           = 1,
           pagesArray            = [],
           itemsArray            = [],
-          submitPage = document.getElementsByClassName('submitPage')[0];
+          submitPage            = document.getElementsByClassName('submitPage')[0],
+          activePageIndex       = 0,
+          spans             = document.getElementsByTagName('span');
 
      function paginate(){
         container.style.height = 'calc(' + displayedItemsNumber + '*40px + 9px)';
@@ -71,49 +73,75 @@
         }
 
         pagesArray = Array.from(document.getElementsByClassName('page'));
+        pagesArray[0].classList.add('active', 'shown');
 
         // rendering dots
-        if ( pagesArray.length > 7 ){ // this will go after
-            for(var b = 0; b < pagesArray.length; b++){
-              pagesArray[b].style.display = 'none';
-            }
-            for(var t = 0; t < 3; t++){
-              pagesArray[t].style.display = 'inline-block';
-            }
-            var c = pagesArray.length-3;
-            var dotsSpot = pagesArray[c];
-            renderDots(dotsSpot);
+        renderPages();
 
-            for(c ; c < pagesArray.length;c++){
-              pagesArray[c].style.display = 'inline-block';
-            }
-        } else if ( pagesArray.length <= 7 ) { // this should be first if
-            for(var d = 0; d < pagesArray.length; d++){
-              pagesArray[d].style.display = 'inline-block';
-            }
-        }
-
+        // toggling pages
         for(var l = 0; l < pagesArray.length; l++){
           pagesArray[l].addEventListener('click', function(){
-
-            for(var p = 0; p < pagesArray.length; p++){
-              pagesArray[p].style.backgroundColor = 'transparent';
-            }
-            this.style.backgroundColor = 'rgba(255,255,255, 0.6)';
-
+            document.getElementsByClassName('active')[0].classList.remove('active');
+            this.classList.add('active');
             var pageIndex = pagesArray.indexOf(this);
             renderItems(pageIndex);
           });
         }
       };
 
+      function renderPages(){
+        if ( pagesArray.length <= 7 ) { // this should be first if
+          for(var d = 0; d < pagesArray.length; d++){
+            pagesArray[d].classList.add('shown');
+          }
+        } else if(pagesArray.length > 7){
+          for(var i = 0; i < 2; i++){
+            pagesArray[i].classList.add('shown');
+          }
+          activePageIndex = pagesArray.indexOf(document.getElementsByClassName('active')[0]);
+          console.log(activePageIndex);
+          if(activePageIndex >= 3){
+            for (var b = 2; b < (pagesArray.length-2); b++){
+              pagesArray[b].classList.remove('shown');
+            }
+            while (spans[0]){
+              spans[0].parentElement.removeChild(spans[0]);
+            }
+            renderDots(pagesArray[activePageIndex-1]);
+            for (var a = activePageIndex-1; a <= activePageIndex+1; a++){
+              pagesArray[a].classList.add('shown');
+            }
+          }
+
+          var c = pagesArray.length-2;
+          var dotsSpot = pagesArray[c];
+          renderDots(dotsSpot);
+
+          for(c ; c < pagesArray.length;c++){
+            pagesArray[c].classList.add('shown');
+          }
+
+          removeDotsBetweenSiblings();
+        }
+      }
+
+      function removeDotsBetweenSiblings(){
+        var pagesElement = Array.from(document.getElementsByClassName('pages'));
+        var shownPages = document.getElementsByClassName('shown');
+        for(var p = 0; p < spans.length; p++){
+          if(spans[p].previousSibling.classList.contains('shown') && spans[p].nextSibling.classList.contains('shown')){
+            spans[p].parentElement.removeChild(spans[p]);
+          }
+        }
+      }
+
+
       function setPage(){
         itemsArray = document.getElementsByClassName('item');
         pageEntered = Number(document.getElementsByClassName('toPage')[0].value)-1;
-        for(var i = 0; i < pagesArray.length; i++){
-          pagesArray[i].style.backgroundColor = 'transparent';
-        }
-        pagesArray[pageEntered].style.backgroundColor = 'rgba(255,255,255, 0.6)';
+        document.getElementsByClassName('active')[0].classList.remove('active');
+        pagesArray[pageEntered].classList.add('active', 'shown');
+        renderPages();
         renderItems(pageEntered);
       };
 
@@ -132,6 +160,7 @@
         var dots = document.createElement("span");
         dots.innerHTML = '...';
         pagesContainer.insertBefore(dots, refEl);
+        return dots;
       };
 
       function clear (){
