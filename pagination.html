@@ -44,7 +44,7 @@
           itemsArray            = [],
           submitPage            = document.getElementsByClassName('submitPage')[0],
           activePageIndex       = 0,
-          spans             = document.getElementsByTagName('span');
+          spans                 = document.getElementsByTagName('span');
 
      function paginate(){
         container.style.height = 'calc(' + displayedItemsNumber + '*40px + 9px)';
@@ -75,7 +75,6 @@
         pagesArray = Array.from(document.getElementsByClassName('page'));
         pagesArray[0].classList.add('active', 'shown');
 
-        // rendering dots
         renderPages();
 
         // toggling pages
@@ -83,6 +82,45 @@
           pagesArray[l].addEventListener('click', function(){
             document.getElementsByClassName('active')[0].classList.remove('active');
             this.classList.add('active');
+
+            // toggling to the right
+            if((pagesArray.indexOf(this) >= 0) && (pagesArray.indexOf(this) < 5)){ //index 01234
+              for(var m = 4; m < pagesArray.length-3; m++){ // index 67 from 11
+                pagesArray[m].classList.remove('shown');
+              }
+              pagesArray[pagesArray.indexOf(this)].classList.add('shown');
+              pagesArray[pagesArray.indexOf(this)+1].classList.add('shown');// index 5
+            } else if((pagesArray.indexOf(this) >= 5) && (pagesArray.indexOf(this) < pagesArray.length-1)){
+              pagesArray[pagesArray.indexOf(this)+1].classList.add('shown');
+              pagesArray[pagesArray.indexOf(this)-2].classList.remove('shown');
+              for(var h = 2; h <  pagesArray.indexOf(this); h++){
+                if(pagesArray[h].nextElementSibling.tagName == 'SPAN'){
+                  pagesArray[h].parentElement.removeChild(pagesArray[h].nextElementSibling);
+                  
+                };
+              }
+              renderDots(pagesArray[pagesArray.indexOf(this)-2]);
+            }
+
+            // toggling to the left
+            if((pagesArray.indexOf(this) <= pagesArray.length) && (pagesArray.indexOf(this) > pagesArray.length-5)){
+              for(var m = 3; m <= (pagesArray.length-5); m++){
+                pagesArray[m].classList.remove('shown');
+              }
+              pagesArray[pagesArray.indexOf(this)].classList.add('shown');
+              pagesArray[pagesArray.indexOf(this)-1].classList.add('shown');
+            } else if((pagesArray.indexOf(this) <= pagesArray.length-5) && (pagesArray.indexOf(this) > 1)){
+              pagesArray[pagesArray.indexOf(this)-1].classList.add('shown');
+              pagesArray[pagesArray.indexOf(this)+2].classList.remove('shown');
+              for(var h = pagesArray.length-3; h > pagesArray.indexOf(this); h--){
+                if(pagesArray[h].previousElementSibling.tagName == 'SPAN'){
+                  pagesArray[h].parentElement.removeChild(pagesArray[h].previousElementSibling);
+                };
+              }
+              renderDots(pagesArray[pagesArray.indexOf(this)+2]);
+            }
+            removeDotsBetweenSiblings();
+            removeDots();
             var pageIndex = pagesArray.indexOf(this);
             renderItems(pageIndex);
           });
@@ -90,42 +128,72 @@
       };
 
       function renderPages(){
-        if ( pagesArray.length <= 7 ) { // this should be first if
+        if ( pagesArray.length <= 7 ) {
+          console.log('starting function renderPages. Less tahn 8 pages');
           for(var d = 0; d < pagesArray.length; d++){
             pagesArray[d].classList.add('shown');
           }
         } else if(pagesArray.length > 7){
-          for(var i = 0; i < 2; i++){
+          console.log('starting function renderPages. More tahn 8 pages');
+          for(var i = 0; i < 3; i++){
             pagesArray[i].classList.add('shown');
           }
           activePageIndex = pagesArray.indexOf(document.getElementsByClassName('active')[0]);
-          console.log(activePageIndex);
           if(activePageIndex >= 3){
-            for (var b = 2; b < (pagesArray.length-2); b++){
+            for (var b = 3; b < (pagesArray.length-3); b++){
               pagesArray[b].classList.remove('shown');
             }
             while (spans[0]){
               spans[0].parentElement.removeChild(spans[0]);
             }
-            renderDots(pagesArray[activePageIndex-1]);
+            renderDots(pagesArray[activePageIndex]);
             for (var a = activePageIndex-1; a <= activePageIndex+1; a++){
               pagesArray[a].classList.add('shown');
             }
           }
 
-          var c = pagesArray.length-2;
+          var c = pagesArray.length-3;
           var dotsSpot = pagesArray[c];
           renderDots(dotsSpot);
 
           for(c ; c < pagesArray.length;c++){
             pagesArray[c].classList.add('shown');
           }
-
+        }
           removeDotsBetweenSiblings();
+          removeDots();
+      }
+
+      function removeDots(){
+        console.log('starting function removeDots');
+        spansArray = Array.from(spans);
+        var shownPages = [];
+        if(spansArray.length > 1){
+          console.log(spansArray);
+          console.log(spansArray[0]);
+          console.log(spansArray[0+1]);
+          var firstSpanIndex = 0,
+              nextSpanIndex = firstSpanIndex + 1,
+              firstPage,
+              lastPage;
+          for (var f = firstSpanIndex; f < spansArray.length; f++){
+          firstPage = pagesArray.indexOf(spansArray[firstSpanIndex].nextElementSibling);
+          lastPage = pagesArray.indexOf(spansArray[nextSpanIndex].previousElementSibling);
+            for(var m = firstPage; m <= lastPage; m++){
+              if (pagesArray[m] == undefined) { spansArray[0].parentElement.removeChild(spansArray[0]) }
+              else if (pagesArray[m].classList.contains('shown')){
+                shownPages.push(pagesArray[m]);
+              }
+            }
+          if(shownPages.length == 0){ spansArray[0].parentElement.removeChild(spansArray[0])};
+          console.log(shownPages.length);
+          firstSpanIndex = f;
+          }
         }
       }
 
       function removeDotsBetweenSiblings(){
+        console.log('starting function removeDotsBetweenSiblings');
         var pagesElement = Array.from(document.getElementsByClassName('pages'));
         var shownPages = document.getElementsByClassName('shown');
         for(var p = 0; p < spans.length; p++){
@@ -137,11 +205,13 @@
 
 
       function setPage(){
+        console.log('starting function setPage');
         itemsArray = document.getElementsByClassName('item');
         pageEntered = Number(document.getElementsByClassName('toPage')[0].value)-1;
         document.getElementsByClassName('active')[0].classList.remove('active');
         pagesArray[pageEntered].classList.add('active', 'shown');
         renderPages();
+        renderDots (pagesArray[pageEntered-1]);
         renderItems(pageEntered);
       };
 
@@ -156,7 +226,7 @@
         }
       };
       function renderDots (refEl){
-
+        console.log('starting function renderDots');
         var dots = document.createElement("span");
         dots.innerHTML = '...';
         pagesContainer.insertBefore(dots, refEl);
