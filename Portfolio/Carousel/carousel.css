@@ -6,8 +6,11 @@ html{
 	margin: 0;
 }
 #container{
+	position: relative;
+	left: 0;
 	width: 100vw;
-	white-space: nowrap;
+	height: 100vh;
+	/*white-space: nowrap;*/
 	transition: all 0.5s;
 	overflow: hidden;
 }
@@ -15,9 +18,10 @@ html{
 	position: absolute;
 	width: 100vw;
 	height: 100vh;
-	display: inline;
+	/*display: inline;*/
 	background-size: cover;
 	background-position: center;
+	/*z-index: 0;*/
 }
 .btn{
 	z-index: 10;
@@ -42,7 +46,7 @@ html{
 }
 .active{
 	left: 0;
-	z-index: 2;
+	z-index: 3;
 	transition: left 0.7s;
 }
 .next{

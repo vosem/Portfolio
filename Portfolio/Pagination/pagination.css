@@ -7,7 +7,7 @@ body{
 	text-align: center;
 }
 .formContainer{
-	max-width: 360px;
+	max-width: 640px;
 	width: 90vw;
 	margin: auto;
 	margin-top: 5vh;
@@ -39,9 +39,9 @@ body{
 }
 #container{
 	padding-top: 2px;
-	max-width: 360px;
+	max-width: 640px;
 	width: 90vw;
-	height: calc(3*40px + 5px);
+	height: calc(3*45px + 5px);
 	margin: auto;
 	margin-top: 10vh;
 	transition: all 0.5s;
@@ -52,9 +52,9 @@ body{
 }
 .item{
 	display: none;
-	line-height: 1.4;
+	line-height: 1.8;
 	width: 95%;
-	height: 36px;
+	height: 40px;
 	border-radius: 5px;
 	margin: 5px auto 0 auto;
 	box-shadow: 0px 0px 8px 0.2px grey;
@@ -67,20 +67,21 @@ body{
 .pagesHolder{
 	text-align: center;
 	z-index: 10;
-	margin: 10vh auto 0 auto;
+	max-width: 640px;
+	margin: 10vh auto 10vh auto;
 }
 .toPageForm{
 	display: inline-block;
-	width: 50px;
+	width: 6vw;
 }
 .pages{
 	display: inline-block;
 }
 .toPage, .page{
 	display: none;
-	margin: 0 3px 0 3px;
-	width: 35px;
-	height: 35px;
+	margin: 0 0.1vw 0 0.1vw;
+	width: 3.8vw;
+	height: 4vw;
 	color: grey;
 	background-color: transparent;
 	border: solid 2px grey;
@@ -89,21 +90,33 @@ body{
 	cursor: pointer;
 	font-weight: bold;
 	font-family:  Georgia, 'Times New Roman', Times, serif;
-	font-size: 15px;
+	font-size: 1.4vw;
 }
 .toPage{
 	display: inline-block;
 	text-align: center;
-	width: 40px;
-	height: 31px;
+	width: 5vw;
 	cursor: auto;
-	/*padding-left: 5px;*/
 	background-color: rgba(255,255,255, 0.6);
-	margin-right: 50px;
 }
 .shown{
 	display: inline-block;
 }
 .active{
 	background-color: rgba(255,255,255, 0.6);
+}
+
+@media all and (orientation: portrait), all and (max-aspect-ratio: 4/3) {
+	.toPageForm{
+		width: 13vw;
+	}
+	.toPage, .page{
+		margin: 0 0.3vw 0 0.3vw;
+		width: 6vw;
+		height: 6vw;
+		font-size: 2vw;
+	}
+	.toPage{
+		width: 8vw;
+	}
 }
