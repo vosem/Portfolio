@@ -78,4 +78,39 @@ $(document).ready(function () {
         }
     });
 
+
+
 });
+
+    // CONTACTS
+
+    var contacts = document.getElementsByClassName('contacts_line'),
+        contactsTextArray = [];
+
+    for (var k = 0; k < contacts.length; k++){
+        var currentContactsLine = contacts[k];
+        
+        for(var n = 0; n < currentContactsLine.innerHTML.length; n++){
+            contactsTextArray.push('<span>' + currentContactsLine.innerHTML.charAt(n) + '</span>');
+        }
+        currentContactsLine.innerHTML = contactsTextArray.join('');
+        var contactsSpans = currentContactsLine.childNodes;
+        console.log(contactsSpans);
+
+          var m = 0;
+  var timerId = setInterval(function(contactsSpans) {
+    var contactsSpans = contactsSpans;
+    console.log(contactsSpans);
+    if (m == (20)) clearInterval(timerId);
+    // contactsSpans[0].style.opacity = '1';
+    m++;
+  }, 100);
+
+        contactsTextArray = [];
+
+    }
+
+// function displayLetters(contactsSpans) {
+//     var contactsSpans = contactsSpans;
+
+// }

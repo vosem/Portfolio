@@ -388,22 +388,22 @@ div.flip{    /* добавляя этот класс, поворачиваем �
 @-webkit-keyframes anim_slides {
     0% {opacity:0;}
     3% {opacity:1;}
-    40% {opacity:1;}
-    43% {opacity:0;}
+    35% {opacity:1;}
+    38% {opacity:0;}
     100% {opacity:0;}
 }
 @-moz-keyframes anim_slides {
     0% {opacity:0;}
     3% {opacity:1;}
-    40% {opacity:1;}
-    43% {opacity:0;}
+    35% {opacity:1;}
+    38% {opacity:0;}
     100% {opacity:0;}
 }
 @keyframes anim_slides {
     0% {opacity:0;}
     3% {opacity:1;}
-    40% {opacity:1;}
-    43% {opacity:0;}
+    35% {opacity:1;}
+    38% {opacity:0;}
     100% {opacity:0;}
 }
 
@@ -534,7 +534,6 @@ div.master.enlarge::before{
     font-family: 'Special Elite', cursive;
     text-align: center;
     font-size: 4vh;
-    -margin-top: 0;
     line-height: 1.8;
 }
 .contacts{
@@ -578,6 +577,9 @@ div.master.enlarge::before{
 .contacts p {
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
+}
+.contacts_line span{
+    opacity: 0;
 }
 .go_from_contacts{
     margin: 12vh auto 2vh auto;
