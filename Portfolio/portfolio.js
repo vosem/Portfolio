@@ -1,9 +1,11 @@
-$(document).ready(function () {
-    $(".intro_nav, .go_from_intro, .go_from_portfolio, .go_from_skills, .go_from_contacts").on("click", "a", function (event) {
+$(document).ready(function() {
+    $(".intro_nav, .go_from_intro, .go_from_portfolio, .go_from_skills, .go_from_contacts").on("click", "a", function(event) {
         event.preventDefault();
         var id = $(this).attr("href"),
-                top = $(id).offset().top;
-        $("body, html").animate({scrollTop: top}, 1500);
+            top = $(id).offset().top;
+        $("body, html").animate({
+            scrollTop: top
+        }, 1500);
     });
 
     $('.intro_nav').addClass('appear_left_to_right');
@@ -36,7 +38,7 @@ $(document).ready(function () {
     }
 
     // code below allows animating by scrolling
-    $(window).scroll(function () {
+    $(window).scroll(function() {
 
         for (var i = 0; i < portfolioItemsArray.length; i++) {
             if ((portfolioItemsArray[i].getBoundingClientRect().top > 0) && (portfolioItemsArray[i].getBoundingClientRect().bottom < document.documentElement.clientHeight)) {
@@ -65,14 +67,14 @@ $(document).ready(function () {
     // SKILLS
 
     var diplBachelor = document.getElementsByClassName('bachelor')[0];
-    diplBachelor.onclick = function () {
+    diplBachelor.onclick = function() {
         diplBachelor.classList.toggle('enlarge');
     };
     var diplMaster = document.getElementsByClassName('master')[0];
-    diplMaster.onclick = function () {
+    diplMaster.onclick = function() {
         diplMaster.classList.toggle('enlarge');
     };
-    $(window).scroll(function () {
+    $(window).scroll(function() {
         if ($('enlarge')) {
             $('div.enlarge').removeClass('enlarge');
         }
@@ -82,35 +84,39 @@ $(document).ready(function () {
 
 });
 
-    // CONTACTS
+// CONTACTS
 
-    var contacts = document.getElementsByClassName('contacts_line'),
-        contactsTextArray = [];
+var contacts = document.getElementsByClassName('contacts_line'),
+    email = document.getElementsByClassName('email')[0],
+    contactsTextArray = [],
+    timeout = 0;
 
-    for (var k = 0; k < contacts.length; k++){
-        var currentContactsLine = contacts[k];
-        
-        for(var n = 0; n < currentContactsLine.innerHTML.length; n++){
-            contactsTextArray.push('<span>' + currentContactsLine.innerHTML.charAt(n) + '</span>');
-        }
-        currentContactsLine.innerHTML = contactsTextArray.join('');
-        var contactsSpans = currentContactsLine.childNodes;
-        console.log(contactsSpans);
-
-          var m = 0;
-  var timerId = setInterval(function(contactsSpans) {
-    var contactsSpans = contactsSpans;
-    console.log(contactsSpans);
-    if (m == (20)) clearInterval(timerId);
-    // contactsSpans[0].style.opacity = '1';
-    m++;
-  }, 100);
-
-        contactsTextArray = [];
-
+function displayLetters(el) {
+    for (var n = 0; n < el.innerHTML.length; n++) {
+        contactsTextArray.push('<span>' + el.innerHTML.charAt(n) + '</span>');
     }
+    el.innerHTML = contactsTextArray.join('');
+    el.style.opacity = '1';
+    var contactsSpans = el.childNodes;
+    console.log(contactsSpans);
 
-// function displayLetters(contactsSpans) {
-//     var contactsSpans = contactsSpans;
 
-// }
+    for (var m = 0; m < contactsSpans.length; m++) {
+        setTimeout((function(m) {
+            return function() {
+                contactsSpans[m].style.opacity = '1';
+            };
+        })(m), timeout);
+        timeout += 100;
+        console.log(timeout);
+    };
+    clearTimeout();
+
+    contactsTextArray = [];
+};
+
+
+for (var k = 0; k < contacts.length - 1; ++k) {
+    displayLetters(contacts[k]);
+}
+displayLetters(email);

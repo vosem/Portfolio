@@ -578,7 +578,16 @@ div.master.enlarge::before{
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
 }
+.contacts_line{
+    opacity: 0;
+}
 .contacts_line span{
+    opacity: 0;
+}
+.contacts_line:last-child {
+    opacity: 1;
+}
+.email {
     opacity: 0;
 }
 .go_from_contacts{
