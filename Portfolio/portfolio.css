@@ -368,9 +368,6 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     animation: anim_slides 60s linear infinite 0s;
 }
 .skills_slides li:nth-child(1){
-    animation-delay: 0s;
-    -webkit-animation-delay: 0s;
-    -moz-animation-delay: 0s;
     background-image: url(skills_background.png)
 }
 .skills_slides li:nth-child(2){
@@ -400,6 +397,20 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     100% {opacity:0;}
 }
 @keyframes anim_slides {
+    0% {opacity:0;}
+    3% {opacity:1;}
+    35% {opacity:1;}
+    38% {opacity:0;}
+    100% {opacity:0;}
+}
+@-ms-keyframes anim_slides {
+    0% {opacity:0;}
+    3% {opacity:1;}
+    35% {opacity:1;}
+    38% {opacity:0;}
+    100% {opacity:0;}
+}
+@-o-keyframes anim_slides {
     0% {opacity:0;}
     3% {opacity:1;}
     35% {opacity:1;}

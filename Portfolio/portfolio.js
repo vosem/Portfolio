@@ -14,7 +14,7 @@ $(document).ready(function() {
     $('div.my_photo_border').addClass('flipY');
     $('p.go_from_intro').addClass('appear_in');
 
-    // code below allows animating after loading if (not scrolled and) located in visible area
+    // code below allows animating after loading if (not scrolled and) located in visible area - for Mozilla
     var portfolioItemsArray = document.querySelectorAll('div.portfolio_item');
     for (var i = 0; i < portfolioItemsArray.length; i++) {
         if ((portfolioItemsArray[i].getBoundingClientRect().top > 0) && (portfolioItemsArray[i].getBoundingClientRect().bottom < document.documentElement.clientHeight)) {
@@ -100,7 +100,6 @@ function displayLetters(el) {
     var contactsSpans = el.childNodes;
     console.log(contactsSpans);
 
-
     for (var m = 0; m < contactsSpans.length; m++) {
         setTimeout((function(m) {
             return function() {
@@ -115,8 +114,15 @@ function displayLetters(el) {
     contactsTextArray = [];
 };
 
-
-for (var k = 0; k < contacts.length - 1; ++k) {
-    displayLetters(contacts[k]);
-}
-displayLetters(email);
+var marker = true;
+$(window).scroll(function() {
+    if (contacts[0].getBoundingClientRect().bottom < document.documentElement.clientHeight) {
+        if (marker) {
+            for (var k = 0; k < contacts.length - 1; ++k) {
+                displayLetters(contacts[k]);
+            }
+            displayLetters(email);
+            marker = false;
+        }
+    }
+});
