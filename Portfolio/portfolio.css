@@ -360,62 +360,21 @@ div.flip{    /* добавляя этот класс, поворачиваем �
     left:0;
     background-size:cover;
     background-repeat:no-repeat;
-    opacity:0;
-    -webkit-animation: anim_slides 60s linear infinite 0s;
-    -moz-animation: anim_slides 60s linear infinite 0s;
-    -o-animation: anim_slides 60s linear infinite 0s;
-    -ms-animation: anim_slides 60s linear infinite 0s;
-    animation: anim_slides 60s linear infinite 0s;
+    opacity: 0;
+    transition: opacity 2s;
+}
+.fadedIn{
+    opacity: 1 !important;
+    transition: all 2s !important;
 }
 .skills_slides li:nth-child(1){
     background-image: url(skills_background.png)
 }
 .skills_slides li:nth-child(2){
-    animation-delay: 20s;
-    -webkit-animation-delay: 20s;
-    -moz-animation-delay: 20s;
     background-image: url(skills_background_2.png)
 }
 .skills_slides li:nth-child(3){
-    animation-delay: 40s;
-    -webkit-animation-delay: 40s;
-    -moz-animation-delay: 40s;
     background-image: url(skills_background_3.png)
-}
-@-webkit-keyframes anim_slides {
-    0% {opacity:0;}
-    3% {opacity:1;}
-    35% {opacity:1;}
-    38% {opacity:0;}
-    100% {opacity:0;}
-}
-@-moz-keyframes anim_slides {
-    0% {opacity:0;}
-    3% {opacity:1;}
-    35% {opacity:1;}
-    38% {opacity:0;}
-    100% {opacity:0;}
-}
-@keyframes anim_slides {
-    0% {opacity:0;}
-    3% {opacity:1;}
-    35% {opacity:1;}
-    38% {opacity:0;}
-    100% {opacity:0;}
-}
-@-ms-keyframes anim_slides {
-    0% {opacity:0;}
-    3% {opacity:1;}
-    35% {opacity:1;}
-    38% {opacity:0;}
-    100% {opacity:0;}
-}
-@-o-keyframes anim_slides {
-    0% {opacity:0;}
-    3% {opacity:1;}
-    35% {opacity:1;}
-    38% {opacity:0;}
-    100% {opacity:0;}
 }
 
 h2.skills_header{

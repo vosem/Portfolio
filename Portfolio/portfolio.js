@@ -14,39 +14,20 @@ $(document).ready(function() {
     $('div.my_photo_border').addClass('flipY');
     $('p.go_from_intro').addClass('appear_in');
 
-    // code below allows animating after loading if (not scrolled and) located in visible area - for Mozilla
-    var portfolioItemsArray = document.querySelectorAll('div.portfolio_item');
-    for (var i = 0; i < portfolioItemsArray.length; i++) {
-        if ((portfolioItemsArray[i].getBoundingClientRect().top > 0) && (portfolioItemsArray[i].getBoundingClientRect().bottom < document.documentElement.clientHeight)) {
-            portfolioItemsArray[i].classList.add('flip');
-        }
-    }
-    var firstLiSkills = document.querySelector("li.skills_item");
-    if ((firstLiSkills.getBoundingClientRect().top > 0) && (firstLiSkills.getBoundingClientRect().bottom < document.documentElement.clientHeight)) {
-        $('li.skills_item').addClass('anim');
-        var LiSkillsArr = document.querySelectorAll("li.anim");
-        var delayCounter = 0;
-        for (var i = 0; i < LiSkillsArr.length; i++) {
-            LiSkillsArr[i].style.animationDelay = delayCounter + "ms";
-            LiSkillsArr[i].style.WebkitAnimationDelay = delayCounter + "ms";
-            delayCounter += 500;
-        }
-    }
-    var skillsAbout = document.getElementsByClassName("about_skills")[0];
-    if ((skillsAbout.getBoundingClientRect().top > 0) && (skillsAbout.getBoundingClientRect().top * 1.25 < document.documentElement.clientHeight)) {
-        $('.about_skills').addClass('zoomIn');
-    }
+    var portfolioItemsArray = document.querySelectorAll('div.portfolio_item'),
+        firstLiSkills = document.querySelector("li.skills_item"),
+        skillsAbout = document.getElementsByClassName("about_skills")[0];
 
-    // code below allows animating by scrolling
-    $(window).scroll(function() {
 
+    function flipPortfItems() {
         for (var i = 0; i < portfolioItemsArray.length; i++) {
             if ((portfolioItemsArray[i].getBoundingClientRect().top > 0) && (portfolioItemsArray[i].getBoundingClientRect().bottom < document.documentElement.clientHeight)) {
                 portfolioItemsArray[i].classList.add('flip');
             }
         }
+    };
 
-        var firstLiSkills = document.querySelector("li.skills_item");
+    function animateSkillsList() {
         if ((firstLiSkills.getBoundingClientRect().top > 0) && (firstLiSkills.getBoundingClientRect().bottom < document.documentElement.clientHeight)) {
             $('li.skills_item').addClass('anim');
             var LiSkillsArr = document.querySelectorAll("li.anim");
@@ -57,14 +38,43 @@ $(document).ready(function() {
                 delayCounter += 500;
             }
         }
+    };
 
-        var skillsAbout = document.getElementsByClassName("about_skills")[0];
+    function animateSkillsDescription() {
         if ((skillsAbout.getBoundingClientRect().top > 0) && (skillsAbout.getBoundingClientRect().top * 1.25 < document.documentElement.clientHeight)) {
             $('.about_skills').addClass('zoomIn');
         }
+    };
+    // animating on loading if (not scrolled and) located in visible area - for Mozilla(!)
+    flipPortfItems();
+    animateSkillsList();
+    animateSkillsDescription();
+    // animating by scrolling
+    $(window).scroll(function() {
+        flipPortfItems();
+        animateSkillsList();
+        animateSkillsDescription();
     });
 
-    // SKILLS
+
+    // SKILLS SLIDES
+    var skillsSlides = Array.from($(".skills_slides")[0].childNodes);
+
+    function changeSlides(counter) {
+        if (counter == skillsSlides.length) {
+            counter = 0;
+            skillsSlides[skillsSlides.length - 1].classList.remove('fadedIn')
+        };
+        skillsSlides[counter].classList.add('fadedIn');
+        if (skillsSlides[counter - 1]) {
+            skillsSlides[counter - 1].classList.remove('fadedIn');
+        }
+        counter++;
+        if (counter <= skillsSlides.length) setTimeout(changeSlides, 10000, counter);
+    }
+    changeSlides(0);
+
+    // SKILLS DIPLOMAS
 
     var diplBachelor = document.getElementsByClassName('bachelor')[0];
     diplBachelor.onclick = function() {
@@ -79,8 +89,6 @@ $(document).ready(function() {
             $('div.enlarge').removeClass('enlarge');
         }
     });
-
-
 
 });
 
@@ -98,7 +106,6 @@ function displayLetters(el) {
     el.innerHTML = contactsTextArray.join('');
     el.style.opacity = '1';
     var contactsSpans = el.childNodes;
-    console.log(contactsSpans);
 
     for (var m = 0; m < contactsSpans.length; m++) {
         setTimeout((function(m) {
@@ -107,7 +114,6 @@ function displayLetters(el) {
             };
         })(m), timeout);
         timeout += 100;
-        console.log(timeout);
     };
     clearTimeout();
 
@@ -115,6 +121,16 @@ function displayLetters(el) {
 };
 
 var marker = true;
+if (contacts[0].getBoundingClientRect().bottom < document.documentElement.clientHeight) {
+    if (marker) {
+        for (var k = 0; k < contacts.length - 1; ++k) {
+            displayLetters(contacts[k]);
+        }
+        displayLetters(email);
+        marker = false;
+    }
+}
+
 $(window).scroll(function() {
     if (contacts[0].getBoundingClientRect().bottom < document.documentElement.clientHeight) {
         if (marker) {

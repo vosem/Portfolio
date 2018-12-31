@@ -45,7 +45,7 @@ body{
 	overflow: hidden;
 	border-radius: 5px;
 	box-shadow: inset 0px 0px 8px 0.2px grey;
-	background-color: white;
+	background: url('sayagata-400px.png');
 }
 .item{
 	display: none;
