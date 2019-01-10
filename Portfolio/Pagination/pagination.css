@@ -6,13 +6,13 @@ body{
 	background-image: url(paper_text.png);
 	text-align: center;
 }
-.formContainer{
+.form-container{
 	max-width: 640px;
 	width: 90vw;
 	margin: auto;
 	margin-top: 5vh;
 }
-.input{
+.form-container__input-elems-total, .form-container__input-elems-per-page{
 	width: 36%;
 	margin-top: 2vh;
 	font-family: Georgia, 'Times New Roman', Times, serif;
@@ -22,7 +22,7 @@ body{
 	border-radius: 5px;
 	outline: none;
 }
-.submitLayout{
+.form-container__submit-layout{
 	-webkit-appearance: none;
 	width: 20%;
 	margin-top: 2vh;
@@ -61,20 +61,20 @@ body{
 	font-weight: bold;
 	text-shadow: 0px 0px 4px lightgrey;
 }
-.pagesHolder{
+.pages-holder{
 	text-align: center;
 	z-index: 10;
 	max-width: 640px;
 	margin: 10vh auto 10vh auto;
 }
-.toPageForm{
+.pages-holder__to-page-form{
 	display: inline-block;
 	width: 6vw;
 }
-.pages{
+.pages-holder__pages{
 	display: inline-block;
 }
-.toPage, .page{
+.to-page-form__to-page, .pages__page{
 	display: none;
 	margin: 0 0.1vw 0 0.1vw;
 	width: 3.8vw;
@@ -89,7 +89,7 @@ body{
 	font-family:  Georgia, 'Times New Roman', Times, serif;
 	font-size: 1.4vw;
 }
-.toPage{
+.to-page-form__to-page{
 	display: inline-block;
 	text-align: center;
 	width: 5vw;
@@ -104,16 +104,16 @@ body{
 }
 
 @media all and (orientation: portrait), all and (max-aspect-ratio: 4/3) {
-	.toPageForm{
+	.pages-holder__to-page-form{
 		width: 13vw;
 	}
-	.toPage, .page{
+	.to-page-form__to-page, .pages__page{
 		margin: 0 0.3vw 0 0.3vw;
 		width: 6vw;
 		height: 6vw;
 		font-size: 2vw;
 	}
-	.toPage{
+	.to-page-form__to-page{
 		width: 8vw;
 	}
 }

@@ -7,18 +7,18 @@
         <link rel="stylesheet" href="Portfolio/Pagination/pagination.css">
     </head>
     <body>
-      <form class = "formContainer">
-          <input class="input elTotal" type="text" size="40" placeholder="Total of elements"  onblur="">
-          <input class="input elPerPage" type="text" size="40" placeholder="Elements per page">
-          <input class="submitLayout" type="submit" size="40" value="submit">
+      <form class = "form-container">
+          <input class="form-container__input-elems-total" type="text" size="40" placeholder="Total of elements"  onblur="">
+          <input class="form-container__input-elems-per-page" type="text" size="40" placeholder="Elements per page">
+          <input class="form-container__submit-layout" type="submit" size="40" value="submit">
       </form>
       <div id="container"></div>
-      <div class="pagesHolder">
-        <form class="toPageForm"action="">
-        <input class="toPage" type="text" placeholder="No" onfocus="this.placeholder=''" onblur="this.placeholder='No'">
+      <div class="pages-holder">
+        <form class="pages-holder__to-page-form to-page-form"action="">
+        <input class="to-page-form__to-page" type="text" placeholder="No" onfocus="this.placeholder=''" onblur="this.placeholder='No'">
         <!--<input class="submitPage" type="submit" style="display:none;" />-->
         </form>
-        <div class="pages"></div>
+        <div class="pages-holder__pages pages"></div>
       </div>
     </body>
     <script type="text/javascript" src="Portfolio/Pagination/pagination.js"></script>

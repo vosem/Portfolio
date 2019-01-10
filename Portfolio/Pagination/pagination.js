@@ -12,10 +12,10 @@ var colorArray = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
 
 var itemsNumber = 15,
   displayedItemsNumber = 5,
-  submitLayout = document.getElementsByClassName('submitLayout')[0],
+  submitLayout = document.getElementsByClassName('form-container__submit-layout')[0],
   container = document.getElementById('container'),
-  pagesContainer = document.getElementsByClassName('pages')[0],
-  toPage = document.getElementsByClassName('toPage')[0],
+  pagesContainer = document.getElementsByClassName('pages-holder__pages')[0],
+  toPage = document.getElementsByClassName('to-page-form__to-page')[0],
   pageEntered = 1,
   pagesArray = [],
   itemsArray = [],
@@ -50,10 +50,10 @@ function paginate() {
   for (var n = 0; n < pagesNumber; n++) {
     var button = document.createElement("button");
     button.innerHTML = n + 1;
-    pagesContainer.appendChild(button).classList.add('page');
+    pagesContainer.appendChild(button).classList.add('pages__page');
   }
 
-  pagesArray = Array.from(document.getElementsByClassName('page'));
+  pagesArray = Array.from(document.getElementsByClassName('pages__page'));
   pagesArray[0].classList.add('active', 'shown');
 
   renderPages();
@@ -233,8 +233,8 @@ paginate();
 
 submitLayout.addEventListener('click', function(e) {
   e.preventDefault();
-  itemsNumber = Number(document.getElementsByClassName('elTotal')[0].value);
-  displayedItemsNumber = Number(document.getElementsByClassName('elPerPage')[0].value);
+  itemsNumber = Number(document.getElementsByClassName('form-container__input-elems-total')[0].value);
+  displayedItemsNumber = Number(document.getElementsByClassName('form-container__input-elems-per-page')[0].value);
   if (isNaN(itemsNumber) || itemsNumber < 1 || itemsNumber > 1000 || isNaN(displayedItemsNumber) || displayedItemsNumber < 1 || displayedItemsNumber > 1000) {
     alert('Oops! There shoul be a number between 1 and 1000.');
     itemsNumber = 1;
@@ -256,7 +256,7 @@ submitLayout.addEventListener('click', function(e) {
 // submitPage.addEventListener('click', function(e) {
 //   e.preventDefault();
 //   setPage();
-//   document.getElementsByClassName('toPageForm')[0].reset();
+//   document.getElementsByClassName('pages-holder__to-page-form')[0].reset();
 // });
 
 toPage.addEventListener('keypress', function(e) {
@@ -265,7 +265,7 @@ toPage.addEventListener('keypress', function(e) {
   if( e.keyCode == 13) {
     e.preventDefault();
     setPage();
-    document.getElementsByClassName('toPageForm')[0].reset();
+    document.getElementsByClassName('pages-holder__to-page-form')[0].reset();
   }
 });
 
