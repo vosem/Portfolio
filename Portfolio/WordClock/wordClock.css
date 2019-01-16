@@ -4,7 +4,7 @@ body{
 .lang{
     display: inline-block;
     color: black;
-    font-family: Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 2vw;
     margin: 4vw 5px 0 5px;
     padding: 5px 10px 5px 10px;
@@ -14,7 +14,7 @@ body{
 .clockContainer, .cypherClock{
     color: black;
     margin: 3vw auto 0 auto;
-    font-family: Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
     font-weight: bold;
     font-size: 3vw;
 }
