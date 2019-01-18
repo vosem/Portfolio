@@ -1,4 +1,4 @@
-var colorArray = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
+let colorArray = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
                   '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
                   '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A',
                   '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
@@ -10,7 +10,7 @@ var colorArray = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
                   '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'
                  ];
 
-var itemsNumber = 15,
+let itemsNumber = 15,
   displayedItemsNumber = 5,
   submitLayout = document.getElementsByClassName('form-container__submit-layout')[0],
   container = document.getElementById('container'),
@@ -23,18 +23,18 @@ var itemsNumber = 15,
   activePageIndex = 0,
   spans = document.getElementsByTagName('span');
 
-function paginate() {
+var paginate = () => {
   // creating items
   container.style.height = 'calc(' + displayedItemsNumber + '*45px + 9px)';
-  for (var k = 0; k < itemsNumber; k++) {
-    var div = document.createElement("div");
-    div.innerHTML = k + 1;
+  for (let i = 0; i < itemsNumber; i++) {
+    let div = document.createElement("div");
+    div.innerHTML = i + 1;
     container.appendChild(div).classList.add('item');
   }
 
-  var colorItem = 0;
+  let colorItem = 0;
   itemsArray = document.getElementsByClassName('item');
-  for (var i = 0; i < itemsArray.length; i++) {
+  for (let i = 0; i < itemsArray.length; i++) {
     itemsArray[i].style.backgroundColor = colorArray[colorItem];
     colorItem++;
     if (colorItem == colorArray.length - 1) {
@@ -45,11 +45,11 @@ function paginate() {
   renderItems(0);
 
   // creating pages
-  var pagesNumber = Math.ceil(itemsNumber / displayedItemsNumber);
+  let pagesNumber = Math.ceil(itemsNumber / displayedItemsNumber);
 
-  for (var n = 0; n < pagesNumber; n++) {
-    var button = document.createElement("button");
-    button.innerHTML = n + 1;
+  for (let i = 0; i < pagesNumber; i++) {
+    let button = document.createElement("button");
+    button.innerHTML = i + 1;
     pagesContainer.appendChild(button).classList.add('pages__page');
   }
 
@@ -59,28 +59,28 @@ function paginate() {
   renderPages();
 };
 
-function renderPages() {
-  for (var z = 0; z < pagesArray.length; z++) {
-    pagesArray[z].classList.remove('shown');
+var renderPages = () => {
+  for (let i = 0; i < pagesArray.length; i++) {
+    pagesArray[i].classList.remove('shown');
   }
   while (spans[0]) {
     spans[0].parentElement.removeChild(spans[0]);
   }
   if (pagesArray.length <= 7) {
     console.log('starting function renderPages. Less tahn 8 pages');
-    for (var d = 0; d < pagesArray.length; d++) {
-      pagesArray[d].classList.add('shown');
+    for (let i = 0; i < pagesArray.length; i++) {
+      pagesArray[i].classList.add('shown');
     }
   } else if (pagesArray.length > 7) {
     console.log('starting function renderPages. More tahn 8 pages');
-    for (var i = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i++) {
       pagesArray[i].classList.add('shown');
     }
 
     activePageIndex = pagesArray.indexOf(document.getElementsByClassName('active')[0]);
     if ((activePageIndex > 2) && (activePageIndex < pagesArray.length - 3)) {
-      for (var a = activePageIndex - 1; a <= activePageIndex + 1; a++) {
-        pagesArray[a].classList.add('shown');
+      for (let i = activePageIndex - 1; i <= activePageIndex + 1; i++) {
+        pagesArray[i].classList.add('shown');
       }
       renderDots(pagesArray[activePageIndex - 1]);
     }
@@ -97,15 +97,15 @@ function renderPages() {
   removeDots();
 }
 
-function togglePages(context) {
-  var currentButton = context;
+var togglePages = context => {
+  let currentButton = context;
   document.getElementsByClassName('active')[0].classList.remove('active');
   currentButton.classList.add('active');
 
   // toggling to the right
   if ((pagesArray.indexOf(currentButton) >= 0) && (pagesArray.indexOf(currentButton) < 5)) {
-    for (var m = 4; m < pagesArray.length - 3; m++) {
-      pagesArray[m].classList.remove('shown');
+    for (let i = 4; i < pagesArray.length - 3; i++) {
+      pagesArray[i].classList.remove('shown');
     }
     pagesArray[pagesArray.indexOf(currentButton)].classList.add('shown');
     if(pagesArray[pagesArray.indexOf(currentButton) + 1]) { pagesArray[pagesArray.indexOf(currentButton) + 1].classList.add('shown');}
@@ -145,22 +145,22 @@ function togglePages(context) {
   renderItems(pageIndex);
 };
 
-function removeDots() {
+var removeDots = () => {
   console.log('starting function removeDots');
   spansArray = Array.from(spans);
   var shownPages = [];
   if (spansArray.length > 1) {
     var firstPage,
       lastPage;
-    for (var f = 0; f < spansArray.length; f++) {
-      firstPage = pagesArray.indexOf(spansArray[f].nextElementSibling);
-      if (spansArray[f + 1] == undefined) {
+    for (let i = 0; i < spansArray.length; i++) {
+      firstPage = pagesArray.indexOf(spansArray[i].nextElementSibling);
+      if (spansArray[i + 1] == undefined) {
         continue;
       };
-      lastPage = pagesArray.indexOf(spansArray[f + 1].previousElementSibling);
-      for (var m = firstPage; m <= lastPage; m++) {
-        if (pagesArray[m].classList.contains('shown')) {
-          shownPages.push(pagesArray[m]);
+      lastPage = pagesArray.indexOf(spansArray[i + 1].previousElementSibling);
+      for (let n = firstPage; n <= lastPage; n++) {
+        if (pagesArray[n].classList.contains('shown')) {
+          shownPages.push(pagesArray[n]);
         }
       }
       if (shownPages.length == 0) {
@@ -170,18 +170,18 @@ function removeDots() {
   }
 };
 
-function removeDotsBetweenSiblings() {
+var removeDotsBetweenSiblings = () => {
   console.log('starting function removeDotsBetweenSiblings');
-  var pagesElement = Array.from(document.getElementsByClassName('pages'));
-  var shownPages = document.getElementsByClassName('shown');
-  for (var p = 0; p < spans.length; p++) {
-    if (spans[p].previousSibling.classList.contains('shown') && spans[p].nextSibling.classList.contains('shown')) {
-      spans[p].parentElement.removeChild(spans[p]);
+  let pagesElement = Array.from(document.getElementsByClassName('pages'));
+  let shownPages = document.getElementsByClassName('shown');
+  for (let i = 0; i < spans.length; i++) {
+    if (spans[i].previousSibling.classList.contains('shown') && spans[i].nextSibling.classList.contains('shown')) {
+      spans[i].parentElement.removeChild(spans[i]);
     }
   }
 }
 
-function setPage() {
+var setPage = () => {
   console.log('starting function setPage');
   itemsArray = document.getElementsByClassName('item');
   pageEntered = Number(toPage.value) - 1;
@@ -201,19 +201,19 @@ function setPage() {
   renderItems(pageEntered);
 };
 
-function renderItems(value) {
-  var displayedFirstItemNumber = (value) * displayedItemsNumber,
-    displayedLastItemNumber = (value) * displayedItemsNumber + displayedItemsNumber;
-  for (var s = 0; s < itemsArray.length; s++) {
-    itemsArray[s].style.display = 'none';
+var renderItems = (value) => {
+  let displayedFirstItemNumber = (value) * displayedItemsNumber,
+      displayedLastItemNumber = (value) * displayedItemsNumber + displayedItemsNumber;
+  for (let i = 0; i < itemsArray.length; i++) {
+    itemsArray[i].style.display = 'none';
   }
-  for (var q = displayedFirstItemNumber;
+  for (let q = displayedFirstItemNumber;
     (q < displayedLastItemNumber) && (q < itemsArray.length); q++) {
     itemsArray[q].style.display = 'block';
   }
 };
 
-function renderDots(refEl) {
+var renderDots = (refEl) => {
   console.log('starting function renderDots');
   var dots = document.createElement("span");
   dots.innerHTML = '...';
@@ -221,7 +221,7 @@ function renderDots(refEl) {
   return dots;
 };
 
-function clear() {
+var clear = () => {
   itemsArray = [];
   pagesArray = [];
   container.innerHTML = '';
@@ -269,8 +269,8 @@ toPage.addEventListener('keypress', function(e) {
   }
 });
 
-for (var l = 0; l < pagesArray.length; l++) {
-  pagesArray[l].addEventListener('click', function() {
+for (let i = 0; i < pagesArray.length; i++) {
+  pagesArray[i].addEventListener('click', function() {
     togglePages(this);
   });
 };
